@@ -1,23 +1,24 @@
 /* ==========================================================================
-   1. CONCEITO "PLATAFORMA GOVERNAMENTAL - EDUCAÇÃO"
+   1. CONCEITO "DASHBOARD MODERNO E LIMPO"
    ========================================================================== */
 :root {
-  /* Paleta de Cores: Profissional, Corporativa, Confiável */
-  --cor-primaria: #2563eb;         /* Azul forte e confiável (blue-600) */
-  --cor-primaria-hover: #1d4ed8;   /* Azul mais escuro (blue-700) */
-  --cor-acento-sucesso: #16a34a;   /* Verde para sucesso (green-600) */
-  --cor-fundo: #f8fafc;             /* Fundo muito claro, quase branco (slate-50) */
-  --cor-surface: #ffffff;          /* Superfície branca para cards */
-  --cor-texto-principal: #1e293b;  /* Cinza escuro para alta legibilidade (slate-800) */
-  --cor-texto-secundario: #64748b; /* Cinza para textos de apoio (slate-500) */
-  --cor-borda: #e2e8f0;             /* Borda sutil (slate-200) */
+  /* Paleta de Cores: Moderna, Acessível, Clara */
+  --cor-primaria: #4f46e5;         /* Indigo 600 - Um azul-violeta vibrante */
+  --cor-primaria-hover: #4338ca;   /* Indigo 700 */
+  --cor-acento-sucesso: #16a34a;   /* Green 600 */
+  --cor-fundo: #f1f5f9;             /* Slate 100 - Fundo suave e acinzentado */
+  --cor-surface: #ffffff;          /* Branco para cards e superfícies principais */
+  --cor-texto-principal: #0f172a;  /* Slate 900 - Preto suave para alta legibilidade */
+  --cor-texto-secundario: #64748b; /* Slate 500 */
+  --cor-texto-terciario: #94a3b8;  /* Slate 400 */
+  --cor-borda: #e2e8f0;             /* Slate 200 - Borda muito sutil */
 
   /* Tipografia */
   --fonte-titulos: 'Poppins', sans-serif;
   --fonte-corpo: 'Inter', sans-serif;
 
   /* Animações e Transições */
-  --transicao-padrao: all 0.2s ease-in-out;
+  --transicao-padrao: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==========================================================================
@@ -38,29 +39,29 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   3. COMPONENTES PROFISSIONAIS
+   3. COMPONENTES DE INTERFACE (UI)
    ========================================================================== */
 
-/* Painel de Controle - Sólido e Confiável */
+/* Painel de Controle */
 .bg-white\/70 {
-  background-color: var(--cor-surface) !important; /* Reset do glassmorphism */
+  background-color: var(--cor-surface);
   backdrop-filter: none !important;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--cor-borda);
+  border-radius: 1rem; /* 16px */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  border: 1px solid #f1f5f9; /* slate-100 */
 }
 
 /* Inputs e Seletores */
-select {
+select, .multiselect-button {
   transition: var(--transicao-padrao);
   border-color: var(--cor-borda);
-  border-radius: 12px !important;
-  background-color: #f9fafb;
+  border-radius: 0.5rem !important; /* 8px */
+  background-color: var(--cor-surface);
 }
-select:focus {
+select:focus, .multiselect-button:focus-within {
   --tw-ring-color: var(--cor-primaria);
   border-color: var(--cor-primaria);
-  background-color: var(--cor-surface);
+  box-shadow: 0 0 0 2px var(--cor-primaria)30;
 }
 
 /* Botão Principal - Corporativo */
@@ -70,11 +71,11 @@ select:focus {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  transition: var(--transicao-padrao);
+  transition: all 0.15s ease-in-out;
 }
 #find-substitute-btn:hover {
   background-color: var(--cor-primaria-hover);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px -1px rgba(79, 70, 229, 0.3), 0 2px 8px -2px rgba(79, 70, 229, 0.2);
 }
 #find-substitute-btn:active {
   transform: translateY(-1px) scale(0.98);
@@ -89,26 +90,26 @@ button:focus-visible {
 
 /* Cards de Resultado - Limpos e Informativos */
 .card {
-  border-left-width: 4px;
+  border-left-width: 5px;
   background-color: var(--cor-surface);
-  border-radius: 18px !important;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  border-radius: 1rem !important; /* 16px */
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
   transition: var(--transicao-padrao);
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
   border-color: var(--cor-primaria);
 }
 
 /* Card de Sugestão */
-.border-indigo-500 { border-color: var(--cor-primaria); }
+.border-indigo-500 { border-color: var(--cor-primaria) !important; }
 
 /* Card de Sucesso (Confirmado) */
 .border-green-500 {
-  border-color: var(--cor-acento-sucesso);
-  background-color: #f0fdf4; /* green-50 */
+  border-color: var(--cor-acento-sucesso) !important;
+  background-color: #f0fdf4cc; /* green-50 com transparência */
 }
 
 /* Card de Intervalo */
@@ -120,12 +121,12 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 }
 
 /* Botão de Confirmar */
-.confirm-btn {
+.confirm-btn, .action-button {
   background-color: var(--cor-primaria);
   transition: var(--transicao-padrao);
   transform: scale(1);
 }
-.confirm-btn:hover {
+.confirm-btn:hover, .action-button:hover {
   background-color: var(--cor-primaria-hover);
 }
 .confirm-btn:active {
@@ -136,8 +137,9 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 .undo-btn {
   transition: var(--transicao-padrao);
 }
-.undo-btn:hover {
+.undo-btn:hover, #reset-settings-btn:hover {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
 
 /* ==========================================================================
@@ -150,7 +152,7 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -158,8 +160,9 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
   animation: fadeIn-up 0.4s ease-out both;
 }
 
-.card-enter-active {
-  /* Compatibilidade */
+.card-enter {
+    transform: scale(0.98);
+    animation: fadeIn-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* Spinner de Carregamento */
@@ -242,4 +245,76 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 /* Estilo para o placeholder do input de busca */
 #schedule-search-teacher::placeholder {
     color: #94a3b8; /* slate-400 */
+}
+
+/* ==========================================================================
+   7. COMPONENTE MULTI-SELECT PERSONALIZADO
+   ========================================================================== */
+.multiselect-button {
+    transition: var(--transicao-padrao);
+    cursor: pointer;
+}
+
+.multiselect-button[aria-disabled="true"] {
+    background-color: #f1f5f9; /* slate-100 */
+    cursor: not-allowed;
+}
+
+.multiselect-button:not([aria-disabled="true"]):hover {
+    border-color: var(--cor-primaria);
+}
+
+.multiselect-option {
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.multiselect-option:hover {
+    background-color: #f1f5f9; /* slate-100 */
+}
+
+.selected-teacher-tag {
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: center;
+    background-color: #eef2ff; /* indigo-100 */
+    color: var(--cor-primaria);
+    border-radius: 9999px;
+    font-weight: 500;
+    padding: 0.125rem 0.65rem; /* py-0.5 px-2.5 */
+}
+
+/* Badge "Melhor Opção" */
+.best-option-badge {
+    background-image: linear-gradient(to right, #4f46e5, #7c3aed);
+    color: white;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   8. TELA DE LOGIN E BOAS-VINDAS
+   ========================================================================== */
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes text-blur-out {
+  0% {
+    filter: blur(0.01);
+  }
+  100% {
+    filter: blur(12px) opacity(0%);
+  }
+}
+
+#welcome-message {
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }

@@ -3725,6 +3725,19 @@ const defaultSettings = {
     intervalosFixos: [ {"inicio": "09:10", "fim": "09:30"}, {"inicio": "12:00", "fim": "13:20"}, {"inicio": "15:00", "fim": "15:20"} ]
 };
 
+const substitutionLimits = {
+    // Nomes padronizados (Primeira letra maiúscula, resto minúsculo)
+    // Linguagens
+    "Giordana": 2, "Laura": 3, "Rizia": 3, "Suzy": 3, "Zelia": 3, "Sara": 4, "Julio": 2, "Valdiego": 2, "Marcos": 1, "Gilmar": 1,
+    // Humanas
+    "Alex-história": 1, "Luis": 1, "Robertina": 1, "Pollyana": 1,
+    // Exatas (Ciências da Natureza + Matemática)
+    "Carlos": 4, "Alex": 2, "Denisson": 2, "Fernanda": 0, "Elias": 2, "Danilo": 3, "Denis": 1, "Adrielma": 3, "Vilmar": 3, "Linalda": 7, "Yuri": 1,
+    // Base Técnica
+    "Isa lacerda": 2, "Rodolpho": 3, "Renato": 2, "Heroiso": 3, "Ryan": 1, "Shirley": 3, "Sammya": 1, "Paulo": 1
+};
+
+
 // 3. Função que calcula o horário de fim (assumindo 50 minutos de aula)
 const calculateEndTime = (startTime) => {
     const [hours, minutes] = startTime.split(':').map(Number);
@@ -3781,14 +3794,14 @@ const teacherScheduleData = {
 let appState = {
     confirmedSubstitutions: {},
     ignoredClasses: {},
-    currentAbsentTeacher: null,
+    currentAbsentTeachers: [],
     currentDay: null,
 };
 
 const resetAppState = () => {
     appState.confirmedSubstitutions = {};
     appState.ignoredClasses = {};
-    appState.currentAbsentTeacher = null;
+    appState.currentAbsentTeachers = [];
     appState.currentDay = null;
 };
 
@@ -3874,14 +3887,25 @@ const getAreaColor = (area) => {
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    const teacherSelect = document.getElementById('absent-teacher');
+    // Elementos da Tela de Login
+    const loginScreen = document.getElementById('login-screen');
+    const mainApp = document.getElementById('main-app');
+
+    // Elementos do Multi-Select Personalizado
     const daySelect = document.getElementById('absence-day');
     const findBtn = document.getElementById('find-substitute-btn');
+    const periodSelect = document.getElementById('absence-period');
     const resultsArea = document.getElementById('results-area');
     const loadingSpinner = document.getElementById('loading-spinner');
     const actionsContainer = document.getElementById('actions-container');
     const exportContainer = document.getElementById('export-container');
     const areaFilterSelect = document.getElementById('area-filter');
+    const multiSelectContainer = document.getElementById('custom-multiselect-container');
+    const multiSelectButton = document.getElementById('absent-teachers-button');
+    const multiSelectDisplay = document.getElementById('absent-teachers-display');
+    const multiSelectDropdown = document.getElementById('absent-teachers-dropdown');
+    const noTccWeekCheckbox = document.getElementById('no-tcc-week-checkbox');
+    let selectedTeachers = new Set();
     
     // Elementos do Modal de Configurações
     const settingsModal = document.getElementById('settings-modal');
@@ -3901,9 +3925,84 @@ document.addEventListener('DOMContentLoaded', () => {
     const scheduleOverlay_elem = document.getElementById('schedule-overlay');
     const scheduleSearchInput = document.getElementById('schedule-search-teacher');
     const scheduleAreaFilter = document.getElementById('schedule-filter-area');
+    let workloadChartInstance = null;
 
     // Carrega as configurações salvas ao iniciar
     loadSettingsFromLocalStorage();
+
+    // --- LÓGICA DE LOGIN ---
+    const credentials = {
+        'cleone': { password: 'humanas2025', area: 'Humanas', name: 'Cleone' },
+        'carlos': { password: 'exatas2025', area: 'Ciências da Natureza', name: 'Carlos' }, // Pode ser qualquer uma das duas
+        'isa': { password: 'tecnica2025', area: 'Base Técnica', name: 'Isa' },
+        'geferson': { password: 'linguagens2025', area: 'Linguagens', name: 'Geferson' }
+    };
+
+    const loginForm = document.getElementById('login-form');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginError = document.getElementById('login-error');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const welcomeMessage = document.getElementById('welcome-message');
+    const togglePasswordBtn = document.getElementById('toggle-password-visibility');
+
+    const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>`;
+    const eyeSlashIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 01-2.45 2.45l-1.514-1.514a4 4 0 00-3.05-5.814l.922.922A4.002 4.002 0 017.968 6.553zm-1.07-1.07l3.536 3.536a2 2 0 01-2.45 2.45l-3.536-3.536a4 4 0 002.45-2.45z" clip-rule="evenodd" /></svg>`;
+    
+    togglePasswordBtn.innerHTML = eyeIcon;
+    togglePasswordBtn.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePasswordBtn.innerHTML = eyeSlashIcon;
+        } else {
+            passwordInput.type = 'password';
+            togglePasswordBtn.innerHTML = eyeIcon;
+        }
+    });
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = usernameInput.value.toLowerCase();
+        const password = passwordInput.value;
+        const user = credentials[username];
+
+        if (user && user.password === password) {
+            // Login bem-sucedido
+            loginError.classList.add('hidden');
+            
+            // 1. Esconde a tela de login
+            loginScreen.style.opacity = '0';
+            setTimeout(() => loginScreen.classList.add('hidden'), 500);
+
+            // 2. Mostra a tela de boas-vindas
+            welcomeMessage.innerHTML = `Bem-vindo(a) Coordenador(a) de ${user.area}, <br><strong>${user.name}</strong>. <br><br> Vamos começar?`;
+            welcomeScreen.classList.remove('hidden');
+
+            // 3. Após a animação, esconde a tela de boas-vindas e mostra o app
+            setTimeout(() => {
+                welcomeScreen.style.opacity = '0';
+                welcomeScreen.style.transition = 'opacity 0.5s ease-out';
+                
+                // Pré-seleciona a área do coordenador
+                areaFilterSelect.value = user.area;
+                // Dispara o evento 'change' para popular o seletor de professores
+                areaFilterSelect.dispatchEvent(new Event('change'));
+
+                setTimeout(() => {
+                    welcomeScreen.classList.add('hidden');
+                    mainApp.style.opacity = '1';
+                }, 500);
+
+            }, 2000); // Duração da tela de boas-vindas reduzida para 2 segundos
+
+        } else {
+            // Login falhou
+            loginError.classList.remove('hidden');
+            loginForm.classList.add('animate-shake'); // Adiciona animação de "tremor"
+            setTimeout(() => loginForm.classList.remove('animate-shake'), 500);
+        }
+    });
+    // --- FIM DA LÓGICA DE LOGIN ---
 
     // Lista de professores a serem ignorados nas sugestões (ex: licença médica)
     const excludedTeachers = ['Gilmar', 'Marinalva'];
@@ -3990,25 +4089,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const copySummaryToClipboard = () => {
-        const absentTeacherName = appState.currentAbsentTeacher.nome;
+        const absentTeacherNames = appState.currentAbsentTeachers.map(p => p.nome).join(', ');
         const dayOfWeek = appState.currentDay;
         const dateString = new Date().toLocaleDateString('pt-BR');
 
         let summaryText = `*Resumo de Substituições*\n\n`;
         summaryText += `*Data:* ${dateString}\n`;
-        summaryText += `*Professor Ausente:* ${absentTeacherName}\n`;
+        summaryText += `*Professor(es) Ausente(s):* ${absentTeacherNames}\n`;
         summaryText += `*Dia:* ${dayOfWeek}\n\n`;
         summaryText += `-------------------------------------\n\n`;
 
         const sortedConfirmations = Object.entries(appState.confirmedSubstitutions).sort((a, b) => parseTimeToMinutes(a[0].split('_')[1]) - parseTimeToMinutes(b[0].split('_')[1]));
 
         sortedConfirmations.forEach(([classId, substituteName]) => {
-            const [_day, start, end] = classId.split('_');
-            // Encontra a turma em qualquer horário de qualquer professor, para garantir que a informação seja encontrada.
-            const classSlot = teacherScheduleData.professores.flatMap(p => p.horarios).find(h => h.dia === _day && h.inicio === start && h.fim === end);
+            const [_day, start, end, ...turmaParts] = classId.split('_');
+            const turmaSanitized = turmaParts.join('_');
+
+            // Encontra a aula original para obter o nome do professor e a turma correta
+            const originalClass = teacherScheduleData.professores
+                .flatMap(p => p.horarios.map(h => ({ ...h, teacherName: p.nome })))
+                .find(h => 
+                    h.dia === _day && 
+                    h.inicio === start && 
+                    h.turma.replace(/\s|\//g, '-') === turmaSanitized
+                );
             
             summaryText += `*Horário:* ${start} - ${end}\n`;
-            summaryText += `*Turma:* ${classSlot ? classSlot.turma : 'N/A'}\n`;
+            summaryText += `*Aula de:* Prof. ${originalClass ? originalClass.teacherName : 'N/A'} (${originalClass ? originalClass.turma : 'N/A'})\n`;
             summaryText += `➡️ *Substituto:* ${substituteName}\n\n`;
         });
 
@@ -4036,6 +4143,69 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!turma) return null;
         const match = turma.match(/\d[º°]?\s?([A-Z]{2,3})/);
         return match ? match[1] : null;
+    };
+
+    // --- Lógica do Gráfico de Carga Horária ---
+    const renderWorkloadChart = (teachersToDisplay) => {
+        const ctx = document.getElementById('workload-chart').getContext('2d');
+        const days = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
+        const dayColors = {
+            'Segunda': 'rgba(59, 130, 246, 0.7)',  // blue-500
+            'Terça': 'rgba(16, 185, 129, 0.7)', // emerald-500
+            'Quarta': 'rgba(239, 68, 68, 0.7)',   // red-500
+            'Quinta': 'rgba(245, 158, 11, 0.7)', // amber-500
+            'Sexta': 'rgba(139, 92, 246, 0.7)',  // violet-500
+        };
+
+        const labels = teachersToDisplay.map(p => p.nome);
+        const datasets = days.map(day => {
+            return {
+                label: day,
+                data: teachersToDisplay.map(teacher => {
+                    return (teacher.horarios || []).filter(h => h.dia === day).length;
+                }),
+                backgroundColor: dayColors[day],
+                borderWidth: 1,
+                borderColor: '#fff'
+            };
+        });
+
+        // Destruir o gráfico antigo antes de renderizar um novo
+        if (workloadChartInstance) {
+            workloadChartInstance.destroy();
+        }
+
+        workloadChartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: false, // Título já está no HTML
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += `${context.parsed.y} aula(s)`;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }
+            }
+        });
     };
 
     // --- Lógica do Modal da Grade Horária ---
@@ -4115,6 +4285,7 @@ document.addEventListener('DOMContentLoaded', () => {
             area: scheduleAreaFilter.value
         };
         renderMasterSchedule(filters);
+        renderWorkloadChart(teacherScheduleData.professores.filter(p => (!filters.searchTerm || p.nome.toLowerCase().includes(filters.searchTerm.toLowerCase())) && (filters.area === 'all' || p.area === filters.area)));
     };
 
     openScheduleBtn_elem.addEventListener('click', () => {
@@ -4147,37 +4318,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // --- Lógica do Multi-Select Personalizado ---
+    const updateMultiSelectDisplay = () => {
+        if (selectedTeachers.size === 0) {
+            multiSelectDisplay.innerHTML = `<span class="text-slate-500">Selecione o(s) professor(es)</span>`;
+        } else {
+            multiSelectDisplay.innerHTML = '';
+            selectedTeachers.forEach(teacherName => {
+                const tag = document.createElement('span');
+                tag.className = 'selected-teacher-tag text-sm font-medium mr-1 mb-1 px-2.5 py-0.5';
+                tag.textContent = teacherName;
+                multiSelectDisplay.appendChild(tag);
+            });
+        }
+    };
+
     const populateTeacherSelect = (selectedArea = 'all') => {
-        teacherSelect.innerHTML = '<option value="">Selecione um professor</option>';
+        multiSelectDropdown.innerHTML = ''; // Limpa as opções
         
         let teachersToShow = teacherScheduleData.professores;
         if (selectedArea !== 'all') {
-            teachersToShow = teacherScheduleData.professores.filter(p => p.area === selectedArea);
+            teachersToShow = teachersToShow.filter(p => p.area === selectedArea);
         }
 
+        multiSelectButton.classList.remove('bg-slate-100', 'cursor-not-allowed', 'text-slate-500');
+        multiSelectButton.classList.add('bg-white');
+        multiSelectButton.setAttribute('aria-disabled', 'false');
+        updateMultiSelectDisplay();
         const sortedTeachers = [...teachersToShow].sort((a, b) => a.nome.localeCompare(b.nome));
         sortedTeachers.forEach(teacher => {
-            const option = document.createElement('option');
-            option.value = teacher.nome;
-            option.textContent = teacher.nome;
-            teacherSelect.appendChild(option);
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'multiselect-option relative cursor-default select-none py-2 pl-10 pr-4';
+            optionDiv.innerHTML = `
+                <span class="font-normal block truncate">${teacher.nome}</span>
+                ${selectedTeachers.has(teacher.nome) ? `
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-indigo-600">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.142 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.142z" clip-rule="evenodd" /></svg>
+                </span>` : ''}
+            `;
+            optionDiv.addEventListener('click', () => {
+                if (selectedTeachers.has(teacher.nome)) {
+                    selectedTeachers.delete(teacher.nome);
+                } else {
+                    selectedTeachers.add(teacher.nome);
+                }
+                // Re-render para atualizar a marca de seleção
+                populateTeacherSelect(areaFilterSelect.value);
+                updateMultiSelectDisplay();
+            });
+            multiSelectDropdown.appendChild(optionDiv);
         });
-        teacherSelect.disabled = false;
     };
 
     areaFilterSelect.addEventListener('change', (e) => {
         populateTeacherSelect(e.target.value);
     });
 
+    multiSelectButton.addEventListener('click', () => {
+        if (multiSelectButton.getAttribute('aria-disabled') === 'true') return;
+        multiSelectDropdown.classList.toggle('hidden');
+    });
+
+    // Fechar dropdown ao clicar fora
+    document.addEventListener('click', (e) => {
+        if (!multiSelectContainer.contains(e.target)) {
+            multiSelectDropdown.classList.add('hidden');
+        }
+    });
+
     populateAreaFilter();
-    populateTeacherSelect(); // Popula inicialmente com todos
+    populateTeacherSelect(); // Popula com todos os professores inicialmente e habilita o seletor
 
     // Lógica principal ao clicar no botão
     findBtn.addEventListener('click', () => {
-        const absentTeacherName = teacherSelect.value;
+        const absentTeacherNames = Array.from(selectedTeachers);
         const dayOfWeek = daySelect.value;
 
-        if (!absentTeacherName || !dayOfWeek) {
+        if (absentTeacherNames.length === 0 || !dayOfWeek) {
             resultsArea.innerHTML = `<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-sm" role="alert"><p class="font-bold">Atenção</p><p>Por favor, selecione todos os filtros para continuar.</p></div>`;
             return;
         }
@@ -4191,13 +4408,28 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingSpinner.classList.remove('hidden');
 
         setTimeout(() => {
-            const absentTeacher = teacherScheduleData.professores.find(p => p.nome === absentTeacherName);
-            const absentTeacherClasses = (absentTeacher.horarios || []).filter(h => h.dia === dayOfWeek);
+            const absentTeachers = teacherScheduleData.professores.filter(p => absentTeacherNames.includes(p.nome));
+            appState.currentAbsentTeachers = absentTeachers;
+            appState.currentDay = dayOfWeek;
 
-            if (absentTeacherClasses.length === 0) {
-                displayNoClassesMessage(absentTeacherName, dayOfWeek);
+            let allClasses = absentTeachers.flatMap(teacher => 
+                (teacher.horarios || [])
+                    .filter(h => h.dia === dayOfWeek)
+                    .map(h => ({ ...h, teacherName: teacher.nome, teacherArea: teacher.area })) // Adiciona nome do professor à aula
+            );
+
+            // Filtrar por período (manhã/tarde)
+            const period = periodSelect.value;
+            if (period === 'morning') {
+                allClasses = allClasses.filter(c => parseTimeToMinutes(c.inicio) < parseTimeToMinutes('12:00'));
+            } else if (period === 'afternoon') {
+                allClasses = allClasses.filter(c => parseTimeToMinutes(c.inicio) >= parseTimeToMinutes('12:00'));
+            }
+
+            if (allClasses.length === 0) {
+                displayNoClassesMessage(absentTeacherNames.join(', '), dayOfWeek);
             } else {
-                displayResults(absentTeacher, absentTeacherClasses, dayOfWeek);
+                displayResults(allClasses, dayOfWeek);
             }
              loadingSpinner.classList.add('hidden');
         }, 500); // Simula um tempo de processamento
@@ -4233,20 +4465,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const autoConfirmAll = () => {
-        const absentTeacherName = teacherSelect.value;
+        const absentTeacherNames = Array.from(selectedTeachers);
         const dayOfWeek = daySelect.value;
-        const absentTeacher = teacherScheduleData.professores.find(p => p.nome === absentTeacherName);
-        const absentTeacherClasses = (absentTeacher.horarios || [])
+        const absentTeachers = teacherScheduleData.professores.filter(p => absentTeacherNames.includes(p.nome));
+        const absentTeacherClasses = appState.currentAbsentTeachers.flatMap(teacher => (teacher.horarios || []))
             .filter(h => h.dia === dayOfWeek && !isDuringBreak(h))
             .sort((a, b) => parseTimeToMinutes(a.inicio) - parseTimeToMinutes(b.inicio));
 
         let currentConfirmations = { ...appState.confirmedSubstitutions };
 
         absentTeacherClasses.forEach(classSlot => {
-            const classId = `${dayOfWeek}_${classSlot.inicio}_${classSlot.fim}`;
-            // Only auto-confirm if not already confirmed
+            const classId = `${dayOfWeek}_${classSlot.inicio}_${classSlot.fim}_${classSlot.turma.replace(/\s|\//g, '-')}`;
             if (!currentConfirmations[classId]) {
-                const candidates = findAvailableTeachers(classSlot, dayOfWeek, absentTeacher, currentConfirmations);
+                const candidates = findAvailableTeachers(classSlot, dayOfWeek, absentTeachers, currentConfirmations);
                 if (candidates.length > 0) {
                     currentConfirmations[classId] = candidates[0].nome; // Confirm the best candidate
                 }
@@ -4258,38 +4489,41 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const render = () => {
-        const absentTeacherName = teacherSelect.value;
+        const absentTeacherNames = Array.from(selectedTeachers);
         const dayOfWeek = daySelect.value;
-        appState.currentAbsentTeacher = teacherScheduleData.professores.find(p => p.nome === absentTeacherName);
+        appState.currentAbsentTeachers = teacherScheduleData.professores.filter(p => absentTeacherNames.includes(p.nome));
         appState.currentDay = dayOfWeek;
-        const absentTeacherClasses = (appState.currentAbsentTeacher.horarios || []).filter(h => h.dia === dayOfWeek);
-        displayResults(appState.currentAbsentTeacher, absentTeacherClasses, dayOfWeek);
+        
+        const allClasses = appState.currentAbsentTeachers.flatMap(teacher => 
+            (teacher.horarios || [])
+                .filter(h => h.dia === dayOfWeek)
+                .map(h => ({ ...h, teacherName: teacher.nome, teacherArea: teacher.area }))
+        );
+        displayResults(allClasses, dayOfWeek);
     };
 
-    const findAvailableTeachers = (classToCover, dayOfWeek, absentTeacher, currentConfirmations) => {
+    const findAvailableTeachers = (classToCover, dayOfWeek, absentTeachers, currentConfirmations) => {
         const candidates = [];
-        teacherScheduleData.professores.forEach(potentialSubstitute => {
-            // 1. Não sugerir o próprio professor ausente
-            if (potentialSubstitute.nome === absentTeacher.nome) return;
+        const absentTeacherNames = absentTeachers.map(t => t.nome);
 
-            // Extra: Ignorar professores em licença ou indisponíveis
+        teacherScheduleData.professores.forEach(potentialSubstitute => {
+            if (absentTeacherNames.includes(potentialSubstitute.nome)) return;
             if (excludedTeachers.includes(potentialSubstitute.nome)) return;
+
+            // NOVO: Verificar limite de substituições
+            const substitutionsCount = Object.values(currentConfirmations).filter(name => name === potentialSubstitute.nome).length;
+            const isNoTccWeek = noTccWeekCheckbox.checked;
+            const baseLimit = substitutionLimits[potentialSubstitute.nome];
+
+            // Se o professor não estiver na lista, não há limite. Se estiver, calcula o limite.
+            if (baseLimit !== undefined) {
+                const currentLimit = isNoTccWeek ? baseLimit + 1 : baseLimit;
+                if (substitutionsCount >= currentLimit) return; // Retorna se o limite foi atingido
+            }
 
             // 2. Verificar se o substituto está em seu "dia de área" (dia de folga da área)
             const diaDeAreaDoSubstituto = teacherScheduleData.diasDeArea[potentialSubstitute.area];
             if (diaDeAreaDoSubstituto === dayOfWeek) return;
-
-            // 3. Verificar se o substituto já foi confirmado para um horário conflitante
-            const isConfirmedInConflict = Object.entries(currentConfirmations).some(([confirmedClassId, confirmedSubstituteName]) => {
-                if (potentialSubstitute.nome === confirmedSubstituteName) {
-                    // Extrai o horário do ID da aula confirmada
-                    const [_day, start, end] = confirmedClassId.split('_');
-                    const confirmedSlot = { inicio: start, fim: end };
-                    return isTimeOverlap(classToCover, confirmedSlot);
-                }
-                return false;
-            });
-            if (isConfirmedInConflict) return;
 
             // 3. Verificar se há conflito de horário com as aulas do substituto
             const hasConflict = (potentialSubstitute.horarios || []).some(schedule => 
@@ -4298,6 +4532,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!hasConflict) {
                 // 4. Calcular pontuação e gerar justificativa com base nos critérios
+
+                // 3. Verificar se o substituto já foi confirmado para um horário conflitante
+                const isConfirmedInConflict = Object.entries(currentConfirmations).some(([confirmedClassId, confirmedSubstituteName]) => {
+                    if (potentialSubstitute.nome === confirmedSubstituteName) {
+                        // Extrai o horário do ID da aula confirmada
+                        const [_day, start, end] = confirmedClassId.split('_');
+                        const confirmedSlot = { inicio: start, fim: end };
+                        return isTimeOverlap(classToCover, confirmedSlot);
+                    }
+                    return false;
+                });
+                if (isConfirmedInConflict) return;
+
+
                 const scores = {
                     workload: 0, // NOVO: Para balancear a carga de trabalho
                     sameCourse: 0, // Novo: Prioridade para quem conhece o curso (ADM, DS, etc.)
@@ -4306,8 +4554,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     sameArea: 0,  // Prioridade baixa, como solicitado
                 };
                 const justifications = ['Disponível no horário']; // Sempre começa com a disponibilidade
-
-                const substitutionsCount = Object.values(currentConfirmations).filter(name => name === potentialSubstitute.nome).length;
                 scores.workload = -30 * substitutionsCount;
                 
                 if (substitutionsCount > 0) {
@@ -4332,7 +4578,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     justifications.push('Já leciona para esta turma.');
                 }
                 
-                if (potentialSubstitute.area === absentTeacher.area) {
+                // Encontra a área do professor da aula a ser coberta
+                const originalTeacherArea = absentTeachers.find(t => t.nome === classToCover.teacherName)?.area;
+                if (originalTeacherArea && potentialSubstitute.area === originalTeacherArea) {
                     scores.sameArea = 10; // Pontuação baixa para dar prioridade à disponibilidade e turma
                     justifications.push(`Da mesma área: <strong>${potentialSubstitute.area}</strong>.`);
                 }
@@ -4365,29 +4613,31 @@ document.addEventListener('DOMContentLoaded', () => {
         return candidates.sort((a, b) => b.score - a.score || a.nome.localeCompare(b.nome));
     };
 
-    const displayNoClassesMessage = (teacherName, day) => {
+    const displayNoClassesMessage = (teacherNames, day) => {
         resultsArea.innerHTML = `
             <div class="bg-sky-100 border-l-4 border-sky-500 text-sky-800 p-4 rounded-lg shadow-sm" role="alert">
                 <p class="font-bold">Nenhuma aula encontrada</p>
-                <p>${teacherName} não possui aulas cadastradas na <strong>${day}</strong>.</p>
+                <p>${teacherNames} não possui aulas cadastradas na <strong>${day}</strong> para o período selecionado.</p>
             </div>`;
     };
 
-    const displayResults = (absentTeacher, classes, day) => {
-        let html = `<h2 class="text-2xl font-bold mb-6 text-slate-600">Aulas de ${absentTeacher.nome} (${day})</h2>`;
+    const displayResults = (classes, day) => {
+        const absentTeacherNames = [...new Set(classes.map(c => c.teacherName))];
+        let html = `<h2 class="text-2xl font-bold mb-6 text-slate-600">Aulas de ${absentTeacherNames.join(', ')} (${day})</h2>`;
         let trashHtml = '';
         const actionsContainer = document.getElementById('actions-container');
         const exportContainer = document.getElementById('export-container');
         const trashArea = document.getElementById('trash-area');
+        const absentTeachers = teacherScheduleData.professores.filter(p => absentTeacherNames.includes(p.nome));
         
         const sortedClasses = classes.sort((a,b) => parseTimeToMinutes(a.inicio) - parseTimeToMinutes(b.inicio));
         
         sortedClasses.forEach((classSlot) => {
-            const classId = `${day}_${classSlot.inicio}_${classSlot.fim}`;
+            const classId = `${day}_${classSlot.inicio}_${classSlot.fim}_${classSlot.turma.replace(/\s|\//g, '-')}`;
             if (appState.ignoredClasses[classId]) {
                 trashHtml += generateTrashCard(classSlot, day);
             } else {
-                html += generateClassCard(classSlot, day, absentTeacher);
+                html += generateClassCard(classSlot, day, absentTeachers);
             }
         });
         resultsArea.innerHTML = html;
@@ -4425,9 +4675,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Adiciona botões de exportação se houver substituições confirmadas
         if (Object.keys(appState.confirmedSubstitutions).length > 0) {
-            exportContainer.innerHTML = `
-                <button id="copy-summary-btn" class="bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-slate-700 transition-all">Copiar Resumo para WhatsApp</button>
-            `;
+            exportContainer.innerHTML = `<button id="copy-summary-btn" class="bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-slate-700 transition-all">Copiar Resumo</button>`;
             document.getElementById('copy-summary-btn').addEventListener('click', copySummaryToClipboard);
         } else {
             exportContainer.innerHTML = '';
@@ -4441,8 +4689,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
-    const generateClassCard = (classSlot, day, absentTeacher) => {
-        const classId = `${day}_${classSlot.inicio}_${classSlot.fim}`;
+    const generateClassCard = (classSlot, day, absentTeachers) => {
+        // ID único para a aula, considerando a turma para evitar colisões se dois professores tiverem aula no mesmo horário
+        const classId = `${day}_${classSlot.inicio}_${classSlot.fim}_${classSlot.turma.replace(/\s|\//g, '-')}`;
         if (isDuringBreak(classSlot)) {
             return `
                 <div class="bg-white p-5 rounded-lg shadow-sm mb-6 card card-enter opacity-60 border-l-4 border-yellow-400">
@@ -4463,7 +4712,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="flex flex-col md:flex-row justify-between md:items-center">
                         <div>
                             <h3 class="text-xl font-bold text-slate-800">${classSlot.inicio} - ${classSlot.fim}</h3>
-                            <p class="text-slate-600">${classSlot.turma}</p>
+                            <p class="text-slate-600">${classSlot.turma} <span class="text-slate-500 font-medium">(Aula de Prof. ${classSlot.teacherName})</span></p>
                         </div>
                         <div class="flex items-center gap-4 mt-2 md:mt-0">
                             <p class="font-semibold text-green-800">Confirmado: <strong>${substituteDetails.nome}</strong></p>
@@ -4474,7 +4723,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
         
-        const candidates = findAvailableTeachers(classSlot, day, absentTeacher, appState.confirmedSubstitutions);
+        const candidates = findAvailableTeachers(classSlot, day, absentTeachers, appState.confirmedSubstitutions);
         let candidatesHtml = '';
         if (candidates.length > 0) {
             candidatesHtml = candidates.slice(0, 5).map((c, i) => `
@@ -4505,10 +4754,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 pb-4 border-b">
                     <div class="flex-grow">
                         <h3 class="text-xl font-bold text-indigo-700">${classSlot.inicio} - ${classSlot.fim}</h3>
-                        <p class="text-slate-600">${classSlot.turma}</p>
+                        <p class="text-slate-600">${classSlot.turma} <span class="text-sm text-slate-500">(Prof. ${classSlot.teacherName})</span></p>
                     </div>
                     <div class="flex items-center gap-2 mt-3 md:mt-0">
-                        <span class="text-sm font-semibold px-3 py-1 rounded-full ${getAreaColor(absentTeacher.area)}">${absentTeacher.area}</span>
+                        <span class="text-sm font-semibold px-3 py-1 rounded-full ${getAreaColor(classSlot.teacherArea)}">${classSlot.teacherArea}</span>
                         <button data-class-id="${classId}" class="ignore-btn p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full transition-colors" title="Ignorar esta aula">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clip-rule="evenodd" /></svg>
                         </button>
@@ -4523,7 +4772,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const generateTrashCard = (classSlot, day) => {
-        const classId = `${day}_${classSlot.inicio}_${classSlot.fim}`;
+        const classId = `${day}_${classSlot.inicio}_${classSlot.fim}_${classSlot.turma.replace(/\s|\//g, '-')}`;
         return `
             <div class="bg-slate-100 p-4 rounded-lg shadow-sm flex justify-between items-center card-enter">
                 <div>
