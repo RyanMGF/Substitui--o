@@ -1,0 +1,245 @@
+/* ==========================================================================
+   1. CONCEITO "PLATAFORMA GOVERNAMENTAL - EDUCAÇÃO"
+   ========================================================================== */
+:root {
+  /* Paleta de Cores: Profissional, Corporativa, Confiável */
+  --cor-primaria: #2563eb;         /* Azul forte e confiável (blue-600) */
+  --cor-primaria-hover: #1d4ed8;   /* Azul mais escuro (blue-700) */
+  --cor-acento-sucesso: #16a34a;   /* Verde para sucesso (green-600) */
+  --cor-fundo: #f8fafc;             /* Fundo muito claro, quase branco (slate-50) */
+  --cor-surface: #ffffff;          /* Superfície branca para cards */
+  --cor-texto-principal: #1e293b;  /* Cinza escuro para alta legibilidade (slate-800) */
+  --cor-texto-secundario: #64748b; /* Cinza para textos de apoio (slate-500) */
+  --cor-borda: #e2e8f0;             /* Borda sutil (slate-200) */
+
+  /* Tipografia */
+  --fonte-titulos: 'Poppins', sans-serif;
+  --fonte-corpo: 'Inter', sans-serif;
+
+  /* Animações e Transições */
+  --transicao-padrao: all 0.2s ease-in-out;
+}
+
+/* ==========================================================================
+   2. ESTILOS BASE E ESTRUTURA
+   ========================================================================== */
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--cor-texto-principal);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulos);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   3. COMPONENTES PROFISSIONAIS
+   ========================================================================== */
+
+/* Painel de Controle - Sólido e Confiável */
+.bg-white\/70 {
+  background-color: var(--cor-surface) !important; /* Reset do glassmorphism */
+  backdrop-filter: none !important;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--cor-borda);
+}
+
+/* Inputs e Seletores */
+select {
+  transition: var(--transicao-padrao);
+  border-color: var(--cor-borda);
+  border-radius: 12px !important;
+  background-color: #f9fafb;
+}
+select:focus {
+  --tw-ring-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  background-color: var(--cor-surface);
+}
+
+/* Botão Principal - Corporativo */
+#find-substitute-btn {
+  background-color: var(--cor-primaria);
+  border-radius: 12px !important;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  transition: var(--transicao-padrao);
+}
+#find-substitute-btn:hover {
+  background-color: var(--cor-primaria-hover);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+#find-substitute-btn:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Estado de Foco */
+button:focus-visible {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+/* Cards de Resultado - Limpos e Informativos */
+.card {
+  border-left-width: 4px;
+  background-color: var(--cor-surface);
+  border-radius: 18px !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  transition: var(--transicao-padrao);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+  border-color: var(--cor-primaria);
+}
+
+/* Card de Sugestão */
+.border-indigo-500 { border-color: var(--cor-primaria); }
+
+/* Card de Sucesso (Confirmado) */
+.border-green-500 {
+  border-color: var(--cor-acento-sucesso);
+  background-color: #f0fdf4; /* green-50 */
+}
+
+/* Card de Intervalo */
+.border-yellow-400 { border-color: #facc15; }
+
+/* Itens da lista de sugestões */
+li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
+  color: var(--cor-texto-secundario);
+}
+
+/* Botão de Confirmar */
+.confirm-btn {
+  background-color: var(--cor-primaria);
+  transition: var(--transicao-padrao);
+  transform: scale(1);
+}
+.confirm-btn:hover {
+  background-color: var(--cor-primaria-hover);
+}
+.confirm-btn:active {
+  transform: scale(0.98);
+}
+
+/* Botão de Desfazer */
+.undo-btn {
+  transition: var(--transicao-padrao);
+}
+.undo-btn:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. ANIMAÇÕES DE ENTRADA
+   ========================================================================== */
+@keyframes fadeIn-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-enter {
+  animation: fadeIn-up 0.4s ease-out both;
+}
+
+.card-enter-active {
+  /* Compatibilidade */
+}
+
+/* Spinner de Carregamento */
+#loading-spinner .border-indigo-600 {
+  border-bottom-color: var(--cor-primaria) !important;
+  border-left-color: var(--cor-primaria) !important;
+}
+
+/* ==========================================================================
+   5. MODAL DE CONFIGURAÇÕES
+   ========================================================================== */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes scaleOut { from { transform: scale(1); opacity: 1; } to { transform: scale(0.95); opacity: 0; } }
+
+#settings-modal.hidden { display: none; }
+
+#settings-modal[aria-hidden="false"] #settings-overlay { animation: fadeIn 0.3s ease-out forwards; }
+#settings-modal[aria-hidden="true"] #settings-overlay { animation: fadeOut 0.3s ease-in forwards; }
+
+#settings-modal[aria-hidden="false"] > div > div:last-child { animation: scaleIn 0.3s ease-out forwards; }
+#settings-modal[aria-hidden="true"] > div > div:last-child { animation: scaleOut 0.3s ease-in forwards; }
+
+.interval-item {
+    transition: var(--transicao-padrao);
+}
+.interval-item:hover {
+    background-color: #f9fafb;
+}
+
+/* ==========================================================================
+   6. MODAL DA GRADE HORÁRIA
+   ========================================================================== */
+#schedule-modal.hidden { display: none; }
+
+#schedule-modal[aria-hidden="false"] #schedule-overlay { animation: fadeIn 0.3s ease-out forwards; }
+#schedule-modal[aria-hidden="true"] #schedule-overlay { animation: fadeOut 0.3s ease-in forwards; }
+
+#schedule-modal[aria-hidden="false"] > div > div:last-child { animation: scaleIn 0.3s ease-out forwards; }
+#schedule-modal[aria-hidden="true"] > div > div:last-child { animation: scaleOut 0.3s ease-in forwards; }
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.schedule-table th, .schedule-table td {
+    border: 1px solid var(--cor-borda);
+    padding: 0.5rem;
+    text-align: center;
+    vertical-align: top;
+}
+.schedule-table th {
+    background-color: #f9fafb;
+    font-weight: 600;
+}
+.schedule-table td {
+    min-width: 150px; /* Garante espaço mínimo em telas menores */
+    height: 80px; /* Altura mínima para as células */
+}
+
+/* Estilo para o "mini-card" de cada professor na grade */
+.schedule-entry {
+    font-size: 0.8rem; /* 12.8px */
+    line-height: 1.3;
+    padding: 0.3rem;
+    margin-bottom: 0.25rem;
+    border-radius: 6px;
+    text-align: left;
+}
+.schedule-entry strong {
+    font-weight: 600;
+    display: block;
+}
+.schedule-entry small {
+    opacity: 0.8;
+}
+
+/* Estilo para o placeholder do input de busca */
+#schedule-search-teacher::placeholder {
+    color: #94a3b8; /* slate-400 */
+}
