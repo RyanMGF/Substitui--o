@@ -111,15 +111,14 @@ const rawData = {
     {
       "nome": "ALEX",
       "horario": {
-        "segunda": [],
-        "terca": [
+        "segunda": [
           {
             "hora": "09:30",
             "disciplina_turma": "2°ADM I/MATEMÁTICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2 ADM I/MATEMÁTICA"
+            "disciplina_turma": "2°ADM I/MATEMÁTICA"
           },
           {
             "hora": "11:10",
@@ -131,7 +130,7 @@ const rawData = {
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2\"ADM II/MATEMÁTICA"
+            "disciplina_turma": "2°ADM II/MATEMÁTICA"
           },
           {
             "hora": "15:20",
@@ -139,17 +138,26 @@ const rawData = {
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 ADM I/PV"
+            "disciplina_turma": "1°ADM I/PV"
           }
         ],
+        "terca": [],
         "quarta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "Reun"
+            "disciplina_turma": "Reun."
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1\"ADM II/PV"
+            "disciplina_turma": "1°ADM II/PV"
+          },
+          {
+            "hora": "10:20",
+            "disciplina_turma": "3°COM/MATEMÁTICA"
+          },
+          {
+            "hora": "11:10",
+            "disciplina_turma": "3°COM/MATEMÁTICA"
           },
           {
             "hora": "13:20",
@@ -161,17 +169,17 @@ const rawData = {
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2 ADM II/MATEMÁTICA"
+            "disciplina_turma": "2°ADM II/MATEMÁTICA"
           }
         ],
         "quinta": [
           {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM I/APROF MATEMATICA"
+            "hora": "07:30",
+            "disciplina_turma": "2°ADM I/APROF. MATEMATICA"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3ºCOM/MATEMATICA"
+            "disciplina_turma": "3°COM/MATEMÁTICA"
           },
           {
             "hora": "10:20",
@@ -179,11 +187,11 @@ const rawData = {
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3°COM/MATEMATICA"
+            "disciplina_turma": "3°COM/MATEMÁTICA"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2°ADM II/APROF. MATEMÁTICA"
+            "disciplina_turma": "2°ADM II/APROF. MATEMATICA"
           }
         ],
         "sexta": [
@@ -193,11 +201,7 @@ const rawData = {
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3°ADM V/MATEMATICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM V/MATEMATICA"
+            "disciplina_turma": "3°ADM V/MATEMÁTICA"
           },
           {
             "hora": "11:10",
@@ -2603,7 +2607,8 @@ const rawData = {
     {
       "nome": "RODOLPHO",
       "horario": {
-        "segunda": [
+        "segunda": [],
+        "terca": [
           {
             "hora": "07:30",
             "disciplina_turma": "2°ADM I/ISC"
@@ -2618,7 +2623,7 @@ const rawData = {
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1°ADM VINOVAÇÃO"
+            "disciplina_turma": "1°ADM I/INOVAÇÃO"
           },
           {
             "hora": "13:20",
@@ -2630,33 +2635,34 @@ const rawData = {
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1 ADM II/INOVAÇÃO"
+            "disciplina_turma": "1°ADM II/INOVAÇÃO"
           },
           {
             "hora": "16:10",
             "disciplina_turma": "1°ADM II/INOVAÇÃO"
           }
         ],
-        "terca": [
+        "quarta": [
           {
             "hora": "10:20",
-            "disciplina_turma": "1°DS .../PRA. INT. 1"
+            "disciplina_turma": "1°DS I...PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 DS .../PRA. INT. I"
+            "disciplina_turma": "1°DS I...PRA. INT. I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°DS 1.../PRA INT. II"
+            "disciplina_turma": "1°DS I...PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1\"DS I.../PRA. INT. II"
+            "disciplina_turma": "1°DS I...PRA. INT. II"
           }
         ],
-        "quarta": [],
         "quinta": [
+        ],
+        "sexta": [
           {
             "hora": "09:30",
             "disciplina_turma": "2°ADM II/ISC"
@@ -2664,9 +2670,7 @@ const rawData = {
           {
             "hora": "10:20",
             "disciplina_turma": "2°ADM II/ISC"
-          }
-        ],
-        "sexta": [
+          },
           {
             "hora": "13:20",
             "disciplina_turma": "1°ADM III/INOVAÇÃO"
@@ -3794,12 +3798,14 @@ const teacherScheduleData = {
 let appState = {
     confirmedSubstitutions: {},
     ignoredClasses: {},
+    activityLog: [],
     currentAbsentTeachers: [],
     currentDay: null,
 };
 let currentUser = null; // Armazena o usuário logado
 
 const resetAppState = () => {
+    appState.activityLog = [];
     appState.confirmedSubstitutions = {};
     appState.ignoredClasses = {};
     appState.currentAbsentTeachers = [];
@@ -3907,6 +3913,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const multiSelectDropdown = document.getElementById('absent-teachers-dropdown');
     const loadSessionInput = document.getElementById('load-session-input');
     const noTccWeekCheckbox = document.getElementById('no-tcc-week-checkbox');
+    const clearAllBtn = document.getElementById('clear-all-btn');
+    const planningModeCheckbox = document.getElementById('planning-mode-checkbox');
     let selectedTeachers = new Set();
     
     // Elementos do Modal de Configurações
@@ -4221,6 +4229,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 day: appState.currentDay,
                 period: periodSelect.value,
                 area: areaFilterSelect.value,
+                planningMode: planningModeCheckbox.checked,
                 noTccWeek: noTccWeekCheckbox.checked,
                 activityLog: appState.activityLog || []
             }
@@ -4253,9 +4262,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 daySelect.value = state.day;
                 periodSelect.value = state.period;
                 noTccWeekCheckbox.checked = state.noTccWeek;
+                planningModeCheckbox.checked = state.planningMode || false;
                 appState.confirmedSubstitutions = state.confirmedSubstitutions || {};
                 appState.ignoredClasses = state.ignoredClasses || {};
                 appState.activityLog = state.activityLog || [];
+                
 
                 // Atualizar UI e renderizar
                 populateTeacherSelect(state.area);
@@ -4369,10 +4380,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // **NOVO**: Verifica e exibe alertas de inconsistência de dados antes de prosseguir
+        const scheduleConflicts = checkForScheduleConflicts();
+        resultsArea.innerHTML = displayConflictWarning(scheduleConflicts);
+
         // Limpa o estado de confirmações a cada nova busca
         resetAppState();
 
-        resultsArea.innerHTML = '';
         actionsContainer.innerHTML = '';
         exportContainer.innerHTML = '';
         loadingSpinner.classList.remove('hidden');
@@ -4404,6 +4418,69 @@ document.addEventListener('DOMContentLoaded', () => {
              loadingSpinner.classList.add('hidden');
         }, 500); // Simula um tempo de processamento
     });
+
+    /**
+     * Verifica se há professores com aulas cadastradas em seus respectivos dias de área (folga).
+     * @returns {Array} Uma lista de objetos, cada um representando um conflito encontrado.
+     */
+    const checkForScheduleConflicts = () => {
+        const conflicts = [];
+        teacherScheduleData.professores.forEach(prof => {
+            const areaDayOff = teacherScheduleData.diasDeArea[prof.area];
+            if (areaDayOff) {
+                const hasClassOnDayOff = (prof.horarios || []).some(h => h.dia === areaDayOff);
+                if (hasClassOnDayOff) {
+                    conflicts.push({
+                        teacherName: prof.nome,
+                        area: prof.area,
+                        conflictDay: areaDayOff
+                    });
+                }
+            }
+        });
+        return conflicts;
+    };
+
+    /**
+     * Gera e exibe um alerta na interface do usuário sobre conflitos de horário encontrados.
+     * @param {Array} conflicts - A lista de conflitos retornada por `checkForScheduleConflicts`.
+     */
+    const displayConflictWarning = (conflicts) => {
+        if (conflicts.length === 0) return ''; // Retorna string vazia se não houver conflitos
+        const conflictListHtml = conflicts.map(c => `<li><strong>${c.teacherName}</strong> (Área: ${c.area}) possui aulas na <strong>${c.conflictDay}</strong>, seu dia de folga.</li>`).join('');
+        return `
+            <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-800 p-4 rounded-lg shadow-sm mb-6" role="alert">
+                <p class="font-bold">⚠️ Aviso de Inconsistência nos Dados</p>
+                <p class="mt-2 mb-3 text-sm">Os seguintes professores têm aulas cadastradas em seus dias de folga, o que pode indicar um erro na grade horária. A análise prosseguirá, mas recomenda-se a verificação dos dados de origem:</p>
+                <ul class="list-disc list-inside text-sm space-y-1">${conflictListHtml}</ul>
+            </div>`;
+    };
+
+    // --- Lógica do Botão Limpar Tudo ---
+    const clearAll = () => {
+        // Reseta os filtros para o padrão
+        areaFilterSelect.value = currentUser ? currentUser.area : 'all';
+        daySelect.value = '';
+        periodSelect.value = 'all';
+        noTccWeekCheckbox.checked = false;
+        planningModeCheckbox.checked = false;
+
+        // Limpa a seleção de professores
+        selectedTeachers.clear();
+        populateTeacherSelect(areaFilterSelect.value);
+        updateMultiSelectDisplay();
+
+        // Limpa o estado de confirmações a cada nova busca
+        resetAppState();
+
+        resultsArea.innerHTML = '';
+        actionsContainer.innerHTML = '';
+        exportContainer.innerHTML = '';
+        document.getElementById('trash-area').innerHTML = '';
+        document.getElementById('activity-log-area').innerHTML = '';
+    };
+
+    document.getElementById('clear-all-btn').addEventListener('click', clearAll);
 
     // Delegação de eventos para todos os botões de ação
     document.body.addEventListener('click', (e) => {
@@ -4497,112 +4574,154 @@ document.addEventListener('DOMContentLoaded', () => {
         displayResults(allClasses, dayOfWeek);
     };
 
+    /**
+     * Pré-calcula e armazena em cache os horários livres de todos os professores para um determinado dia.
+     * Isso evita a necessidade de recalcular a disponibilidade para cada aula a ser coberta.
+     * @param {string} dayOfWeek - O dia da semana para o qual a disponibilidade será calculada.
+     * @param {string[]} absentTeacherNames - Uma lista de nomes de professores ausentes a serem ignorados.
+     * @returns {Map<string, Set<string>>} Um mapa onde a chave é o nome do professor e o valor é um Set de seus horários livres (ex: "07:30").
+     */
+    const precomputeAvailability = (dayOfWeek, absentTeacherNames) => {
+        const availabilityCache = new Map();
+        const allTimeSlots = new Set(['07:30', '08:20', '09:30', '10:20', '11:10', '13:20', '14:10', '15:20', '16:10']);
+
+        teacherScheduleData.professores.forEach(prof => {
+            // Pula professores ausentes, excluídos ou que estão no seu dia de área
+            if (absentTeacherNames.includes(prof.nome) || 
+                excludedTeachers.includes(prof.nome) ||
+                teacherScheduleData.diasDeArea[prof.area] === dayOfWeek) {
+                return;
+            }
+
+            const occupiedSlots = new Set();
+            (prof.horarios || []).forEach(schedule => {
+                if (schedule.dia === dayOfWeek) {
+                    occupiedSlots.add(schedule.inicio);
+                }
+            });
+
+            const freeSlots = new Set();
+            allTimeSlots.forEach(slot => {
+                if (!occupiedSlots.has(slot) && !isDuringBreak({ inicio: slot, fim: calculateEndTime(slot) })) {
+                    freeSlots.add(slot);
+                }
+            });
+
+            if (freeSlots.size > 0) {
+                availabilityCache.set(prof.nome, freeSlots);
+            }
+        });
+
+        return availabilityCache;
+    };
+
     const findAvailableTeachers = (classToCover, dayOfWeek, absentTeachers, currentConfirmations) => {
         const candidates = [];
         const absentTeacherNames = absentTeachers.map(t => t.nome);
+        const availabilityCache = precomputeAvailability(dayOfWeek, absentTeacherNames);
 
-        teacherScheduleData.professores.forEach(potentialSubstitute => {
-            if (absentTeacherNames.includes(potentialSubstitute.nome)) return;
-            if (excludedTeachers.includes(potentialSubstitute.nome)) return;
+        availabilityCache.forEach((freeSlots, substituteName) => {
+            // 1. Verifica se o professor está livre no horário da aula a ser coberta
+            if (!freeSlots.has(classToCover.inicio)) return;
 
-            // NOVO: Verificar limite de substituições
+            const potentialSubstitute = teacherScheduleData.professores.find(p => p.nome === substituteName);
+            if (!potentialSubstitute) return;
+            
+            // Verificar se o modo de planejamento está ativo
+            const isPlanningMode = planningModeCheckbox.checked;
             const substitutionsCount = Object.values(currentConfirmations).filter(name => name === potentialSubstitute.nome).length;
-            const isNoTccWeek = noTccWeekCheckbox.checked;
-            const baseLimit = substitutionLimits[potentialSubstitute.nome];
+            let remainingSubstitutions = Infinity; // Padrão para infinito se não houver limite
+            let currentLimit = Infinity;
 
-            // Se o professor não estiver na lista, não há limite. Se estiver, calcula o limite.
-            if (baseLimit !== undefined) {
-                const currentLimit = isNoTccWeek ? baseLimit + 1 : baseLimit;
-                if (substitutionsCount >= currentLimit) return; // Retorna se o limite foi atingido
+            // Se não estiver em modo de planejamento, verifica o limite de substituições
+            if (!isPlanningMode) {
+                const isNoTccWeek = noTccWeekCheckbox.checked;
+                const baseLimit = substitutionLimits[potentialSubstitute.nome];
+
+                if (baseLimit !== undefined) {
+                    currentLimit = isNoTccWeek ? baseLimit + 1 : baseLimit;
+                    // Se o limite já foi atingido, não sugere o professor
+                    if (substitutionsCount >= currentLimit) return;
+                    remainingSubstitutions = currentLimit - substitutionsCount;
+                }
             }
 
-            // 2. Verificar se o substituto está em seu "dia de área" (dia de folga da área)
-            const diaDeAreaDoSubstituto = teacherScheduleData.diasDeArea[potentialSubstitute.area];
-            if (diaDeAreaDoSubstituto === dayOfWeek) return;
-
-            // 3. Verificar se há conflito de horário com as aulas do substituto
-            const hasConflict = (potentialSubstitute.horarios || []).some(schedule => 
-                schedule.dia === dayOfWeek && isTimeOverlap(classToCover, schedule)
-            );
-
-            if (!hasConflict) {
-                // 4. Calcular pontuação e gerar justificativa com base nos critérios
-
-                // 3. Verificar se o substituto já foi confirmado para um horário conflitante
-                const isConfirmedInConflict = Object.entries(currentConfirmations).some(([confirmedClassId, confirmedSubstituteName]) => {
-                    if (potentialSubstitute.nome === confirmedSubstituteName) {
-                        // Extrai o horário do ID da aula confirmada
-                        const [_day, start, end] = confirmedClassId.split('_');
-                        const confirmedSlot = { inicio: start, fim: end };
-                        return isTimeOverlap(classToCover, confirmedSlot);
-                    }
-                    return false;
-                });
-                if (isConfirmedInConflict) return;
-
-
-                const scores = {
-                    workload: 0, // NOVO: Para balancear a carga de trabalho
-                    sameCourse: 0, // Novo: Prioridade para quem conhece o curso (ADM, DS, etc.)
-                    sameGrade: 0, // Novo: Prioridade para quem conhece a série
-                    sameTurma: 0, // Prioridade alta para quem já conhece a turma
-                    sameArea: 0,  // Prioridade baixa, como solicitado
-                };
-                const justifications = ['Disponível no horário']; // Sempre começa com a disponibilidade
-                scores.workload = -30 * substitutionsCount;
-                
-                if (substitutionsCount > 0) {
-                    justifications.push(`Já possui ${substitutionsCount} substituiç${substitutionsCount > 1 ? 'ões' : 'ão'}`);
+            // 2. Verificar se o substituto já foi confirmado para um horário conflitante
+            // Esta verificação é importante porque o cache de disponibilidade não conhece as confirmações atuais.
+            const isConfirmedInConflict = Object.entries(currentConfirmations).some(([confirmedClassId, confirmedSubstituteName]) => {
+                if (potentialSubstitute.nome === confirmedSubstituteName) {
+                    const [_day, start, end] = confirmedClassId.split('_');
+                    const confirmedSlot = { inicio: start, fim: end };
+                    return isTimeOverlap(classToCover, confirmedSlot);
                 }
+                return false;
+            });
+            if (isConfirmedInConflict) return;
 
-                const gradeToCover = getGrade(classToCover.turma);
-                if (gradeToCover && potentialSubstitute.horarios.some(h => getGrade(h.turma) === gradeToCover)) {
-                    scores.sameGrade = 25; // Pontuação intermediária por conhecer a série
-                    justifications.push(`Leciona para o ${gradeToCover} ano`);
-                }
-
-                const courseToCover = getCourse(classToCover.turma);
-                if (courseToCover && potentialSubstitute.horarios.some(h => getCourse(h.turma) === courseToCover)) {
-                    scores.sameCourse = 35; // Pontuação alta por conhecer o curso
-                    justifications.push(`Leciona para o curso de ${courseToCover}`);
-                }
-
-                const hasTaughtTurma = potentialSubstitute.horarios.some(schedule => schedule.turma === classToCover.turma);
-                if (hasTaughtTurma) {
-                    scores.sameTurma = 50; // Pontuação alta por conhecer a turma
-                    justifications.push('Já leciona para esta turma.');
-                }
-                
-                // Encontra a área do professor da aula a ser coberta
-                const originalTeacherArea = absentTeachers.find(t => t.nome === classToCover.teacherName)?.area;
-                if (originalTeacherArea && potentialSubstitute.area === originalTeacherArea) {
-                    scores.sameArea = 10; // Pontuação baixa para dar prioridade à disponibilidade e turma
-                    justifications.push(`Da mesma área: <strong>${potentialSubstitute.area}</strong>.`);
-                }
-
-                // 5. Encontrar a próxima aula do professor no mesmo dia para dar mais contexto
-                const substituteClassesToday = (potentialSubstitute.horarios || [])
-                    .filter(h => h.dia === dayOfWeek)
-                    .sort((a, b) => parseTimeToMinutes(a.inicio) - parseTimeToMinutes(b.inicio));
-
-                const nextClass = substituteClassesToday.find(h => parseTimeToMinutes(h.inicio) > parseTimeToMinutes(classToCover.inicio));
-
-                if (nextClass) {
-                    justifications.push(`Próxima aula às ${nextClass.inicio}`);
-                } else if (substituteClassesToday.length > 0) {
-                    // Tem aulas no dia, mas nenhuma depois desta
-                    justifications.push('Última aula do dia seria esta.');
-                }
-
-                const totalScore = Object.values(scores).reduce((sum, val) => sum + val, 0);
-
-                candidates.push({ 
-                    ...potentialSubstitute, 
-                    score: totalScore, 
-                    justification: justifications.join(' | '),
-                    substitutionsCount: substitutionsCount
-                });
+            // 3. Calcular pontuação e gerar justificativa com base nos critérios
+            const scores = {
+                workload: 0, // NOVO: Para balancear a carga de trabalho
+                sameCourse: 0, // Novo: Prioridade para quem conhece o curso (ADM, DS, etc.)
+                sameGrade: 0, // Novo: Prioridade para quem conhece a série
+                sameTurma: 0, // Prioridade alta para quem já conhece a turma
+                sameArea: 0,  // Prioridade baixa, como solicitado
+            };
+            const justifications = ['Disponível no horário']; // Sempre começa com a disponibilidade
+            scores.workload = -30 * substitutionsCount;
+            
+            if (substitutionsCount > 0) {
+                justifications.push(`Já possui ${substitutionsCount} substituiç${substitutionsCount > 1 ? 'ões' : 'ão'}`);
             }
+
+            const gradeToCover = getGrade(classToCover.turma);
+            if (gradeToCover && potentialSubstitute.horarios.some(h => getGrade(h.turma) === gradeToCover)) {
+                scores.sameGrade = 25; // Pontuação intermediária por conhecer a série
+                justifications.push(`Leciona para o ${gradeToCover} ano`);
+            }
+
+            const courseToCover = getCourse(classToCover.turma);
+            if (courseToCover && potentialSubstitute.horarios.some(h => getCourse(h.turma) === courseToCover)) {
+                scores.sameCourse = 35; // Pontuação alta por conhecer o curso
+                justifications.push(`Leciona para o curso de ${courseToCover}`);
+            }
+
+            const hasTaughtTurma = potentialSubstitute.horarios.some(schedule => schedule.turma === classToCover.turma);
+            if (hasTaughtTurma) {
+                scores.sameTurma = 50; // Pontuação alta por conhecer a turma
+                justifications.push('Já leciona para esta turma.');
+            }
+            
+            // Encontra a área do professor da aula a ser coberta
+            const originalTeacherArea = absentTeachers.find(t => t.nome === classToCover.teacherName)?.area;
+            if (originalTeacherArea && potentialSubstitute.area === originalTeacherArea) {
+                scores.sameArea = 10; // Pontuação baixa para dar prioridade à disponibilidade e turma
+                justifications.push(`Da mesma área: <strong>${potentialSubstitute.area}</strong>.`);
+            }
+
+            // 4. Encontrar a próxima aula do professor no mesmo dia para dar mais contexto
+            const substituteClassesToday = (potentialSubstitute.horarios || [])
+                .filter(h => h.dia === dayOfWeek)
+                .sort((a, b) => parseTimeToMinutes(a.inicio) - parseTimeToMinutes(b.inicio));
+
+            const nextClass = substituteClassesToday.find(h => parseTimeToMinutes(h.inicio) > parseTimeToMinutes(classToCover.inicio));
+
+            if (nextClass) {
+                justifications.push(`Próxima aula às ${nextClass.inicio}`);
+            } else if (substituteClassesToday.length > 0) {
+                // Tem aulas no dia, mas nenhuma depois desta
+                justifications.push('Última aula do dia seria esta.');
+            }
+
+            const totalScore = Object.values(scores).reduce((sum, val) => sum + val, 0);
+
+            candidates.push({ 
+                ...potentialSubstitute, 
+                score: totalScore, 
+                justification: justifications.join(' | '),
+                substitutionsCount: substitutionsCount,
+                remainingSubstitutions: remainingSubstitutions, // Adiciona o número de substituições restantes
+                limit: currentLimit // Adiciona o limite total
+            });
         });
         // Ordena por pontuação (maior primeiro) e depois por nome
         return candidates.sort((a, b) => b.score - a.score || a.nome.localeCompare(b.nome));
@@ -4802,12 +4921,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li class="flex flex-col sm:flex-row justify-between sm:items-center p-3 rounded-lg ${i === 0 ? 'bg-indigo-50/70' : ''} transition-colors hover:bg-slate-100/80">
                     <div class="w-full sm:w-auto">
                         <div class="flex items-center">
-                            <p class="font-semibold text-slate-800">${c.nome}</p>
-                            ${c.substitutionsCount > 0 ? `
-                                <span class="ml-2 text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full" title="Este professor já tem ${c.substitutionsCount} substituição(ões) confirmada(s) hoje.">
-                                    Já substitui
+                            <p class="font-semibold text-slate-800">${c.nome}</p>                            
+                            ${c.limit !== Infinity ? (() => {
+                                const remainingAfterThis = c.remainingSubstitutions - 1;
+                                let badgeClass = '';
+                                if (remainingAfterThis === 0) badgeClass = 'danger';
+                                else if (remainingAfterThis === 1) badgeClass = 'warning';
+                                
+                                return `
+                                <span class="ml-2 text-xs font-bold px-2 py-0.5 rounded-full limit-badge ${badgeClass}" 
+                                      title="Este professor usou ${c.substitutionsCount} de ${c.limit} substituições. Se aceitar esta, restarão ${remainingAfterThis}.">
+                                    Usadas: ${c.substitutionsCount} / ${c.limit}
                                 </span>
-                            ` : ''}
+                            `})() : ''}
+
                         </div>
                         <p class="text-xs sm:text-sm text-slate-500 mt-1 sm:mt-0">${c.justification}</p>
                     </div>
@@ -4866,7 +4993,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
                     Log de Atividades
                 </h3>
-                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                <div class="timeline-container bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-slate-200">
         `;
 
         appState.activityLog.forEach(log => {
@@ -4886,12 +5013,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             logHtml += `
-                <div class="activity-log-item">
+                <div class="timeline-item">
                     <div class="activity-log-icon ${iconBg}">
                         ${icon}
                     </div>
-                    <div>
-                        <p class="text-sm text-slate-700">${text}</p>
+                    <div class="timeline-content">
+                        <p class="text-sm text-slate-700 leading-relaxed">${text}</p>
                         <p class="text-xs text-slate-500 mt-1">${time}</p>
                     </div>
                 </div>
