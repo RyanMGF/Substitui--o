@@ -21,6 +21,21 @@
   --transicao-padrao: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html.dark {
+  /* Paleta de Cores para o Tema Escuro */
+  --cor-primaria: #6366f1;         /* Indigo 500 - Mais brilhante no escuro */
+  --cor-primaria-hover: #4f46e5;   /* Indigo 600 */
+  --cor-acento-sucesso: #22c55e;   /* Green 500 */
+  --cor-fundo: #0f172a;             /* Slate 900 - Fundo escuro */
+  --cor-surface: #1e293b;          /* Slate 800 - Cor para cards */
+  --cor-texto-principal: #f1f5f9;  /* Slate 100 - Texto claro */
+  --cor-texto-secundario: #94a3b8; /* Slate 400 */
+  --cor-texto-terciario: #64748b;  /* Slate 500 */
+  --cor-borda: #334155;             /* Slate 700 - Borda sutil no escuro */
+}
+
+
+
 /* ==========================================================================
    2. ESTILOS BASE E ESTRUTURA
    ========================================================================== */
@@ -166,11 +181,29 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 }
 
 /* Spinner de Carregamento */
-#loading-spinner .border-indigo-600 {
-  border-bottom-color: var(--cor-primaria) !important;
-  border-left-color: var(--cor-primaria) !important;
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--cor-primaria);
+  animation: pulse 1.4s infinite ease-in-out both;
 }
 
+.dot-1 {
+  animation-delay: -0.32s;
+}
+
+.dot-2 {
+  animation-delay: -0.16s;
+}
+
+@keyframes pulse {
+  0%, 80%, 100% {
+    transform: scale(0);
+  } 40% {
+    transform: scale(1.0);
+  }
+}
 /* ==========================================================================
    5. MODAL DE CONFIGURAÇÕES
    ========================================================================== */
@@ -306,6 +339,80 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
   }
 }
 
+/* ==========================================================================
+   9. MEDIA QUERIES PARA DISPOSITIVOS MÓVEIS (Mobile First)
+   ========================================================================== */
+
+/* Estilos para telas menores que 768px (ponto de quebra 'md' do Tailwind) */
+@media (max-width: 768px) {
+  /* Aumenta a fonte base para melhor legibilidade no mobile */
+  body {
+    font-size: 16px; /* Garante que a fonte não seja muito pequena */
+    -webkit-text-size-adjust: 100%; /* Previne o zoom automático de fontes no iOS */
+  }
+
+  /* Ajusta o título principal para não ficar tão grande */
+  h1 {
+    font-size: 1.5rem; /* Equivalente a text-2xl */
+  }
+
+  /* Melhora o espaçamento do painel de controle */
+  .bg-white\/70 {
+    padding: 1rem; /* p-4 */
+  }
+
+  /* Garante que os cards de resultado empilhem bem */
+  .card .flex-col.md\:flex-row {
+    flex-direction: column;
+  }
+
+  /* Alinha os botões de ação à direita nos cards para fácil alcance */
+  .card .flex.items-center.gap-3.mt-3 {
+    justify-content: flex-end;
+  }
+
+  /* Faz com que os modais ocupem a tela inteira para melhor uso do espaço */
+  #settings-modal .relative,
+  #schedule-modal .relative {
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  #settings-modal .flex.items-center.justify-center.min-h-screen,
+  #schedule-modal .flex.items-center.justify-center.min-h-screen {
+    padding: 0;
+  }
+
+  /* Ajusta o container da grade horária para ter um padding interno */
+  #schedule-grid-container {
+    padding: 0 0.5rem;
+  }
+}
+
+/* ==========================================================================
+   10. LOG DE ATIVIDADES
+   ========================================================================== */
+.activity-log-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem; /* 16px */
+    padding: 0.75rem 0; /* 12px 0 */
+    border-bottom: 1px solid var(--cor-borda);
+}
+.activity-log-item:last-child {
+    border-bottom: none;
+}
+.activity-log-icon {
+    flex-shrink: 0;
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @keyframes text-blur-out {
   0% {
     filter: blur(0.01);

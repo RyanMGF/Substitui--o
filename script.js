@@ -3797,6 +3797,7 @@ let appState = {
     currentAbsentTeachers: [],
     currentDay: null,
 };
+let currentUser = null; // Armazena o usuário logado
 
 const resetAppState = () => {
     appState.confirmedSubstitutions = {};
@@ -3904,6 +3905,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const multiSelectButton = document.getElementById('absent-teachers-button');
     const multiSelectDisplay = document.getElementById('absent-teachers-display');
     const multiSelectDropdown = document.getElementById('absent-teachers-dropdown');
+    const loadSessionInput = document.getElementById('load-session-input');
     const noTccWeekCheckbox = document.getElementById('no-tcc-week-checkbox');
     let selectedTeachers = new Set();
     
@@ -3925,7 +3927,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const scheduleOverlay_elem = document.getElementById('schedule-overlay');
     const scheduleSearchInput = document.getElementById('schedule-search-teacher');
     const scheduleAreaFilter = document.getElementById('schedule-filter-area');
-    let workloadChartInstance = null;
 
     // Carrega as configurações salvas ao iniciar
     loadSettingsFromLocalStorage();
@@ -3935,7 +3936,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'cleone': { password: 'humanas2025', area: 'Humanas', name: 'Cleone' },
         'carlos': { password: 'exatas2025', area: 'Ciências da Natureza', name: 'Carlos' }, // Pode ser qualquer uma das duas
         'isa': { password: 'tecnica2025', area: 'Base Técnica', name: 'Isa' },
-        'geferson': { password: 'linguagens2025', area: 'Linguagens', name: 'Geferson' }
+        'geferson': { password: 'linguagens2025', area: 'Linguagens', name: 'Geferson' },
+        'renato': { password: 'estagio2025', area: 'Base Técnica', name: 'Renato' },
+        'ryan': { password: 'adm123', area: 'Base Técnica', name: 'Ryan' }
     };
 
     const loginForm = document.getElementById('login-form');
@@ -3945,6 +3948,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomeScreen = document.getElementById('welcome-screen');
     const welcomeMessage = document.getElementById('welcome-message');
     const togglePasswordBtn = document.getElementById('toggle-password-visibility');
+
 
     const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>`;
     const eyeSlashIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 01-2.45 2.45l-1.514-1.514a4 4 0 00-3.05-5.814l.922.922A4.002 4.002 0 017.968 6.553zm-1.07-1.07l3.536 3.536a2 2 0 01-2.45 2.45l-3.536-3.536a4 4 0 002.45-2.45z" clip-rule="evenodd" /></svg>`;
@@ -3968,6 +3972,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (user && user.password === password) {
             // Login bem-sucedido
+            currentUser = user; // Armazena o usuário logado
             loginError.classList.add('hidden');
             
             // 1. Esconde a tela de login
@@ -4004,6 +4009,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // --- FIM DA LÓGICA DE LOGIN ---
 
+    // --- LÓGICA DO LOG DE ATIVIDADES ---
+    const logActivity = (action, details) => {
+        if (!currentUser) return; // Não registra se ninguém estiver logado
+
+        if (!appState.activityLog) {
+            appState.activityLog = [];
+        }
+        appState.activityLog.unshift({ // Adiciona no início do array
+            user: currentUser.name,
+            action: action,
+            details: details,
+            timestamp: new Date().toISOString()
+        });
+    };
     // Lista de professores a serem ignorados nas sugestões (ex: licença médica)
     const excludedTeachers = ['Gilmar', 'Marinalva'];
 
@@ -4088,124 +4107,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const copySummaryToClipboard = () => {
-        const absentTeacherNames = appState.currentAbsentTeachers.map(p => p.nome).join(', ');
-        const dayOfWeek = appState.currentDay;
-        const dateString = new Date().toLocaleDateString('pt-BR');
-
-        let summaryText = `*Resumo de Substituições*\n\n`;
-        summaryText += `*Data:* ${dateString}\n`;
-        summaryText += `*Professor(es) Ausente(s):* ${absentTeacherNames}\n`;
-        summaryText += `*Dia:* ${dayOfWeek}\n\n`;
-        summaryText += `-------------------------------------\n\n`;
-
-        const sortedConfirmations = Object.entries(appState.confirmedSubstitutions).sort((a, b) => parseTimeToMinutes(a[0].split('_')[1]) - parseTimeToMinutes(b[0].split('_')[1]));
-
-        sortedConfirmations.forEach(([classId, substituteName]) => {
-            const [_day, start, end, ...turmaParts] = classId.split('_');
-            const turmaSanitized = turmaParts.join('_');
-
-            // Encontra a aula original para obter o nome do professor e a turma correta
-            const originalClass = teacherScheduleData.professores
-                .flatMap(p => p.horarios.map(h => ({ ...h, teacherName: p.nome })))
-                .find(h => 
-                    h.dia === _day && 
-                    h.inicio === start && 
-                    h.turma.replace(/\s|\//g, '-') === turmaSanitized
-                );
-            
-            summaryText += `*Horário:* ${start} - ${end}\n`;
-            summaryText += `*Aula de:* Prof. ${originalClass ? originalClass.teacherName : 'N/A'} (${originalClass ? originalClass.turma : 'N/A'})\n`;
-            summaryText += `➡️ *Substituto:* ${substituteName}\n\n`;
-        });
-
-        navigator.clipboard.writeText(summaryText).then(() => {
-            const copyBtn = document.getElementById('copy-summary-btn');
-            if (copyBtn) {
-                const originalText = copyBtn.innerHTML;
-                copyBtn.innerHTML = '✅ Copiado!';
-                copyBtn.classList.add('bg-green-600', 'hover:bg-green-700');
-                copyBtn.classList.remove('bg-slate-600', 'hover:bg-slate-700');
-
-                setTimeout(() => {
-                    copyBtn.innerHTML = originalText;
-                    copyBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
-                    copyBtn.classList.add('bg-slate-600', 'hover:bg-slate-700');
-                }, 2000);
-            }
-        }).catch(err => {
-            console.error('Erro ao copiar texto: ', err);
-            alert('Não foi possível copiar o texto. Por favor, tente manualmente.');
-        });
-    };
-
     const getCourse = (turma) => {
         if (!turma) return null;
         const match = turma.match(/\d[º°]?\s?([A-Z]{2,3})/);
         return match ? match[1] : null;
-    };
-
-    // --- Lógica do Gráfico de Carga Horária ---
-    const renderWorkloadChart = (teachersToDisplay) => {
-        const ctx = document.getElementById('workload-chart').getContext('2d');
-        const days = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
-        const dayColors = {
-            'Segunda': 'rgba(59, 130, 246, 0.7)',  // blue-500
-            'Terça': 'rgba(16, 185, 129, 0.7)', // emerald-500
-            'Quarta': 'rgba(239, 68, 68, 0.7)',   // red-500
-            'Quinta': 'rgba(245, 158, 11, 0.7)', // amber-500
-            'Sexta': 'rgba(139, 92, 246, 0.7)',  // violet-500
-        };
-
-        const labels = teachersToDisplay.map(p => p.nome);
-        const datasets = days.map(day => {
-            return {
-                label: day,
-                data: teachersToDisplay.map(teacher => {
-                    return (teacher.horarios || []).filter(h => h.dia === day).length;
-                }),
-                backgroundColor: dayColors[day],
-                borderWidth: 1,
-                borderColor: '#fff'
-            };
-        });
-
-        // Destruir o gráfico antigo antes de renderizar um novo
-        if (workloadChartInstance) {
-            workloadChartInstance.destroy();
-        }
-
-        workloadChartInstance = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: datasets
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: false, // Título já está no HTML
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.parsed.y !== null) {
-                                    label += `${context.parsed.y} aula(s)`;
-                                }
-                                return label;
-                            }
-                        }
-                    }
-                },
-                scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }
-            }
-        });
     };
 
     // --- Lógica do Modal da Grade Horária ---
@@ -4285,12 +4190,11 @@ document.addEventListener('DOMContentLoaded', () => {
             area: scheduleAreaFilter.value
         };
         renderMasterSchedule(filters);
-        renderWorkloadChart(teacherScheduleData.professores.filter(p => (!filters.searchTerm || p.nome.toLowerCase().includes(filters.searchTerm.toLowerCase())) && (filters.area === 'all' || p.area === filters.area)));
     };
 
     openScheduleBtn_elem.addEventListener('click', () => {
         populateScheduleAreaFilter();
-        renderMasterSchedule();
+        updateScheduleView(); // Chama a função unificada para renderizar tudo
         scheduleModal.setAttribute('aria-hidden', 'false');
         scheduleModal.classList.remove('hidden');
     });
@@ -4304,6 +4208,72 @@ document.addEventListener('DOMContentLoaded', () => {
     scheduleOverlay_elem.addEventListener('click', closeScheduleModal);
     scheduleSearchInput.addEventListener('input', updateScheduleView);
     scheduleAreaFilter.addEventListener('change', updateScheduleView);
+
+    // --- Lógica de Salvar/Carregar Sessão ---
+    const saveSession = () => {
+        const sessionData = {
+            version: '1.0',
+            savedAt: new Date().toISOString(),
+            state: {
+                confirmedSubstitutions: appState.confirmedSubstitutions,
+                ignoredClasses: appState.ignoredClasses,
+                absentTeacherNames: appState.currentAbsentTeachers.map(p => p.nome),
+                day: appState.currentDay,
+                period: periodSelect.value,
+                area: areaFilterSelect.value,
+                noTccWeek: noTccWeekCheckbox.checked,
+                activityLog: appState.activityLog || []
+            }
+        };
+
+        const blob = new Blob([JSON.stringify(sessionData, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `sessao_substituicao_${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    };
+
+    const loadSession = (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const sessionData = JSON.parse(e.target.result);
+                const state = sessionData.state;
+
+                // Restaurar estado e UI
+                areaFilterSelect.value = state.area;
+                selectedTeachers = new Set(state.absentTeacherNames);
+                daySelect.value = state.day;
+                periodSelect.value = state.period;
+                noTccWeekCheckbox.checked = state.noTccWeek;
+                appState.confirmedSubstitutions = state.confirmedSubstitutions || {};
+                appState.ignoredClasses = state.ignoredClasses || {};
+                appState.activityLog = state.activityLog || [];
+
+                // Atualizar UI e renderizar
+                populateTeacherSelect(state.area);
+                updateMultiSelectDisplay();
+                findBtn.click(); // Simula o clique para re-renderizar com os dados carregados
+
+            } catch (error) {
+                console.error("Erro ao carregar o arquivo de sessão:", error);
+                alert("Arquivo de sessão inválido ou corrompido.");
+            }
+        };
+        reader.readAsText(file);
+        
+        // Limpa o valor do input para permitir carregar o mesmo arquivo novamente
+        event.target.value = '';
+    };
+
+    loadSessionInput.addEventListener('change', loadSession);
 
     // --- Lógica do Filtro de Área ---
     const populateAreaFilter = () => {
@@ -4440,16 +4410,41 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = e.target.closest('button'); // Garante que estamos pegando o botão
         if (!target) return;
 
+        const findOriginalClass = (classId) => {
+            const [_day, start, _end, ...turmaParts] = classId.split('_');
+            const turmaSanitized = turmaParts.join('_');
+            return teacherScheduleData.professores
+                .flatMap(p => p.horarios.map(h => ({ ...h, teacherName: p.nome })))
+                .find(h => h.dia === _day && h.inicio === start && h.turma.replace(/\s|\//g, '-') === turmaSanitized);
+        };
+
         const classId = target.dataset.classId;
         const substituteName = target.dataset.substituteName;
 
         if (target.matches('.confirm-btn')) {
             appState.confirmedSubstitutions[classId] = substituteName;
+            const originalClass = findOriginalClass(classId);
+            if (originalClass) {
+                logActivity('confirm_substitution', {
+                    substitute: substituteName,
+                    originalTeacher: originalClass.teacherName,
+                    classInfo: `${originalClass.turma} (${originalClass.inicio}-${originalClass.fim})`
+                });
+            }
             render();
         }
 
         if (target.matches('.undo-btn')) {
+            const undoneSubstitute = appState.confirmedSubstitutions[classId];
             delete appState.confirmedSubstitutions[classId];
+            const originalClass = findOriginalClass(classId);
+            if (originalClass) {
+                logActivity('undo_substitution', {
+                    substitute: undoneSubstitute,
+                    originalTeacher: originalClass.teacherName,
+                    classInfo: `${originalClass.turma} (${originalClass.inicio}-${originalClass.fim})`
+                });
+            }
             render();
         }
 
@@ -4629,6 +4624,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const exportContainer = document.getElementById('export-container');
         const trashArea = document.getElementById('trash-area');
         const absentTeachers = teacherScheduleData.professores.filter(p => absentTeacherNames.includes(p.nome));
+        const activityLogArea = document.getElementById('activity-log-area');
         
         const sortedClasses = classes.sort((a,b) => parseTimeToMinutes(a.inicio) - parseTimeToMinutes(b.inicio));
         
@@ -4659,6 +4655,11 @@ document.addEventListener('DOMContentLoaded', () => {
             trashArea.innerHTML = '';
         }
 
+        // Renderiza o Log de Atividades
+        if (appState.activityLog && appState.activityLog.length > 0) {
+            activityLogArea.innerHTML = generateActivityLogHtml();
+        }
+
         // Adiciona o botão de auto-confirmar se houver aulas que precisam de substituto
         const needsSubstitution = sortedClasses.some(c => !isDuringBreak(c) && !appState.ignoredClasses[`${day}_${c.inicio}_${c.fim}`]);
         if (needsSubstitution) {
@@ -4675,8 +4676,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Adiciona botões de exportação se houver substituições confirmadas
         if (Object.keys(appState.confirmedSubstitutions).length > 0) {
-            exportContainer.innerHTML = `<button id="copy-summary-btn" class="bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-slate-700 transition-all">Copiar Resumo</button>`;
-            document.getElementById('copy-summary-btn').addEventListener('click', copySummaryToClipboard);
+            exportContainer.innerHTML = ``; // Limpa para reconstruir
+            
+            const pdfBtn = document.createElement('button');
+            pdfBtn.id = 'generate-pdf-btn';
+            pdfBtn.className = 'bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-slate-700 transition-all flex items-center gap-2';
+            pdfBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd" /></svg> <span>Gerar PDF do Resumo</span>`;
+            pdfBtn.addEventListener('click', generatePDFSummary);
+
+            const saveBtn = document.createElement('button');
+            saveBtn.id = 'save-session-btn';
+            saveBtn.className = 'bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 transition-all flex items-center gap-2';
+            saveBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4zm3 2a1 1 0 00-1 1v2a1 1 0 102 0V7a1 1 0 00-1-1z" /></svg> <span>Salvar Sessão</span>`;
+            saveBtn.addEventListener('click', saveSession);
+
+            exportContainer.append(pdfBtn, saveBtn);
         } else {
             exportContainer.innerHTML = '';
         }
@@ -4687,6 +4701,64 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.add('card-enter-active');
             }, index * 100);
         });
+    };
+
+    const generatePDFSummary = () => {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        const absentTeacherNames = appState.currentAbsentTeachers.map(p => p.nome).join(', ');
+        const dayOfWeek = appState.currentDay;
+        const date = new Date();
+        const dateString = date.toLocaleDateString('pt-BR');
+        const timeString = date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+        // Título
+        doc.setFontSize(18);
+        doc.setFont('helvetica', 'bold');
+        doc.text('Relatório de Substituições', doc.internal.pageSize.getWidth() / 2, 20, { align: 'center' });
+
+        // Informações do Cabeçalho
+        doc.setFontSize(11);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Data: ${dateString}`, 14, 35);
+        doc.text(`Dia da Semana: ${dayOfWeek}`, 14, 42);
+        doc.text(`Professor(es) Ausente(s): ${absentTeacherNames}`, 14, 49);
+
+        // Preparar dados para a tabela
+        const tableData = Object.entries(appState.confirmedSubstitutions)
+            .sort((a, b) => parseTimeToMinutes(a[0].split('_')[1]) - parseTimeToMinutes(b[0].split('_')[1]))
+            .map(([classId, substituteName]) => {
+                const [_day, start, end, ...turmaParts] = classId.split('_');
+                const turmaSanitized = turmaParts.join('_');
+                const originalClass = teacherScheduleData.professores
+                    .flatMap(p => p.horarios.map(h => ({ ...h, teacherName: p.nome })))
+                    .find(h => h.dia === _day && h.inicio === start && h.turma.replace(/\s|\//g, '-') === turmaSanitized);
+
+                return [
+                    `${start} - ${end}`,
+                    originalClass ? originalClass.teacherName : 'N/A',
+                    originalClass ? originalClass.turma : 'N/A',
+                    substituteName
+                ];
+            });
+
+        // Gerar a tabela
+        doc.autoTable({
+            startY: 60,
+            head: [['Horário', 'Aula Original (Prof.)', 'Turma', 'Professor Substituto']],
+            body: tableData,
+            theme: 'striped',
+            headStyles: { fillColor: [79, 70, 229] }, // Cor --cor-primaria (Indigo 600)
+        });
+
+        // Rodapé
+        const pageCount = doc.internal.getNumberOfPages();
+        doc.setFontSize(8);
+        doc.text(`Gerado em ${dateString} às ${timeString} - Página 1 de ${pageCount}`, doc.internal.pageSize.getWidth() / 2, doc.internal.pageSize.getHeight() - 10, { align: 'center' });
+
+        // Salvar o PDF
+        doc.save(`Relatorio_Substituicoes_${date.toISOString().slice(0,10)}.pdf`);
     };
     
     const generateClassCard = (classSlot, day, absentTeachers) => {
@@ -4785,5 +4857,48 @@ document.addEventListener('DOMContentLoaded', () => {
                 </button>
             </div>
         `;
+    };
+
+    const generateActivityLogHtml = () => {
+        let logHtml = `
+            <div class="border-t pt-8 mt-8">
+                <h3 class="text-xl font-bold text-slate-600 mb-4 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                    Log de Atividades
+                </h3>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+        `;
+
+        appState.activityLog.forEach(log => {
+            const time = new Date(log.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            let icon = '';
+            let text = '';
+            let iconBg = '';
+
+            if (log.action === 'confirm_substitution') {
+                icon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>`;
+                iconBg = 'bg-green-100 text-green-600';
+                text = `<strong>${log.user}</strong> confirmou <strong>${log.details.substitute}</strong> para a aula de <strong>${log.details.originalTeacher}</strong> (${log.details.classInfo}).`;
+            } else if (log.action === 'undo_substitution') {
+                icon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>`;
+                iconBg = 'bg-red-100 text-red-600';
+                text = `<strong>${log.user}</strong> desfez a substituição de <strong>${log.details.substitute}</strong> para a aula de <strong>${log.details.originalTeacher}</strong>.`;
+            }
+
+            logHtml += `
+                <div class="activity-log-item">
+                    <div class="activity-log-icon ${iconBg}">
+                        ${icon}
+                    </div>
+                    <div>
+                        <p class="text-sm text-slate-700">${text}</p>
+                        <p class="text-xs text-slate-500 mt-1">${time}</p>
+                    </div>
+                </div>
+            `;
+        });
+
+        logHtml += `</div></div>`;
+        return logHtml;
     };
 });
