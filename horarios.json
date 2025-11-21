@@ -6,6 +6,7 @@
   "professores": [
     {
       "nome": "ADRIELMA",
+      "area": "Ciências da Natureza",
       "horario": {
         "segunda": [],
         "terca": [],
@@ -24,11 +25,11 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1ºDS III.../PRA. INT. II"
+            "disciplina_turma": "1°DS III.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1\"DS III.../PRA. INT. II"
+            "disciplina_turma": "1°DS III.../PRA. INT. II"
           },
           {
             "hora": "15:20",
@@ -42,7 +43,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3\"ADM I/QUÍMICA"
+            "disciplina_turma": "3°ADM I/QUÍMICA"
           },
           {
             "hora": "09:30",
@@ -62,7 +63,7 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°ADM III/QUIMICA"
+            "disciplina_turma": "2°ADM III/QUÍMICA"
           }
         ],
         "sexta": [
@@ -76,15 +77,15 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3 ADM I/QUÍMICA"
+            "disciplina_turma": "3°ADM I/QUÍMICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3°ADM VIQUÍMICA"
+            "disciplina_turma": "3°ADM V/QUÍMICA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3ºADM VIQUÍMICA"
+            "disciplina_turma": "3°ADM V/QUÍMICA"
           },
           {
             "hora": "13:20",
@@ -96,17 +97,18 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2ºDS I/QUÍMICA"
+            "disciplina_turma": "2°DS I/QUÍMICA"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2ºDS I/QUÍMICA"
+            "disciplina_turma": "2°DS I/QUÍMICA"
           }
         ]
       }
     },
     {
       "nome": "ALEX",
+      "area": "Matemática",
       "horario": {
         "segunda": [],
         "terca": [
@@ -116,7 +118,7 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2 ADM I/MATEMÁTICA"
+            "disciplina_turma": "2°ADM I/MATEMÁTICA"
           },
           {
             "hora": "11:10",
@@ -128,7 +130,7 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2\"ADM II/MATEMÁTICA"
+            "disciplina_turma": "2°ADM II/MATEMÁTICA"
           },
           {
             "hora": "15:20",
@@ -136,17 +138,17 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 ADM I/PV"
+            "disciplina_turma": "1°ADM I/PV"
           }
         ],
         "quarta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "Reun"
+            "disciplina_turma": "Reun."
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1\"ADM II/PV"
+            "disciplina_turma": "1°ADM II/PV"
           },
           {
             "hora": "13:20",
@@ -158,17 +160,17 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2 ADM II/MATEMÁTICA"
+            "disciplina_turma": "2°ADM II/MATEMÁTICA"
           }
         ],
         "quinta": [
           {
             "hora": "08:20",
-            "disciplina_turma": "2°ADM I/APROF MATEMATICA"
+            "disciplina_turma": "2°ADM I/APROF. MATEMÁTICA"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3ºCOM/MATEMATICA"
+            "disciplina_turma": "3°COM/MATEMÁTICA"
           },
           {
             "hora": "10:20",
@@ -176,7 +178,7 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3°COM/MATEMATICA"
+            "disciplina_turma": "3°COM/MATEMÁTICA"
           },
           {
             "hora": "16:10",
@@ -190,15 +192,11 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3°ADM V/MATEMATICA"
+            "disciplina_turma": "3°ADM V/MATEMÁTICA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3°ADM V/MATEMATICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM I/MATEMATICA"
+            "disciplina_turma": "2°ADM I/MATEMÁTICA"
           },
           {
             "hora": "13:20",
@@ -216,117 +214,8 @@
       }
     },
     {
-      "nome": "ALEX-HISTÓRIA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1\"ADM IV/HISTORIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"ADM IV/HISTORIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM I/HISTÓRIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 ADM I/HISTORIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°GAS/HISTORIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°GAS/HISTÓRIA"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1 DS III/HISTORIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS I/HISTORIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS I/HISTORIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°DS I/HISTÓRIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS I/HISTORIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM III/HISTÓRIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1\"ADM III/HISTÓRIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2 GAS/HISTÓRIA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2 GAS/HISTORIA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1\"ADM II/HISTORIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"ADM II/HISTORIA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2 ADM III/HISTORIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM III/HISTORIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS III/HISTORIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°DS II/HISTÓRIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS II/HISTORIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS II/HISTÓRIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 DS II/HISTORIA"
-          }
-        ],
-        "sexta": []
-      }
-    },
-    {
       "nome": "CARLOS",
+      "area": "Matemática",
       "horario": {
         "segunda": [
           {
@@ -339,14 +228,14 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "Reun"
+            "disciplina_turma": "Reun."
           }
         ],
         "terca": [],
         "quarta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3ºADM III/MATEMATICA"
+            "disciplina_turma": "3°ADM III/MATEMÁTICA"
           },
           {
             "hora": "08:20",
@@ -354,15 +243,15 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1°ADM IV.../PRA INT. I"
+            "disciplina_turma": "1°ADM IV.../PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1\"ADM IV.../PRA INT. I"
+            "disciplina_turma": "1°ADM IV.../PRA. INT. I"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "Reun"
+            "disciplina_turma": "Reun."
           }
         ],
         "quinta": [
@@ -386,7 +275,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3°ADM II/MATEMÁTICA."
+            "disciplina_turma": "3°ADM II/MATEMÁTICA"
           },
           {
             "hora": "09:30",
@@ -394,17 +283,18 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3°ADM I/MATEMATICA"
+            "disciplina_turma": "3°ADM I/MATEMÁTICA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3\"ADM I/MATEMATICA"
+            "disciplina_turma": "3°ADM I/MATEMÁTICA"
           }
         ]
       }
     },
     {
       "nome": "CLEONE",
+      "area": "Humanas",
       "horario": {
         "segunda": [
           {
@@ -413,11 +303,11 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2\"ADM I/GEOGRAFIA"
+            "disciplina_turma": "2°ADM I/GEOGRAFIA"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "Reun"
+            "disciplina_turma": "Reun."
           }
         ],
         "terca": [
@@ -431,15 +321,15 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1 ADM IV/GEOGRAFIA"
+            "disciplina_turma": "1°ADM IV/GEOGRAFIA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 ADM III/GEOGRAFIA"
+            "disciplina_turma": "1°ADM III/GEOGRAFIA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1\"ADM I/GEOGRAFIA"
+            "disciplina_turma": "1°ADM I/GEOGRAFIA"
           },
           {
             "hora": "14:10",
@@ -447,11 +337,11 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1\"DS II/GEOGRAFIA"
+            "disciplina_turma": "1°DS II/GEOGRAFIA"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2 ADM I/GEOGRAFIA"
+            "disciplina_turma": "2°ADM I/GEOGRAFIA"
           }
         ],
         "quarta": [
@@ -465,7 +355,7 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1 ADM IV/GEOGRAFIA"
+            "disciplina_turma": "1°ADM IV/GEOGRAFIA"
           },
           {
             "hora": "16:10",
@@ -495,7 +385,7 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2 ADM II/GEOGRAFIA"
+            "disciplina_turma": "2°ADM II/GEOGRAFIA"
           }
         ],
         "sexta": []
@@ -503,6 +393,7 @@
     },
     {
       "nome": "DANILO",
+      "area": "Ciências da Natureza",
       "horario": {
         "segunda": [
           {
@@ -515,11 +406,11 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3°ADM V/FISICA"
+            "disciplina_turma": "3°ADM V/FÍSICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3ºADM 111/FÍSICA"
+            "disciplina_turma": "3°ADM III/FÍSICA"
           },
           {
             "hora": "11:10",
@@ -546,11 +437,11 @@
         "quarta": [
           {
             "hora": "08:20",
-            "disciplina_turma": "3°ADM II/FISICA"
+            "disciplina_turma": "3°ADM II/FÍSICA"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3ºADM II/FÍSICA"
+            "disciplina_turma": "3°ADM II/FÍSICA"
           },
           {
             "hora": "13:20",
@@ -566,32 +457,30 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2GAS°/FÍSICA"
+            "disciplina_turma": "2°GAS/FÍSICA"
           }
         ],
         "quinta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3ºADM IV/FISICA"
+            "disciplina_turma": "3°ADM IV/FÍSICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3 ADM IV/FÍSICA"
+            "disciplina_turma": "3°ADM IV/FÍSICA"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3 ADM V/FISICA"
+            "disciplina_turma": "3°ADM V/FÍSICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3°COM/FISICA"
+            "disciplina_turma": "3°COM/FÍSICA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3°COM/FISICA"
-          }
-        ],
-        "sexta": [
+            "disciplina_turma": "3°COM/FÍSICA"
+          },
           {
             "hora": "15:20",
             "disciplina_turma": "2°DS II/FÍSICA"
@@ -600,17 +489,19 @@
             "hora": "16:10",
             "disciplina_turma": "2°DS II/FÍSICA"
           }
-        ]
+        ],
+        "sexta": []
       }
     },
     {
       "nome": "DEMOHAB",
+      "area": "Base Técnica",
       "horario": {
         "segunda": [],
         "terca": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1\"ADM I/EMPREENDEDORISMO"
+            "disciplina_turma": "1°ADM I/EMPREENDEDORISMO"
           },
           {
             "hora": "08:20",
@@ -618,27 +509,27 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1 DS II/IC"
+            "disciplina_turma": "1°DS II/IC"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1\"DS II/IC"
+            "disciplina_turma": "1°DS II/IC"
           }
         ],
         "quarta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "2ºADM II/ECONOMIA"
+            "disciplina_turma": "2°ADM II/ECONOMIA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2 ADM II/ECONOMIA"
+            "disciplina_turma": "2°ADM II/ECONOMIA"
           }
         ],
         "quinta": [
           {
             "hora": "08:20",
-            "disciplina_turma": "2ºADM IVECONOMIA"
+            "disciplina_turma": "2°ADM I/ECONOMIA"
           },
           {
             "hora": "09:30",
@@ -658,21 +549,21 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 ADM IV/EMPREENDEDORISMO"
+            "disciplina_turma": "1°ADM IV/EMPREENDEDORISMO"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1°ADM 11/EMPREENDEDORISMO"
+            "disciplina_turma": "1°ADM II/EMPREENDEDORISMO"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1°ADM 11/EMPREENDEDORISMO"
+            "disciplina_turma": "1°ADM II/EMPREENDEDORISMO"
           }
         ],
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1\"ADM III/EMPREENDEDORISMO"
+            "disciplina_turma": "1°ADM III/EMPREENDEDORISMO"
           },
           {
             "hora": "08:20",
@@ -684,13 +575,14 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1 DS I/IC"
+            "disciplina_turma": "1°DS I/IC"
           }
         ]
       }
     },
     {
       "nome": "DENIS",
+      "area": "Ciências da Natureza",
       "horario": {
         "segunda": [
           {
@@ -699,7 +591,7 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1 DS I/FÍSICA"
+            "disciplina_turma": "1°DS I/FÍSICA"
           },
           {
             "hora": "10:20",
@@ -711,19 +603,19 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°ADM II/FISICA"
+            "disciplina_turma": "1°ADM II/FÍSICA"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 ADM II/FISICA"
+            "disciplina_turma": "1°ADM II/FÍSICA"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1°DS III/FISICA"
+            "disciplina_turma": "1°DS III/FÍSICA"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 DS III/FÍSICA"
+            "disciplina_turma": "1°DS III/FÍSICA"
           }
         ],
         "terca": [],
@@ -734,11 +626,11 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2°ADM I/FISICA"
+            "disciplina_turma": "2°ADM I/FÍSICA"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "2 ADM I/FISICA"
+            "disciplina_turma": "2°ADM I/FÍSICA"
           },
           {
             "hora": "13:20",
@@ -748,40 +640,40 @@
         "quinta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1\"ADM I/FÍSICA"
+            "disciplina_turma": "1°ADM I/FÍSICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1\"ADM I/FÍSICA"
+            "disciplina_turma": "1°ADM I/FÍSICA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°ADM III/FISICA"
+            "disciplina_turma": "1°ADM III/FÍSICA"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 ADM III/FISICA"
+            "disciplina_turma": "1°ADM III/FÍSICA"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1 ADM IV/FISICA"
+            "disciplina_turma": "1°ADM IV/FÍSICA"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1\"ADM IV/FÍSICA"
+            "disciplina_turma": "1°ADM IV/FÍSICA"
           }
         ],
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "2°ADM II/FISICA"
+            "disciplina_turma": "2°ADM II/FÍSICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2°ADM 11/FÍSICA"
+            "disciplina_turma": "2°ADM II/FÍSICA"
           },
           {
-            "hora": "09:30",
+            "hora": "10:20",
             "disciplina_turma": "1°DS II/FÍSICA"
           },
           {
@@ -798,7 +690,7 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1°GAS/FISICA"
+            "disciplina_turma": "1°GAS/FÍSICA"
           },
           {
             "hora": "16:10",
@@ -809,6 +701,7 @@
     },
     {
       "nome": "DENISSON",
+      "area": "Matemática",
       "horario": {
         "segunda": [
           {
@@ -817,7 +710,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1°GAS/APROF. MATEMATICA"
+            "disciplina_turma": "1°GAS/APROF. MATEMÁTICA"
           },
           {
             "hora": "09:30",
@@ -825,15 +718,15 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1°DS II/MATEMATICA"
+            "disciplina_turma": "1°DS II/MATEMÁTICA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 DS II/APROF. MATEMATICA"
+            "disciplina_turma": "1°DS II/APROF. MATEMÁTICA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°DS I/APROF MATEMATICA"
+            "disciplina_turma": "1°DS I/APROF. MATEMÁTICA"
           },
           {
             "hora": "14:10",
@@ -841,11 +734,11 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1°DS II/RECOMP MAT"
+            "disciplina_turma": "1°DS II/RECOMP. MAT"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1°DS I/RECOMP MAT"
+            "disciplina_turma": "1°DS I/RECOMP. MAT"
           }
         ],
         "terca": [
@@ -861,7 +754,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1°DS III/MATEMATICA"
+            "disciplina_turma": "1°DS III/MATEMÁTICA"
           },
           {
             "hora": "09:30",
@@ -873,21 +766,21 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1\"DS I/MATEMÁTICA"
+            "disciplina_turma": "1°DS I/MATEMÁTICA"
           }
         ],
         "quinta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°DS III/APROF. MATEMATICA"
+            "disciplina_turma": "1°DS III/APROF. MATEMÁTICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1°DS III/APROF. MATEMATICA"
+            "disciplina_turma": "1°DS III/APROF. MATEMÁTICA"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1°DS I/MATEMATICA"
+            "disciplina_turma": "1°DS I/MATEMÁTICA"
           },
           {
             "hora": "10:20",
@@ -895,11 +788,11 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1°DS II/MATEMATICA"
+            "disciplina_turma": "1°DS II/MATEMÁTICA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1 GAS/MATEMÁTICA"
+            "disciplina_turma": "1°GAS/MATEMÁTICA"
           },
           {
             "hora": "14:10",
@@ -919,15 +812,16 @@
     },
     {
       "nome": "ELIAS",
+      "area": "Matemática",
       "horario": {
         "segunda": [
           {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM II/APROF. MATEMATICA"
+            "hora": "09:30",
+            "disciplina_turma": "1°ADM II/APROF. MATEMÁTICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1ºADM JI/APROF. MATEMÁTICA"
+            "disciplina_turma": "1°ADM II/APROF. MATEMÁTICA"
           },
           {
             "hora": "11:10",
@@ -935,7 +829,7 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°ADM IV/MATEMATICA"
+            "disciplina_turma": "1°ADM IV/MATEMÁTICA"
           },
           {
             "hora": "14:10",
@@ -947,18 +841,18 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 ADM III/MATEMATICA"
+            "disciplina_turma": "1°ADM III/MATEMÁTICA"
           }
         ],
         "terca": [],
         "quarta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°ADM III/MATEMATICA"
+            "disciplina_turma": "1°ADM III/MATEMÁTICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1\"ADM III/MATEMATICA"
+            "disciplina_turma": "1°ADM III/MATEMÁTICA"
           }
         ],
         "quinta": [
@@ -972,27 +866,27 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "ADM III/RECOMP. MAT"
+            "disciplina_turma": "1°ADM III/RECOMP. MAT"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1 ADM II/RECOMP. MAT"
+            "disciplina_turma": "1°ADM II/RECOMP. MAT"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 ADM IV/MATEMATICA"
+            "disciplina_turma": "1°ADM IV/MATEMÁTICA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1 ADM I/MATEMÁTICA"
+            "disciplina_turma": "1°ADM I/MATEMÁTICA"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1\"ADM I/MATEMÁTICA"
+            "disciplina_turma": "1°ADM I/MATEMÁTICA"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1\"ADM III/APROF. MATEMATICA"
+            "disciplina_turma": "1°ADM III/APROF. MATEMÁTICA"
           },
           {
             "hora": "16:10",
@@ -1002,23 +896,23 @@
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°ADM 11/MATEMÁTICA"
+            "disciplina_turma": "1°ADM II/MATEMÁTICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1\"ADM I/RECOMP. MAT"
+            "disciplina_turma": "1°ADM I/RECOMP. MAT"
+          },
+          {
+            "hora": "09:30",
+            "disciplina_turma": "1°ADM IV/APROF. MATEMÁTICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1\"ADM IV/APROF. MATEMATICA"
-          },
-          {
-            "hora": "11:10",
             "disciplina_turma": "1°ADM IV/APROF. MATEMÁTICA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°ADM I/APROF MATEMATICA"
+            "disciplina_turma": "1°ADM I/APROF. MATEMÁTICA"
           },
           {
             "hora": "14:10",
@@ -1029,19 +923,20 @@
     },
     {
       "nome": "FERNANDA",
+      "area": "Matemática",
       "horario": {
         "segunda": [
           {
             "hora": "07:30",
-            "disciplina_turma": "20ADM III/MATEMÁTICA"
+            "disciplina_turma": "2°ADM III/MATEMÁTICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2°ADM III/MATEMATICA"
+            "disciplina_turma": "2°ADM III/MATEMÁTICA"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "2°DS I/MATEMATICA"
+            "disciplina_turma": "2°DS I/MATEMÁTICA"
           },
           {
             "hora": "10:20",
@@ -1049,23 +944,23 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2°ADM III/APROF MATEMÁTICA"
+            "disciplina_turma": "2°ADM III/APROF. MATEMÁTICA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°DS II/MATEMATICA"
+            "disciplina_turma": "2°DS II/MATEMÁTICA"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°DS I/APROF MATEMÁTICA"
+            "disciplina_turma": "2°DS I/APROF. MATEMÁTICA"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2 GAS/RECOMP. MAT"
+            "disciplina_turma": "2°GAS/RECOMP. MAT"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2 GAS/MATEMÁTICA"
+            "disciplina_turma": "2°GAS/MATEMÁTICA"
           }
         ],
         "terca": [],
@@ -1080,11 +975,11 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "2°GAS/APROF MATEMÁTICA"
+            "disciplina_turma": "2°GAS/APROF. MATEMÁTICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2°ADM II/PRA INT. I"
+            "disciplina_turma": "2°ADM II.../PRA. INT. I"
           },
           {
             "hora": "11:10",
@@ -1092,15 +987,15 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°ADM II.../PRA. INT II"
+            "disciplina_turma": "2°ADM II.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°ADM II./PRA. INT. II"
+            "disciplina_turma": "2°ADM II.../PRA. INT. II"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2°ADM III/RECOMP MAT"
+            "disciplina_turma": "2°ADM III/RECOMP. MAT"
           },
           {
             "hora": "16:10",
@@ -1110,7 +1005,7 @@
         "quinta": [
           {
             "hora": "10:20",
-            "disciplina_turma": "2°DS I/MATEMATICA"
+            "disciplina_turma": "2°DS I/MATEMÁTICA"
           },
           {
             "hora": "11:10",
@@ -1126,11 +1021,11 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2 DS I/RECOMP. MAT"
+            "disciplina_turma": "2°DS I/RECOMP. MAT"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2°ADM III/MATEMATICA"
+            "disciplina_turma": "2°ADM III/MATEMÁTICA"
           }
         ],
         "sexta": []
@@ -1138,6 +1033,7 @@
     },
     {
       "nome": "GEFERSON",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
@@ -1154,19 +1050,19 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3°ADM I/ED.FISICA"
+            "disciplina_turma": "3°ADM I/ED.FÍSICA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3\"ADM I/ED.FÍSICA"
+            "disciplina_turma": "3°ADM I/ED.FÍSICA"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "Reun"
+            "disciplina_turma": "Reun."
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "Reun"
+            "disciplina_turma": "Reun."
           }
         ],
         "terca": [
@@ -1176,7 +1072,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2°GAS/ED FISICA"
+            "disciplina_turma": "2°GAS/ED.FÍSICA"
           },
           {
             "hora": "09:30",
@@ -1184,7 +1080,7 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3°ADM III/ED.FISICA"
+            "disciplina_turma": "3°ADM III/ED.FÍSICA"
           },
           {
             "hora": "11:10",
@@ -1217,7 +1113,7 @@
         "sexta": [
           {
             "hora": "10:20",
-            "disciplina_turma": "3\"COM/ED FISICA"
+            "disciplina_turma": "3°COM/ED.FÍSICA"
           },
           {
             "hora": "11:10",
@@ -1225,26 +1121,27 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°DS I/ED FÍSICA"
+            "disciplina_turma": "2°DS I/ED.FÍSICA"
           }
         ]
       }
     },
     {
       "nome": "GILMAR",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°ADM I/ED.FISICA"
+            "disciplina_turma": "1°ADM I/ED.FÍSICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1\"ADM I/ED FÍSICA"
+            "disciplina_turma": "1°ADM I/ED.FÍSICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2\"ADM III/ED.FÍSICA"
+            "disciplina_turma": "2°ADM III/ED.FÍSICA"
           },
           {
             "hora": "15:20",
@@ -1258,19 +1155,19 @@
         "terca": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°ADM III/ED.FISICA"
+            "disciplina_turma": "1°ADM III/ED.FÍSICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1 ADM III/ED.FÍSICA"
+            "disciplina_turma": "1°ADM III/ED.FÍSICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1 GAS/ED FÍSICA"
+            "disciplina_turma": "1°GAS/ED.FÍSICA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2 ADM I/ED FISICA"
+            "disciplina_turma": "2°ADM I/ED.FÍSICA"
           },
           {
             "hora": "15:20",
@@ -1278,7 +1175,7 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 ADM IV/ED.FÍSICA"
+            "disciplina_turma": "1°ADM IV/ED.FÍSICA"
           }
         ],
         "quarta": [
@@ -1288,23 +1185,23 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1°DS I/ED FÍSICA"
+            "disciplina_turma": "1°DS I/ED.FÍSICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1°DS III/PRA. INT. I"
+            "disciplina_turma": "1°DS III.../PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1°DS IIL/PRA INT. 1"
+            "disciplina_turma": "1°DS III.../PRA. INT. I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2ºADM III/PRA INT II"
+            "disciplina_turma": "2°ADM III.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°ADM III.../PRA. INT II"
+            "disciplina_turma": "2°ADM III.../PRA. INT. II"
           },
           {
             "hora": "15:20",
@@ -1312,7 +1209,7 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2\"ADM I/ED.FÍSICA"
+            "disciplina_turma": "2°ADM I/ED.FÍSICA"
           }
         ],
         "quinta": [],
@@ -1323,19 +1220,19 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1°DS III/ED FÍSICA"
+            "disciplina_turma": "1°DS III/ED.FÍSICA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2 ADM III/ED.FÍSICA"
+            "disciplina_turma": "2°ADM III/ED.FÍSICA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2 ADM II/ED FÍSICA"
+            "disciplina_turma": "2°ADM II/ED.FÍSICA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1 GAS/ED FISICA"
+            "disciplina_turma": "1°GAS/ED.FÍSICA"
           },
           {
             "hora": "15:20",
@@ -1343,13 +1240,14 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1\"DS II/ED FÍSICA"
+            "disciplina_turma": "1°DS II/ED.FÍSICA"
           }
         ]
       }
     },
     {
       "nome": "GIORDANA",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
@@ -1358,27 +1256,27 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3°COM/PORTUGUES"
+            "disciplina_turma": "3°COM/PORTUGUÊS"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3°COM/PORTUGUES"
+            "disciplina_turma": "3°COM/PORTUGUÊS"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2°ADM II/PORTUGUES"
+            "disciplina_turma": "2°ADM II/PORTUGUÊS"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2°ADM II/PORTUGUES"
+            "disciplina_turma": "2°ADM II/PORTUGUÊS"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2 ADM I/PORTUGUES"
+            "disciplina_turma": "2°ADM I/PORTUGUÊS"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2°ADM I/PORTUGUES"
+            "disciplina_turma": "2°ADM I/PORTUGUÊS"
           }
         ],
         "terca": [
@@ -1391,18 +1289,22 @@
             "disciplina_turma": "3°ADM III/PRODUÇÃO TEXTUAL"
           },
           {
+            "hora": "09:30",
+            "disciplina_turma": "3°ADM III/PRODUÇÃO TEXTUAL"
+          },
+          {
             "hora": "10:20",
-            "disciplina_turma": "3ºADM II/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "3°ADM II/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3\"ADM. II/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "3°ADM II/PRODUÇÃO TEXTUAL"
           }
         ],
         "quarta": [
           {
             "hora": "10:20",
-            "disciplina_turma": "3 ADM I/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "3°ADM I/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "11:10",
@@ -1417,11 +1319,11 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3°ADM V/PORTUGUES"
+            "disciplina_turma": "3°ADM V/PORTUGUÊS"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3°COM/PORTUGUES"
+            "disciplina_turma": "3°COM/PORTUGUÊS"
           },
           {
             "hora": "10:20",
@@ -1444,12 +1346,13 @@
     },
     {
       "nome": "HEROISO",
+      "area": "Base Técnica",
       "horario": {
         "segunda": [],
         "terca": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°DS II/INT, C. NUVEM"
+            "disciplina_turma": "1°DS II/INT. C. NUVEM"
           },
           {
             "hora": "08:20",
@@ -1457,11 +1360,11 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1 ADM III/IC"
+            "disciplina_turma": "1°ADM III/IC"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1 ADM III/IC"
+            "disciplina_turma": "1°ADM III/IC"
           },
           {
             "hora": "11:10",
@@ -1469,7 +1372,7 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°DS VINT. C. NUVEM"
+            "disciplina_turma": "1°DS I/INT. C. NUVEM"
           },
           {
             "hora": "14:10",
@@ -1481,7 +1384,7 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 DS III/INT. C. NUVEM"
+            "disciplina_turma": "1°DS III/INT. C. NUVEM"
           }
         ],
         "quarta": [
@@ -1491,11 +1394,11 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1°DS II/ALG. LOG. PROG."
+            "disciplina_turma": "1°DS II/ALG. LOG. PROG. II"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1 DS III/ALG. LOG PROG. II"
+            "disciplina_turma": "1°DS III/ALG. LOG. PROG. II"
           },
           {
             "hora": "16:10",
@@ -1509,7 +1412,7 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°DS I INT. BANCO DE DADOS"
+            "disciplina_turma": "2°DS I/INT. BANCO DE DADOS"
           },
           {
             "hora": "15:20",
@@ -1517,13 +1420,13 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 DS I/ALG. LOG, PROG. II"
+            "disciplina_turma": "1°DS I/ALG. LOG. PROG. II"
           }
         ],
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1\"ADM IV/IC"
+            "disciplina_turma": "1°ADM IV/IC"
           },
           {
             "hora": "08:20",
@@ -1539,7 +1442,7 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°DS II/FUND, IA"
+            "disciplina_turma": "2°DS II/FUND. IA"
           },
           {
             "hora": "14:10",
@@ -1554,11 +1457,12 @@
     },
     {
       "nome": "ISA LACERDA",
+      "area": "Base Técnica",
       "horario": {
         "segunda": [
           {
             "hora": "14:10",
-            "disciplina_turma": "Reun"
+            "disciplina_turma": "Reun."
           }
         ],
         "terca": [],
@@ -1582,52 +1486,53 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°ADM I/FINANCAS II"
+            "disciplina_turma": "2°ADM I/FINANÇAS II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°ADM I/FINANCAS II"
+            "disciplina_turma": "2°ADM I/FINANÇAS II"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2 ADM III/FINANÇAS II"
+            "disciplina_turma": "2°ADM III/FINANÇAS II"
           }
         ],
         "sexta": [
           {
             "hora": "09:30",
-            "disciplina_turma": "2 ADM III/FINANÇAS II"
+            "disciplina_turma": "2°ADM III/FINANÇAS II"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1\"DS III/IC"
+            "disciplina_turma": "1°DS III/IC"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1°DS 111/IC"
+            "disciplina_turma": "1°DS III/IC"
           }
         ]
       }
     },
     {
       "nome": "JULIO",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3°ADM VINGLÉS"
+            "disciplina_turma": "3°ADM V/INGLÊS"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2°ADM III/APROF. INGLES"
+            "disciplina_turma": "2°ADM III/APROF. INGLÊS"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2 DS I/INGLES"
+            "disciplina_turma": "2°DS I/INGLÊS"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°DS I/APROF INGLÊS"
+            "disciplina_turma": "2°DS I/APROF. INGLÊS"
           },
           {
             "hora": "16:10",
@@ -1637,11 +1542,11 @@
         "terca": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3°ADM IV/INGLES"
+            "disciplina_turma": "3°ADM IV/INGLÊS"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3°COM/INGLES"
+            "disciplina_turma": "3°COM/INGLÊS"
           },
           {
             "hora": "09:30",
@@ -1649,7 +1554,7 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2°GAS/APROF. INGLES"
+            "disciplina_turma": "2°GAS/APROF. INGLÊS"
           }
         ],
         "quarta": [
@@ -1663,48 +1568,49 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "2°DS 1.../PRA. INT. I"
+            "disciplina_turma": "2°DS I.../PRA. INT. I"
           },
           {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS L/PRA. INT. I"
+            "hora": "10:20",
+            "disciplina_turma": "2°DS I.../PRA. INT. I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°DS 1../PRA INT. II"
+            "disciplina_turma": "2°DS I.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°DS I./PRA. INT. II"
+            "disciplina_turma": "2°DS I.../PRA. INT. II"
           }
         ],
         "quinta": [],
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3ºADM III/INGLÉS"
+            "disciplina_turma": "3°ADM III/INGLÊS"
           },
           {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM I/APROF. INGLÉS"
+            "hora": "09:30",
+            "disciplina_turma": "2°ADM I/APROF. INGLÊS"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2 GAS/INGLES"
+            "disciplina_turma": "2°GAS/INGLÊS"
           },
           {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS 11/APROF. INGLES"
+            "hora": "15:20",
+            "disciplina_turma": "2°DS II/APROF. INGLÊS"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2°ADM II/APROF INGLES"
+            "disciplina_turma": "2°ADM II/APROF. INGLÊS"
           }
         ]
       }
     },
     {
       "nome": "LAURA",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
@@ -1717,11 +1623,11 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1 DS III/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "1°DS III/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 DS III/RECOMP. POR"
+            "disciplina_turma": "1°DS III/RECOMP. POR"
           },
           {
             "hora": "13:20",
@@ -1733,29 +1639,29 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2°DS /PORTUGUES"
+            "disciplina_turma": "2°DS I/PORTUGUÊS"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1\"DS II/RECOMP POR"
+            "disciplina_turma": "1°DS II/RECOMP. POR"
           }
         ],
         "terca": [
           {
             "hora": "07:30",
-            "disciplina_turma": "2°DS 11/PORTUGUÊS"
+            "disciplina_turma": "2°DS II/PORTUGUÊS"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2°DS II/PORTUGUES"
+            "disciplina_turma": "2°DS II/PORTUGUÊS"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "2°GAS/PORTUGUES"
+            "disciplina_turma": "2°GAS/PORTUGUÊS"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2°GAS/PORTUGUES"
+            "disciplina_turma": "2°GAS/PORTUGUÊS"
           },
           {
             "hora": "11:10",
@@ -1763,25 +1669,21 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2ºDS I/PORTUGUÊS"
+            "disciplina_turma": "2°DS I/PORTUGUÊS"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°DS I/PORTUGUES"
+            "disciplina_turma": "2°DS I/PORTUGUÊS"
           }
         ],
         "quarta": [
           {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM III/PORTUGUES"
+            "hora": "16:10",
+            "disciplina_turma": "2°ADM III/PORTUGUÊS"
           }
         ],
         "quinta": [],
         "sexta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°GAS/PRODUÇÃO TEXTUAL"
-          },
           {
             "hora": "09:30",
             "disciplina_turma": "1°GAS/PRODUÇÃO TEXTUAL"
@@ -1792,11 +1694,11 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2°DS I/PORTUGUES"
+            "disciplina_turma": "2°DS I/PORTUGUÊS"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°ADM III/PORTUGUES"
+            "disciplina_turma": "2°ADM III/PORTUGUÊS"
           },
           {
             "hora": "14:10",
@@ -1815,6 +1717,7 @@
     },
     {
       "nome": "LINALDA",
+      "area": "Ciências da Natureza",
       "horario": {
         "segunda": [
           {
@@ -1823,7 +1726,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1\"ADM II/BIOLOGIA"
+            "disciplina_turma": "1°ADM II/BIOLOGIA"
           },
           {
             "hora": "13:20",
@@ -1842,7 +1745,7 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1\"ADM III/BIOLOGIA"
+            "disciplina_turma": "1°ADM III/BIOLOGIA"
           },
           {
             "hora": "15:20",
@@ -1850,17 +1753,17 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 ADM IV/BIOLOGIA"
+            "disciplina_turma": "1°ADM IV/BIOLOGIA"
           }
         ],
         "quinta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "2ºADM II/BIOLOGIA"
+            "disciplina_turma": "2°ADM II/BIOLOGIA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1 DS II/BIOLOGIA"
+            "disciplina_turma": "1°DS II/BIOLOGIA"
           },
           {
             "hora": "09:30",
@@ -1868,7 +1771,7 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1 GAS/BIOLOGIA"
+            "disciplina_turma": "1°GAS/BIOLOGIA"
           },
           {
             "hora": "11:10",
@@ -1882,11 +1785,11 @@
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1ºDS I/BIOLOGIA"
+            "disciplina_turma": "1°DS I/BIOLOGIA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1\"DS I/BIOLOGIA"
+            "disciplina_turma": "1°DS I/BIOLOGIA"
           },
           {
             "hora": "09:30",
@@ -1902,13 +1805,14 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1\"ADM II/BIOLOGIA"
+            "disciplina_turma": "1°ADM II/BIOLOGIA"
           }
         ]
       }
     },
     {
       "nome": "LUIS",
+      "area": "Humanas",
       "horario": {
         "segunda": [
           {
@@ -1929,7 +1833,7 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 ADM II/SOCIOLOGIA"
+            "disciplina_turma": "1°ADM II/SOCIOLOGIA"
           }
         ],
         "terca": [
@@ -1939,7 +1843,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3\"ADM IV/SOCIOLOGIA"
+            "disciplina_turma": "3°ADM IV/SOCIOLOGIA"
           },
           {
             "hora": "09:30",
@@ -1955,7 +1859,7 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 DS III/SOCIOLOGIA"
+            "disciplina_turma": "1°DS III/SOCIOLOGIA"
           }
         ],
         "quarta": [
@@ -1973,19 +1877,19 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1°ADM IL.../PRA. INTI"
+            "disciplina_turma": "1°ADM II.../PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1°ADM II/PRA. INT. I"
+            "disciplina_turma": "1°ADM II.../PRA. INT. I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°ADM II.../PRA, INT. II"
+            "disciplina_turma": "1°ADM II.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 ADM IL.../PRA. INT. II"
+            "disciplina_turma": "1°ADM II.../PRA. INT. II"
           }
         ],
         "quinta": [
@@ -2003,7 +1907,7 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1\"ADM III/SOCIOLOGIA"
+            "disciplina_turma": "1°ADM III/SOCIOLOGIA"
           },
           {
             "hora": "13:20",
@@ -2019,6 +1923,7 @@
     },
     {
       "nome": "MARCOS",
+      "area": "Humanas",
       "horario": {
         "segunda": [
           {
@@ -2049,7 +1954,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2\"ADM III/ARTE"
+            "disciplina_turma": "2°ADM III/ARTE"
           },
           {
             "hora": "09:30",
@@ -2061,11 +1966,11 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2ºADM II/ARTE"
+            "disciplina_turma": "2°ADM II/ARTE"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 ADM I/ARTE"
+            "disciplina_turma": "1°ADM I/ARTE"
           }
         ],
         "quarta": [
@@ -2079,25 +1984,25 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1 ADM .../PRA, INT. I"
+            "disciplina_turma": "1°ADM I.../PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 ADM .../PRA. INT. I"
+            "disciplina_turma": "1°ADM I.../PRA. INT. I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°ADM 1.../PRA INT. II"
+            "disciplina_turma": "1°ADM I.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1°ADM .../PRA INT. II"
+            "disciplina_turma": "1°ADM I.../PRA. INT. II"
           }
         ],
         "quinta": [],
         "sexta": [
           {
-            "hora": "07:30",
+            "hora": "08:20",
             "disciplina_turma": "3°ADM III/ARTE"
           },
           {
@@ -2106,15 +2011,15 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1 ADM II/ARTE"
+            "disciplina_turma": "1°ADM II/ARTE"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1\"DS VARTE"
+            "disciplina_turma": "1°DS I/ARTE"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°DS IIVARTE"
+            "disciplina_turma": "1°DS II/ARTE"
           },
           {
             "hora": "14:10",
@@ -2129,6 +2034,7 @@
     },
     {
       "nome": "MARINALVA",
+      "area": "Base Técnica",
       "horario": {
         "segunda": [],
         "terca": [],
@@ -2139,6 +2045,7 @@
     },
     {
       "nome": "PAULO",
+      "area": "Base Técnica",
       "horario": {
         "segunda": [],
         "terca": [
@@ -2148,13 +2055,13 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 GAS/HIS. PANIFICAÇÃO"
+            "disciplina_turma": "1°GAS/HIS. PANIFICAÇÃO"
           }
         ],
         "quarta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "2 GAS/COZINHA INTERNACIONAL"
+            "disciplina_turma": "2°GAS/COZINHA INTERNACIONAL"
           },
           {
             "hora": "08:20",
@@ -2166,7 +2073,7 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 GAS/GARDEN MANGER"
+            "disciplina_turma": "1°GAS/GARDEN MANGER"
           }
         ],
         "quinta": [
@@ -2188,7 +2095,7 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1 GAS/TEC. PANIFICAÇÃO"
+            "disciplina_turma": "1°GAS/TEC. PANIFICAÇÃO"
           },
           {
             "hora": "16:10",
@@ -2198,11 +2105,11 @@
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "2 GAS/COZINHA CONTEMPORANEA"
+            "disciplina_turma": "2°GAS/COZINHA CONTEMPORÂNEA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2°GAS/COZINHA CONTEMPORANEA"
+            "disciplina_turma": "2°GAS/COZINHA CONTEMPORÂNEA"
           },
           {
             "hora": "10:20",
@@ -2225,10 +2132,11 @@
     },
     {
       "nome": "POLLYANA",
+      "area": "Humanas",
       "horario": {
         "segunda": [
           {
-            "hora": "07:30",
+            "hora": "08:20",
             "disciplina_turma": "2°ADM II/HISTÓRIA"
           },
           {
@@ -2250,24 +2158,24 @@
             "disciplina_turma": "3°ADM V/HISTÓRIA"
           },
           {
-            "hora": "09:30",
+            "hora": "08:20",
             "disciplina_turma": "3°ADM V/HISTÓRIA"
+          },
+          {
+            "hora": "09:30",
+            "disciplina_turma": "3°ADM I/HISTÓRIA"
           },
           {
             "hora": "10:20",
             "disciplina_turma": "3°ADM I/HISTÓRIA"
           },
           {
-            "hora": "11:10",
-            "disciplina_turma": "3\"ADM I/HISTÓRIA"
-          },
-          {
             "hora": "13:20",
-            "disciplina_turma": "2 ADM I/HISTÓRIA"
+            "disciplina_turma": "2°ADM I/HISTÓRIA"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°ADM WHISTORIA"
+            "disciplina_turma": "2°ADM I/HISTÓRIA"
           }
         ],
         "quarta": [
@@ -2277,15 +2185,15 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "2 ADM III/PV"
+            "disciplina_turma": "2°ADM III/PV"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3ºADM II/HISTÓRIA"
+            "disciplina_turma": "3°ADM III/HISTÓRIA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3°ADM II/HISTORIA"
+            "disciplina_turma": "3°ADM III/HISTÓRIA"
           },
           {
             "hora": "13:20",
@@ -2295,14 +2203,14 @@
         "quinta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3°COM/HISTORIA"
+            "disciplina_turma": "3°COM/HISTÓRIA"
           },
           {
             "hora": "08:20",
             "disciplina_turma": "3°COM/HISTÓRIA"
           },
           {
-            "hora": "08:20",
+            "hora": "09:30",
             "disciplina_turma": "2°DS II/PV"
           },
           {
@@ -2327,11 +2235,12 @@
     },
     {
       "nome": "RENATO",
+      "area": "Base Técnica",
       "horario": {
         "segunda": [
           {
             "hora": "15:20",
-            "disciplina_turma": "Reun"
+            "disciplina_turma": "Reun."
           }
         ],
         "terca": [
@@ -2340,12 +2249,16 @@
             "disciplina_turma": "2°ADM III/ISC"
           },
           {
+            "hora": "08:20",
+            "disciplina_turma": "2°ADM III/ISC"
+          },
+          {
             "hora": "09:30",
             "disciplina_turma": "2°ADM III/CONTABILIDADE"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2\"ADM II/CONTABILIDADE"
+            "disciplina_turma": "2°ADM II/CONTABILIDADE"
           },
           {
             "hora": "11:10",
@@ -2364,7 +2277,7 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2 ADM I/CONTABILIDADE"
+            "disciplina_turma": "2°ADM I/CONTABILIDADE"
           }
         ],
         "sexta": [
@@ -2376,7 +2289,8 @@
       }
     },
     {
-      "nome": "RIZIA",
+      "nome": "RÍZIA",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
@@ -2385,41 +2299,45 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1 ADM III/PORTUGUES"
+            "disciplina_turma": "1°ADM III/PORTUGUÊS"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "2 GAS/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "2°GAS/PRODUÇÃO TEXTUAL"
           },
           {
-            "hora": "11:10",
+            "hora": "10:20",
             "disciplina_turma": "2°GAS/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1\"ADM I/PORTUGUÊS"
+            "disciplina_turma": "1°ADM I/PORTUGUÊS"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1\"ADM IV/PORTUGUES"
+            "disciplina_turma": "1°ADM IV/PORTUGUÊS"
+          },
+          {
+            "hora": "15:20",
+            "disciplina_turma": "1°ADM IV/PORTUGUÊS"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1°ADM IV/PORTUGUES"
+            "disciplina_turma": "1°ADM IV/PORTUGUÊS"
           }
         ],
         "terca": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°ADM 11/PORTUGUES"
+            "disciplina_turma": "1°ADM II/PORTUGUÊS"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1°ADM II/PORTUGUES"
+            "disciplina_turma": "1°ADM II/PORTUGUÊS"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1\"ADM IV/PORTUGUES"
+            "disciplina_turma": "1°ADM IV/PORTUGUÊS"
           },
           {
             "hora": "10:20",
@@ -2431,7 +2349,7 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°GAS/RECOMP POR"
+            "disciplina_turma": "2°GAS/RECOMP. POR"
           },
           {
             "hora": "14:10",
@@ -2449,13 +2367,26 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2°ADM III/PRODUCÃO TEXTUAL"
-          }
-        ],
-        "quinta": [
+            "disciplina_turma": "2°ADM III/PRODUÇÃO TEXTUAL"
+          },
           {
             "hora": "09:30",
-            "disciplina_turma": "2ºDS II/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "1°ADM II/PORTUGUÊS"
+          }
+        ],
+        "quinta": [],
+        "sexta": [
+          {
+            "hora": "07:30",
+            "disciplina_turma": "1°ADM I/PORTUGUÊS"
+          },
+          {
+            "hora": "08:20",
+            "disciplina_turma": "1°ADM I/PORTUGUÊS"
+          },
+          {
+            "hora": "10:20",
+            "disciplina_turma": "2°DS II/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "11:10",
@@ -2463,31 +2394,22 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2ºDS I/RECOMP. POR"
+            "disciplina_turma": "2°DS I/RECOMP. POR"
           },
           {
-            "hora": "14:10",
-            "disciplina_turma": "1\"ADM II/PORTUGUES"
+            "hora": "15:20",
+            "disciplina_turma": "1°ADM II/PORTUGUÊS"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 ADM III/PORTUGUÊS"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM I/PORTUGUÉS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM I/PORTUGUES"
+            "disciplina_turma": "1°ADM III/PORTUGUÊS"
           }
         ]
       }
     },
     {
       "nome": "ROBERTINA",
+      "area": "Humanas",
       "horario": {
         "segunda": [
           {
@@ -2504,11 +2426,11 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 ADM III/FILOSOFIA"
+            "disciplina_turma": "1°ADM III/FILOSOFIA"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2ADM °II/FILOSOFIA"
+            "disciplina_turma": "2°ADM II/FILOSOFIA"
           },
           {
             "hora": "14:10",
@@ -2522,11 +2444,11 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3\"ADM III/FILOSOFIA"
+            "disciplina_turma": "3°ADM III/FILOSOFIA"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3 ADM IV/FILOSOFIA"
+            "disciplina_turma": "3°ADM IV/FILOSOFIA"
           },
           {
             "hora": "10:20",
@@ -2534,21 +2456,21 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1\"ADM IV/FILOSOFIA"
+            "disciplina_turma": "1°ADM IV/FILOSOFIA"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2 ADM III/FILOSOFIA"
+            "disciplina_turma": "2°ADM III/FILOSOFIA"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1 GAS/FILOSOFIA"
+            "disciplina_turma": "1°GAS/FILOSOFIA"
           }
         ],
         "quarta": [
           {
             "hora": "10:20",
-            "disciplina_turma": "1°ADM IIL/PRA INT. I"
+            "disciplina_turma": "1°ADM III.../PRA. INT. I"
           },
           {
             "hora": "11:10",
@@ -2560,25 +2482,29 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1\"ADM III/PRA. INT. II"
+            "disciplina_turma": "1°ADM III.../PRA. INT. II"
           },
           {
-            "hora": "15:20",
+            "hora": "16:10",
             "disciplina_turma": "1°ADM I/FILOSOFIA"
           }
         ],
         "quinta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1ºDS II/FILOSOFIA"
+            "disciplina_turma": "1°DS II/FILOSOFIA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1\"DS I/FILOSOFIA"
+            "disciplina_turma": "1°DS I/FILOSOFIA"
           },
           {
             "hora": "09:30",
             "disciplina_turma": "3°ADM I/FILOSOFIA"
+          },
+          {
+            "hora": "11:10",
+            "disciplina_turma": "1°ADM II/FILOSOFIA"
           },
           {
             "hora": "14:10",
@@ -2589,18 +2515,15 @@
             "disciplina_turma": "2°ADM I/FILOSOFIA"
           }
         ],
-        "sexta": [
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1\"ADM II/FILOSOFIA"
-          }
-        ]
+        "sexta": []
       }
     },
     {
       "nome": "RODOLPHO",
+      "area": "Base Técnica",
       "horario": {
-        "segunda": [
+        "segunda": [],
+        "terca": [
           {
             "hora": "07:30",
             "disciplina_turma": "2°ADM I/ISC"
@@ -2615,7 +2538,7 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1°ADM VINOVAÇÃO"
+            "disciplina_turma": "1°ADM I/INOVAÇÃO"
           },
           {
             "hora": "13:20",
@@ -2627,33 +2550,33 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1 ADM II/INOVAÇÃO"
+            "disciplina_turma": "1°ADM II/INOVAÇÃO"
           },
           {
             "hora": "16:10",
             "disciplina_turma": "1°ADM II/INOVAÇÃO"
           }
         ],
-        "terca": [
+        "quarta": [
           {
             "hora": "10:20",
-            "disciplina_turma": "1°DS .../PRA. INT. 1"
+            "disciplina_turma": "1°DS I.../PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 DS .../PRA. INT. I"
+            "disciplina_turma": "1°DS I.../PRA. INT. I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°DS 1.../PRA INT. II"
+            "disciplina_turma": "1°DS I.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1\"DS I.../PRA. INT. II"
+            "disciplina_turma": "1°DS I.../PRA. INT. II"
           }
         ],
-        "quarta": [],
-        "quinta": [
+        "quinta": [],
+        "sexta": [
           {
             "hora": "09:30",
             "disciplina_turma": "2°ADM II/ISC"
@@ -2661,9 +2584,7 @@
           {
             "hora": "10:20",
             "disciplina_turma": "2°ADM II/ISC"
-          }
-        ],
-        "sexta": [
+          },
           {
             "hora": "13:20",
             "disciplina_turma": "1°ADM III/INOVAÇÃO"
@@ -2677,16 +2598,17 @@
     },
     {
       "nome": "RYAN",
+      "area": "Base Técnica",
       "horario": {
         "segunda": [],
         "terca": [
           {
             "hora": "08:20",
-            "disciplina_turma": "1°DS III/DESENV WEB"
+            "disciplina_turma": "1°DS III/DESENV. WEB"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1 DS III/DESENV WEB"
+            "disciplina_turma": "1°DS III/DESENV. WEB"
           },
           {
             "hora": "10:20",
@@ -2698,11 +2620,11 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°DS II/BANCO DE DADOS I"
+            "disciplina_turma": "1°DS I/BANCO DE DADOS I"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 DS II/BANCO DE DADOS I"
+            "disciplina_turma": "1°DS I/BANCO DE DADOS I"
           },
           {
             "hora": "15:20",
@@ -2710,23 +2632,23 @@
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1°DS I/DESENV WEB"
+            "disciplina_turma": "1°DS I/DESENV. WEB"
           }
         ],
         "quarta": [
           {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM III/PRÁ INT. I"
+            "hora": "10:20",
+            "disciplina_turma": "2°ADM III.../PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2ºADM III.../PRA. INT. I"
+            "disciplina_turma": "2°ADM III.../PRA. INT. I"
           }
         ],
         "quinta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "2°DS II/I SEG DADOS"
+            "disciplina_turma": "2°DS II/I. SEG. DADOS"
           },
           {
             "hora": "08:20",
@@ -2738,15 +2660,15 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1°DS I/BANCO DE DADOS I"
+            "disciplina_turma": "1°DS II/BANCO DE DADOS I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1°DS I/BANCO DE DADOS I"
+            "disciplina_turma": "1°DS II/BANCO DE DADOS I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2ºDS II/PI-DIA SOLUÇÕES"
+            "disciplina_turma": "2°DS II/PI-DIA SOLUÇÕES"
           },
           {
             "hora": "14:10",
@@ -2754,17 +2676,17 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1°DS II/DESENV WEB"
+            "disciplina_turma": "1°DS II/DESENV. WEB"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1°DS II/DESENV WEB"
+            "disciplina_turma": "1°DS III/DESENV. WEB"
           }
         ],
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "2°DS I/L SEG, DADOS"
+            "disciplina_turma": "2°DS I/I. SEG. DADOS"
           },
           {
             "hora": "08:20",
@@ -2772,7 +2694,7 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "2°DS II/I. SEG. DADOS"
+            "disciplina_turma": "2°DS III/I. SEG. DADOS"
           },
           {
             "hora": "13:20",
@@ -2780,7 +2702,7 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 ADM II/IC"
+            "disciplina_turma": "1°ADM II/IC"
           },
           {
             "hora": "15:20",
@@ -2795,6 +2717,7 @@
     },
     {
       "nome": "SAMMYA",
+      "area": "Base Técnica",
       "horario": {
         "segunda": [],
         "terca": [
@@ -2808,7 +2731,7 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2\"ADM I/CONTROLE DE ESTOQUE"
+            "disciplina_turma": "2°ADM I/CONTROLE DE ESTOQUE"
           },
           {
             "hora": "11:10",
@@ -2818,19 +2741,19 @@
         "quarta": [
           {
             "hora": "10:20",
-            "disciplina_turma": "2°GAS/1°ADMI/PRA INT.I"
+            "disciplina_turma": "2°GAS/1°ADM I.../PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2°GAS/1°ADMI/PRA INT. I"
+            "disciplina_turma": "2°GAS/1°ADM I.../PRA. INT. I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°GAS/1°ADM L/PRA. INT. II"
+            "disciplina_turma": "2°GAS/1°ADM I.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2 GAS/1 ADM 1/PRA INT. II"
+            "disciplina_turma": "2°GAS/1°ADM I.../PRA. INT. II"
           }
         ],
         "quinta": [
@@ -2840,11 +2763,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": ". EMPRESARIAL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1 ADM IV /G"
+            "disciplina_turma": "1°ADM IV/G. EMPRESARIAL"
           },
           {
             "hora": "09:30",
@@ -2852,7 +2771,7 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1ºADM IVG EMPRESARIAL"
+            "disciplina_turma": "1°ADM I/G. EMPRESARIAL"
           },
           {
             "hora": "13:20",
@@ -2874,109 +2793,110 @@
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1\"ADM III/G. EMPRESARIAL"
+            "disciplina_turma": "1°ADM III/G. EMPRESARIAL"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 ADM III/G. EMPRESARIAL"
+            "disciplina_turma": "1°ADM III/G. EMPRESARIAL"
           }
         ]
       }
     },
     {
       "nome": "SARA",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
             "hora": "09:30",
-            "disciplina_turma": "1°ADM IV/APROF. INGLES"
+            "disciplina_turma": "1°ADM IV/APROF. INGLÊS"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1°ADM III/APROF. INGLES"
+            "disciplina_turma": "1°ADM III/APROF. INGLÊS"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1°DS I/INGLES"
+            "disciplina_turma": "1°DS I/INGLÊS"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1°GAS/INGLES"
+            "disciplina_turma": "1°GAS/INGLÊS"
           }
         ],
         "terca": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°GAS/APROF. INGLÉS"
+            "disciplina_turma": "1°GAS/APROF. INGLÊS"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1°ADM IV/INGLES"
+            "disciplina_turma": "1°ADM IV/INGLÊS"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1°DS I/APROF, INGLES"
+            "disciplina_turma": "1°DS I/APROF. INGLÊS"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°DS III/APROF. INGLÉS"
+            "disciplina_turma": "1°DS III/APROF. INGLÊS"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1°ADM II/APROF. INGLES"
+            "disciplina_turma": "1°ADM II/APROF. INGLÊS"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1\"ADM I/APROF INGLES"
+            "disciplina_turma": "1°ADM I/APROF. INGLÊS"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1°ADM WINGLES"
+            "disciplina_turma": "1°ADM I/INGLÊS"
           }
         ],
         "quarta": [
           {
             "hora": "09:30",
-            "disciplina_turma": "2°ADM II/INGLES"
+            "disciplina_turma": "2°ADM II/INGLÊS"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2\"ADM 1../PRA. INT. I"
+            "disciplina_turma": "2°ADM I.../PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "2 ADM 1./PRA INT. I"
+            "disciplina_turma": "2°ADM I.../PRA. INT. I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°ADM .../PRA INT. II"
+            "disciplina_turma": "2°ADM I.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°ADM /PRA INT. II"
+            "disciplina_turma": "2°ADM I.../PRA. INT. II"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1°DS II/APROF. INGLÉS"
+            "disciplina_turma": "1°DS II/APROF. INGLÊS"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1°ADM III/INGLES"
+            "disciplina_turma": "1°ADM III/INGLÊS"
           }
         ],
         "quinta": [],
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°DS JI/INGLES"
+            "disciplina_turma": "1°DS II/INGLÊS"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1°DS III/INGLES"
+            "disciplina_turma": "1°DS III/INGLÊS"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2°ADM I/INGLES"
+            "disciplina_turma": "2°ADM I/INGLÊS"
           },
           {
             "hora": "11:10",
@@ -2987,6 +2907,7 @@
     },
     {
       "nome": "SHIRLEY",
+      "area": "Base Técnica",
       "horario": {
         "segunda": [],
         "terca": [
@@ -3000,7 +2921,7 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2°DS TUISC"
+            "disciplina_turma": "2°DS II/ISC"
           },
           {
             "hora": "16:10",
@@ -3018,7 +2939,7 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "2°DS IL/PRA. INT.I"
+            "disciplina_turma": "2°DS II.../PRA. INT. I"
           },
           {
             "hora": "11:10",
@@ -3026,11 +2947,11 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°DS II.../PRÁ INT. II"
+            "disciplina_turma": "2°DS II.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°DS 11.../PRA. INT. II"
+            "disciplina_turma": "2°DS II.../PRA. INT. II"
           }
         ],
         "quinta": [
@@ -3053,11 +2974,11 @@
         ],
         "sexta": [
           {
-            "hora": "08:20",
+            "hora": "07:30",
             "disciplina_turma": "1°ADM II/DIREITO EMPRESARIAL"
           },
           {
-            "hora": "09:30",
+            "hora": "08:20",
             "disciplina_turma": "1°ADM II/DIREITO EMPRESARIAL"
           }
         ]
@@ -3065,6 +2986,7 @@
     },
     {
       "nome": "SUZY",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
@@ -3073,11 +2995,11 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3°ADM III/PORTUGUES"
+            "disciplina_turma": "3°ADM III/PORTUGUÊS"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "3°ADM III/PORTUGUES"
+            "disciplina_turma": "3°ADM III/PORTUGUÊS"
           },
           {
             "hora": "10:20",
@@ -3091,11 +3013,11 @@
         "terca": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3°ADM I/PORTUGUES"
+            "disciplina_turma": "3°ADM I/PORTUGUÊS"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3°ADM II/PORTUGUES"
+            "disciplina_turma": "3°ADM II/RECOMP. POR"
           },
           {
             "hora": "09:30",
@@ -3103,29 +3025,29 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3°ADM IV/PORTUGUES"
+            "disciplina_turma": "3°ADM IV/PORTUGUÊS"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3°ADM IV/PORTUGUES"
+            "disciplina_turma": "3°ADM IV/PORTUGUÊS"
           },
           {
-            "hora": "14:10",
+            "hora": "15:20",
             "disciplina_turma": "2°ADM II/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2 ADM II/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "2°ADM II/PRODUÇÃO TEXTUAL"
           }
         ],
         "quarta": [
           {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM IV/PORTUGUÊS"
+            "hora": "09:30",
+            "disciplina_turma": "3°ADM V/PORTUGUÊS"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3\"ADM V/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "3°ADM V/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "11:10",
@@ -3136,11 +3058,11 @@
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3°ADM I/PORTUGUES"
+            "disciplina_turma": "3°ADM I/PORTUGUÊS"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3°ADM I/PORTUGUÊS"
+            "disciplina_turma": "3°ADM III/PORTUGUÊS"
           },
           {
             "hora": "09:30",
@@ -3148,11 +3070,11 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3°ADM 11/PORTUGUES"
+            "disciplina_turma": "3°ADM III/PORTUGUÊS"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3°ADM II/PORTUGUES"
+            "disciplina_turma": "3°ADM III/PORTUGUÊS"
           },
           {
             "hora": "13:20",
@@ -3167,15 +3089,16 @@
     },
     {
       "nome": "THIAGO",
+      "area": "Humanas",
       "horario": {
         "segunda": [
           {
             "hora": "07:30",
-            "disciplina_turma": "2°DS 1/APROF. GEOGRAFIA"
+            "disciplina_turma": "2°DS I/APROF. GEOGRAFIA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2 GAS/GEOGRAFIA"
+            "disciplina_turma": "2°GAS/GEOGRAFIA"
           },
           {
             "hora": "09:30",
@@ -3183,25 +3106,25 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3ºADM V/GEOGRAFIA"
+            "disciplina_turma": "3°ADM V/GEOGRAFIA"
           },
           {
             "hora": "11:10",
             "disciplina_turma": "3°ADM V/GEOGRAFIA"
           },
           {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM III/APROF GEOGRAFIA"
+            "hora": "15:20",
+            "disciplina_turma": "2°ADM III/APROF. GEOGRAFIA"
           }
         ],
         "terca": [
           {
             "hora": "09:30",
-            "disciplina_turma": "2°DS II/APROF GEOGRAFIA"
+            "disciplina_turma": "3°ADM II/GEOGRAFIA"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3ºCOM/GEOGRAFIA"
+            "disciplina_turma": "3°COM/GEOGRAFIA"
           },
           {
             "hora": "11:10",
@@ -3213,11 +3136,15 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "Reun."
+            "disciplina_turma": "2°DS II/GEOGRAFIA"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2°DS II/GEOGRAFIA"
+            "disciplina_turma": "2°ADM III/GEOGRAFIA"
+          },
+          {
+            "hora": "16:10",
+            "disciplina_turma": "2°ADM III/GEOGRAFIA"
           }
         ],
         "quarta": [
@@ -3230,6 +3157,10 @@
             "disciplina_turma": "2°DS I/GEOGRAFIA"
           },
           {
+            "hora": "09:30",
+            "disciplina_turma": "2°DS II/APROF. GEOGRAFIA"
+          },
+          {
             "hora": "10:20",
             "disciplina_turma": "3°ADM III/GEOGRAFIA"
           },
@@ -3239,14 +3170,18 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "2°ADM I/APROF GEOGRAFIA"
+            "disciplina_turma": "Reun."
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "2°ADM III/GEOGRAFIA"
+            "disciplina_turma": "2°ADM I/APROF. GEOGRAFIA"
           },
           {
             "hora": "15:20",
+            "disciplina_turma": "2°ADM III/GEOGRAFIA"
+          },
+          {
+            "hora": "16:10",
             "disciplina_turma": "2°ADM III/GEOGRAFIA"
           }
         ],
@@ -3257,7 +3192,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3°ADM 11/GEOGRAFIA"
+            "disciplina_turma": "3°ADM II/GEOGRAFIA"
           },
           {
             "hora": "09:30",
@@ -3265,18 +3200,18 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "3ºADM IV/GEOGRAFIA"
+            "disciplina_turma": "3°ADM IV/GEOGRAFIA"
           },
           {
             "hora": "11:10",
             "disciplina_turma": "3°ADM IV/GEOGRAFIA"
           },
           {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM II/APROF GEOGRAFIA"
+            "hora": "15:20",
+            "disciplina_turma": "2°ADM II/APROF. GEOGRAFIA"
           },
           {
-            "hora": "14:10",
+            "hora": "16:10",
             "disciplina_turma": "2°GAS/APROF. GEOGRAFIA"
           }
         ],
@@ -3284,7 +3219,8 @@
       }
     },
     {
-      "nome": "VALDIEGO",
+      "nome": "VALDIÊGO",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
@@ -3297,11 +3233,11 @@
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1\"ADM I/ESPANHOL"
+            "disciplina_turma": "1°ADM I/ESPANHOL"
           },
           {
-            "hora": "14:10",
-            "disciplina_turma": "2 ADM III/ESPANHOL"
+            "hora": "15:20",
+            "disciplina_turma": "2°ADM II/ESPANHOL"
           },
           {
             "hora": "16:10",
@@ -3315,7 +3251,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3ºADM I/ESPANHOL"
+            "disciplina_turma": "3°ADM I/ESPANHOL"
           },
           {
             "hora": "09:30",
@@ -3323,25 +3259,25 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1\"DS I/ESPANHOL"
+            "disciplina_turma": "1°DS I/ESPANHOL"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1 ADM II/ESPANHOL"
+            "disciplina_turma": "1°ADM II/ESPANHOL"
           },
           {
-            "hora": "14:10",
+            "hora": "15:20",
             "disciplina_turma": "1°GAS/ESPANHOL"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1 DS II/ESPANHOL"
+            "disciplina_turma": "1°DS II/ESPANHOL"
           }
         ],
         "quarta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3 ADM V/ESPANHOL"
+            "disciplina_turma": "3°ADM V/ESPANHOL"
           },
           {
             "hora": "08:20",
@@ -3352,7 +3288,7 @@
         "sexta": [
           {
             "hora": "07:30",
-            "disciplina_turma": "3ºADM II/ESPANHOL"
+            "disciplina_turma": "3°ADM II/ESPANHOL"
           },
           {
             "hora": "08:20",
@@ -3367,7 +3303,7 @@
             "disciplina_turma": "1°ADM III/ESPANHOL"
           },
           {
-            "hora": "14:10",
+            "hora": "15:20",
             "disciplina_turma": "2°ADM I/ESPANHOL"
           },
           {
@@ -3379,15 +3315,16 @@
     },
     {
       "nome": "VILMAR",
+      "area": "Ciências da Natureza",
       "horario": {
         "segunda": [
           {
             "hora": "07:30",
-            "disciplina_turma": "1°DS 11/QUÍMICA"
+            "disciplina_turma": "1°DS II/QUÍMICA"
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1\"DS II/QUÍMICA"
+            "disciplina_turma": "1°DS II/QUÍMICA"
           },
           {
             "hora": "14:10",
@@ -3395,22 +3332,22 @@
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "1°ADM IIIVOUÍMICA"
+            "disciplina_turma": "1°ADM III/QUÍMICA"
           }
         ],
         "terca": [],
         "quarta": [
           {
+            "hora": "07:30",
+            "disciplina_turma": "1°GAS/QUÍMICA"
+          },
+          {
             "hora": "08:20",
             "disciplina_turma": "1°GAS/QUÍMICA"
           },
           {
-            "hora": "09:30",
-            "disciplina_turma": "1°GAS/QUÍMICA"
-          },
-          {
             "hora": "10:20",
-            "disciplina_turma": "1\"DS II.../PRA. INT. I"
+            "disciplina_turma": "1°DS II.../PRA. INT. I"
           },
           {
             "hora": "11:10",
@@ -3422,7 +3359,7 @@
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1 DS 11.../PRA. INT. II"
+            "disciplina_turma": "1°DS II.../PRA. INT. II"
           },
           {
             "hora": "15:20",
@@ -3456,11 +3393,11 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1 DS I/QUÍMICA"
+            "disciplina_turma": "1°DS I/QUÍMICA"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1ºADM I/QUIMICA"
+            "disciplina_turma": "1°ADM I/QUÍMICA"
           },
           {
             "hora": "16:10",
@@ -3474,7 +3411,7 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "2ºADM I/QUÍMICA"
+            "disciplina_turma": "2°ADM I/QUÍMICA"
           },
           {
             "hora": "13:20",
@@ -3489,6 +3426,7 @@
     },
     {
       "nome": "YURI",
+      "area": "Ciências da Natureza",
       "horario": {
         "segunda": [
           {
@@ -3500,12 +3438,12 @@
             "disciplina_turma": "2°DS II/BIOLOGIA"
           },
           {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM 11/BIOLOGIA"
+            "hora": "10:20",
+            "disciplina_turma": "3°ADM II/BIOLOGIA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3°ADM 11/BIOLOGIA"
+            "disciplina_turma": "3°ADM II/BIOLOGIA"
           },
           {
             "hora": "13:20",
@@ -3524,23 +3462,23 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "3 ADM IV/BIOLOGIA"
+            "disciplina_turma": "3°ADM IV/BIOLOGIA"
           },
           {
-            "hora": "09:30",
-            "disciplina_turma": "1°GAS/1 ADM IL/PRÁ INT. 1"
+            "hora": "10:20",
+            "disciplina_turma": "1°GAS/1°ADM I.../PRA. INT. I"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1°GAS/1°ADM 1.../PRA. INT.1"
+            "disciplina_turma": "1°GAS/1°ADM I.../PRA. INT. I"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1\"GAS/1 ADMI/PRA INT II"
+            "disciplina_turma": "1°GAS/1°ADM I.../PRA. INT. II"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1°GAS/1 ADM 1.../PRA. INT II"
+            "disciplina_turma": "1°GAS/1°ADM I.../PRA. INT. II"
           },
           {
             "hora": "15:20",
@@ -3561,12 +3499,12 @@
             "disciplina_turma": "3°ADM V/BIOLOGIA"
           },
           {
-            "hora": "09:30",
+            "hora": "10:20",
             "disciplina_turma": "3°ADM I/BIOLOGIA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3ºADM I/BIOLOGIA"
+            "disciplina_turma": "3°ADM I/BIOLOGIA"
           }
         ],
         "sexta": [
@@ -3579,26 +3517,27 @@
             "disciplina_turma": "3°COM/BIOLOGIA"
           },
           {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM 111/BIOLOGIA"
+            "hora": "10:20",
+            "disciplina_turma": "3°ADM III/BIOLOGIA"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "3ºADM III/BIOLOGIA"
+            "disciplina_turma": "3°ADM III/BIOLOGIA"
           },
           {
             "hora": "15:20",
-            "disciplina_turma": "2°ADM 111/BIOLOGIA"
+            "disciplina_turma": "2°ADM III/BIOLOGIA"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "2\"ADM 111/BIOLOGIA"
+            "disciplina_turma": "2°ADM III/BIOLOGIA"
           }
         ]
       }
     },
     {
       "nome": "ZELIA",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {
@@ -3611,19 +3550,19 @@
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1°GAS/PORTUGUES"
+            "disciplina_turma": "1°GAS/PORTUGUÊS"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1°GAS/PORTUGUES"
+            "disciplina_turma": "1°GAS/PORTUGUÊS"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°DS III/PORTUGUES"
+            "disciplina_turma": "1°DS III/PORTUGUÊS"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1\"DS III/PORTUGUES"
+            "disciplina_turma": "1°DS III/PORTUGUÊS"
           }
         ],
         "terca": [
@@ -3633,26 +3572,26 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1 ADM IV/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "1°ADM IV/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1°ADM II/PRODUCÃO TEXTUAL"
+            "disciplina_turma": "1°ADM II/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "10:20",
-            "disciplina_turma": "1 ADM II/PRODUÇÃO TEXTUAL"
+            "disciplina_turma": "1°ADM II/PRODUÇÃO TEXTUAL"
           },
           {
             "hora": "11:10",
-            "disciplina_turma": "1°DS II/PORTUGUES"
+            "disciplina_turma": "1°DS II/PORTUGUÊS"
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°ADM II/RECOMP POR"
+            "disciplina_turma": "1°ADM II/RECOMP. POR"
           },
           {
-            "hora": "14:10",
+            "hora": "15:20",
             "disciplina_turma": "1°ADM III/PRODUÇÃO TEXTUAL"
           },
           {
@@ -3678,11 +3617,11 @@
           },
           {
             "hora": "08:20",
-            "disciplina_turma": "1°DS II/PORTUGUES"
+            "disciplina_turma": "1°DS II/PORTUGUÊS"
           },
           {
             "hora": "09:30",
-            "disciplina_turma": "1\"DS 11/PORTUGUES"
+            "disciplina_turma": "1°DS II/PORTUGUÊS"
           },
           {
             "hora": "10:20",
@@ -3694,15 +3633,15 @@
           },
           {
             "hora": "13:20",
-            "disciplina_turma": "1°DS I/PORTUGUES"
+            "disciplina_turma": "1°DS I/PORTUGUÊS"
           },
           {
             "hora": "14:10",
-            "disciplina_turma": "1°DS I/PORTUGUES"
+            "disciplina_turma": "1°DS I/PORTUGUÊS"
           },
           {
             "hora": "16:10",
-            "disciplina_turma": "1\"DS III/PORTUGUÊS"
+            "disciplina_turma": "1°DS III/PORTUGUÊS"
           }
         ]
       }

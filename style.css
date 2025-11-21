@@ -8,7 +8,7 @@
   --cor-acento-sucesso: #16a34a;   /* Green 600 */
   --cor-fundo: #f1f5f9;             /* Slate 100 - Fundo suave e acinzentado */
   --cor-surface: #ffffff;          /* Branco para cards e superfícies principais */
-  --cor-texto-principal: #0f172a;  /* Slate 900 - Preto suave para alta legibilidade */
+  --cor-texto-principal: #0f172a;  /* Slate 900 - Alta legibilidade */
   --cor-texto-secundario: #64748b; /* Slate 500 */
   --cor-texto-terciario: #94a3b8;  /* Slate 400 */
   --cor-borda: #e2e8f0;             /* Slate 200 - Borda muito sutil */
@@ -16,24 +16,17 @@
   /* Tipografia */
   --fonte-titulos: 'Poppins', sans-serif;
   --fonte-corpo: 'Inter', sans-serif;
-
-  /* Animações e Transições */
-  --transicao-padrao: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-html.dark {
-  /* Paleta de Cores para o Tema Escuro */
-  --cor-primaria: #6366f1;         /* Indigo 500 - Mais brilhante no escuro */
-  --cor-primaria-hover: #4f46e5;   /* Indigo 600 */
-  --cor-acento-sucesso: #22c55e;   /* Green 500 */
-  --cor-fundo: #0f172a;             /* Slate 900 - Fundo escuro */
-  --cor-surface: #1e293b;          /* Slate 800 - Cor para cards */
-  --cor-texto-principal: #f1f5f9;  /* Slate 100 - Texto claro */
-  --cor-texto-secundario: #94a3b8; /* Slate 400 */
-  --cor-texto-terciario: #64748b;  /* Slate 500 */
-  --cor-borda: #334155;             /* Slate 700 - Borda sutil no escuro */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 /* ==========================================================================
@@ -42,15 +35,17 @@ html.dark {
 body {
   font-family: var(--fonte-corpo);
   background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--cor-texto-principal);
-  min-height: 100vh;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4 {
   font-family: var(--fonte-titulos);
   font-weight: 600;
+  color: var(--cor-texto-principal);
 }
 
 /* ==========================================================================
@@ -60,23 +55,20 @@ h1, h2, h3, h4 {
 /* Painel de Controle */
 .bg-white\/70 {
   background-color: var(--cor-surface);
-  backdrop-filter: none !important;
-  border-radius: 1rem; /* 16px */
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-  border: 1px solid #f1f5f9; /* slate-100 */
+  backdrop-filter: blur(8px);
 }
 
 /* Inputs e Seletores */
 select, .multiselect-button {
-  transition: var(--transicao-padrao);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   border-color: var(--cor-borda);
-  border-radius: 0.5rem !important; /* 8px */
-  background-color: var(--cor-surface);
 }
-select:focus, .multiselect-button:focus-within {
-  --tw-ring-color: var(--cor-primaria);
-  border-color: var(--cor-primaria);
-  box-shadow: 0 0 0 2px var(--cor-primaria)30;
+
+select:focus, .multiselect-button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  border-color: var(--cor-primaria-hover);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
 }
 
 /* Botão Principal - Corporativo */
@@ -86,15 +78,15 @@ select:focus, .multiselect-button:focus-within {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  transition: all 0.15s ease-in-out;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 }
 #find-substitute-btn:hover {
   background-color: var(--cor-primaria-hover);
-  box-shadow: 0 4px 12px -1px rgba(79, 70, 229, 0.3), 0 2px 8px -2px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 #find-substitute-btn:active {
-  transform: translateY(-1px) scale(0.98);
-  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  transform: scale(0.98);
 }
 
 /* Estado de Foco */
@@ -105,25 +97,58 @@ button:focus-visible {
 
 /* Cards de Resultado - Limpos e Informativos */
 .card {
-  border-left-width: 5px;
-  background-color: var(--cor-surface);
   border-radius: 1rem !important; /* 16px */
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-  transition: var(--transicao-padrao);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
-  border-color: var(--cor-primaria);
+  border-color: rgba(79, 70, 229, 0.5);
+}
+
+/* Tag para identificar o professor ausente no card */
+.absent-teacher-tag {
+    position: absolute;
+    top: 0.75rem; /* 12px */
+    right: 0.75rem; /* 12px */
+    background-color: #f1f5f9; /* slate-100 */
+    color: var(--cor-texto-secundario);
+    font-size: 0.75rem; /* 12px */
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    border: 1px solid var(--cor-borda);
+    z-index: 10;
 }
 
 /* Card de Sugestão */
-.border-indigo-500 { border-color: var(--cor-primaria) !important; }
+.border-indigo-500 {
+  border-color: var(--cor-primaria) !important;
+  border-width: 2px;
+  background-color: #f4f4f5; /* Um tom um pouco mais escuro que o fundo para destaque */
+  position: relative;
+  overflow: hidden; /* Garante que o pseudo-elemento não vaze */
+}
+
+/* Adiciona um título "Melhor Opção" proeminente no card */
+.border-indigo-500::before {
+    content: 'MELHOR OPÇÃO';
+    position: absolute;
+    top: -1px; left: -1px; /* Alinha com a borda */
+    padding: 0.25rem 0.75rem;
+    background-image: linear-gradient(to right, var(--cor-primaria), var(--cor-primaria-hover));
+    color: white;
+    font-family: var(--fonte-titulos);
+    font-size: 0.75rem; /* 12px */
+    font-weight: 600;
+    border-bottom-right-radius: 0.75rem; /* Curva no canto inferior direito */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
 /* Card de Sucesso (Confirmado) */
-.border-green-500 {
-  border-color: var(--cor-acento-sucesso) !important;
+.card-success {
   background-color: #f0fdf4cc; /* green-50 com transparência */
 }
 
@@ -138,27 +163,49 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 /* Botão de Confirmar */
 .confirm-btn, .action-button {
   background-color: var(--cor-primaria);
-  transition: var(--transicao-padrao);
-  transform: scale(1);
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
 .confirm-btn:hover, .action-button:hover {
   background-color: var(--cor-primaria-hover);
 }
-.confirm-btn:active {
-  transform: scale(0.98);
+.confirm-btn:active, .action-button:active {
+  transform: scale(0.97);
+}
+
+/* Botão de Ver Horário (Secundário) */
+.view-schedule-btn {
+  background-color: transparent;
+  color: var(--cor-texto-secundario);
+  border: 1px solid var(--cor-borda);
+  transition: all 0.2s ease;
+}
+.view-schedule-btn:hover {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  border-color: var(--cor-texto-secundario);
 }
 
 /* Botão de Desfazer */
 .undo-btn {
-  transition: var(--transicao-padrao);
+  transition: text-decoration-color 0.2s ease;
 }
 .undo-btn:hover, #reset-settings-btn:hover {
   text-decoration: underline;
   text-decoration-thickness: 2px;
 }
 
+/* Botão de Exportar */
+.export-button {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-secundario);
+    border: 1px solid var(--cor-borda);
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.5rem; /* 8px */
+}
 /* ==========================================================================
-   4. ANIMAÇÕES DE ENTRADA
+   4. ANIMAÇÕES GERAIS
    ========================================================================== */
 @keyframes fadeIn-up {
   from {
@@ -167,36 +214,50 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
-
 .card-enter {
-  animation: fadeIn-up 0.4s ease-out both;
-}
-
-.card-enter {
-    transform: scale(0.98);
+    opacity: 0;
     animation: fadeIn-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+/* Efeito Stagger para múltiplos cards */
+.card-enter:nth-child(2) { animation-delay: 0.05s; }
+.card-enter:nth-child(3) { animation-delay: 0.1s; }
+.card-enter:nth-child(4) { animation-delay: 0.15s; }
+
+/* Animação de Confirmação */
+@keyframes confirm-flash {
+  0% {
+    background-color: var(--cor-surface);
+    transform: scale(1);
+  }
+  50% {
+    background-color: #dcfce7; /* green-100, um flash verde claro */
+    border-color: var(--cor-acento-sucesso);
+    transform: scale(1.02);
+  }
+  100% {
+    background-color: var(--cor-surface);
+    transform: scale(1);
+  }
 }
 
 /* Spinner de Carregamento */
 .dot {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
   background-color: var(--cor-primaria);
+  border-radius: 100%;
   animation: pulse 1.4s infinite ease-in-out both;
 }
 
 .dot-1 {
   animation-delay: -0.32s;
 }
-
 .dot-2 {
   animation-delay: -0.16s;
 }
-
 @keyframes pulse {
   0%, 80%, 100% {
     transform: scale(0);
@@ -204,14 +265,10 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
     transform: scale(1.0);
   }
 }
+
 /* ==========================================================================
    5. MODAL DE CONFIGURAÇÕES
    ========================================================================== */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
-@keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-@keyframes scaleOut { from { transform: scale(1); opacity: 1; } to { transform: scale(0.95); opacity: 0; } }
-
 #settings-modal.hidden { display: none; }
 
 #settings-modal[aria-hidden="false"] #settings-overlay { animation: fadeIn 0.3s ease-out forwards; }
@@ -221,10 +278,10 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 #settings-modal[aria-hidden="true"] > div > div:last-child { animation: scaleOut 0.3s ease-in forwards; }
 
 .interval-item {
-    transition: var(--transicao-padrao);
+    transition: background-color 0.2s ease;
 }
 .interval-item:hover {
-    background-color: #f9fafb;
+    background-color: var(--cor-fundo);
 }
 
 /* ==========================================================================
@@ -232,64 +289,103 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
    ========================================================================== */
 #schedule-modal.hidden { display: none; }
 
-#schedule-modal[aria-hidden="false"] #schedule-overlay { animation: fadeIn 0.3s ease-out forwards; }
-#schedule-modal[aria-hidden="true"] #schedule-overlay { animation: fadeOut 0.3s ease-in forwards; }
+#schedule-modal[aria-hidden="false"] #schedule-overlay,
+#settings-modal[aria-hidden="false"] #settings-overlay { animation: fadeIn 0.3s ease-out forwards; }
+#schedule-modal[aria-hidden="true"] #schedule-overlay,
+#settings-modal[aria-hidden="true"] #settings-overlay { animation: fadeOut 0.3s ease-in forwards; }
 
-#schedule-modal[aria-hidden="false"] > div > div:last-child { animation: scaleIn 0.3s ease-out forwards; }
-#schedule-modal[aria-hidden="true"] > div > div:last-child { animation: scaleOut 0.3s ease-in forwards; }
+#schedule-modal[aria-hidden="false"] > div > div:last-child,
+#settings-modal[aria-hidden="false"] > div > div:last-child { animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+#schedule-modal[aria-hidden="true"] > div > div:last-child,
+#settings-modal[aria-hidden="true"] > div > div:last-child { animation: scaleOut 0.3s cubic-bezier(0.7, 0, 0.84, 0) forwards; }
 
 .schedule-table {
     width: 100%;
-    border-collapse: collapse;
+    border-spacing: 0;
     table-layout: fixed;
 }
 .schedule-table th, .schedule-table td {
-    border: 1px solid var(--cor-borda);
     padding: 0.5rem;
     text-align: center;
     vertical-align: top;
-}
-.schedule-table th {
-    background-color: #f9fafb;
-    font-weight: 600;
+    border: 1px solid var(--cor-borda);
 }
 .schedule-table td {
     min-width: 150px; /* Garante espaço mínimo em telas menores */
-    height: 80px; /* Altura mínima para as células */
+    height: 100px; /* Altura mínima para as células */
+    font-size: 0.9rem;
+}
+.schedule-table th {
+    font-family: var(--fonte-titulos);
+    font-weight: 600;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-secundario);
+}
+.schedule-table .today {
+    background-color: #f8fafc; /* slate-50 */
+}
+
+/* Destaque para a coluna do dia atual na grade */
+.schedule-table .current-day-column {
+    background-color: #f0f9ff; /* sky-50, um azul bem claro para o fundo da coluna */
+}
+.schedule-table th.current-day-column {
+    color: var(--cor-primaria); /* Deixa o texto do cabeçalho com a cor primária */
+    border-bottom: 2px solid var(--cor-primaria); /* Adiciona uma borda inferior destacada */
+    position: relative; /* Necessário para o pseudo-elemento se houver */
 }
 
 /* Estilo para o "mini-card" de cada professor na grade */
 .schedule-entry {
-    font-size: 0.8rem; /* 12.8px */
-    line-height: 1.3;
     padding: 0.3rem;
     margin-bottom: 0.25rem;
     border-radius: 6px;
     text-align: left;
+    font-size: 0.8rem; /* 12.8px */
+    cursor: default;
+    transition: background-color 0.2s ease;
 }
+.schedule-entry:hover { background-color: #f8fafc; }
 .schedule-entry strong {
     font-weight: 600;
     display: block;
 }
-.schedule-entry small {
-    opacity: 0.8;
-}
 
+/* Badge de contagem de substituições na grade */
+.substitution-count-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem; /* 11.2px */
+    font-weight: 700;
+    color: white;
+    background-color: var(--cor-primaria);
+    min-width: 1.25rem; /* 20px */
+    height: 1.25rem; /* 20px */
+    border-radius: 9999px;
+    margin-left: 0.5rem; /* 8px */
+}
 /* Estilo para o placeholder do input de busca */
 #schedule-search-teacher::placeholder {
-    color: #94a3b8; /* slate-400 */
+    color: var(--cor-texto-terciario);
+}
+#schedule-search-teacher:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: var(--cor-primaria-hover);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
 }
 
 /* ==========================================================================
    7. COMPONENTE MULTI-SELECT PERSONALIZADO
    ========================================================================== */
 .multiselect-button {
-    transition: var(--transicao-padrao);
     cursor: pointer;
 }
 
 .multiselect-button[aria-disabled="true"] {
     background-color: #f1f5f9; /* slate-100 */
+    color: var(--cor-texto-terciario);
     cursor: not-allowed;
 }
 
@@ -303,7 +399,18 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 }
 
 .multiselect-option:hover {
-    background-color: #f1f5f9; /* slate-100 */
+    background-color: #f8fafc; /* slate-50 */
+}
+
+.multiselect-option[aria-selected="true"] {
+    background-color: #eef2ff; /* indigo-100 */
+    color: var(--cor-primaria);
+    font-weight: 500;
+}
+
+.multiselect-option[aria-selected="true"]::after {
+    content: '✔'; /* Checkmark */
+    margin-left: auto;
 }
 
 .selected-teacher-tag {
@@ -317,12 +424,25 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
     padding: 0.125rem 0.65rem; /* py-0.5 px-2.5 */
 }
 
-/* Badge "Melhor Opção" */
-.best-option-badge {
-    background-image: linear-gradient(to right, #4f46e5, #7c3aed);
+/* Badge "Mesma Turma" */
+.same-turma-badge {
+    background-color: var(--cor-primaria);
     color: white;
     font-size: 0.65rem;
-    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.1rem 0.5rem;
+    border-radius: 9999px;
+}
+
+
+/* Badge "Melhor Opção" */
+.best-option-badge {
+    background-image: linear-gradient(to right, var(--cor-primaria), #7c3aed);
+    color: white;
+    font-size: 0.7rem; /* Aumenta a fonte para melhor legibilidade */
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 /* Badge "No Limite" */
@@ -350,26 +470,25 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 }
 
 /* ==========================================================================
-   8. TELA DE LOGIN E BOAS-VINDAS
+   8. ANIMAÇÕES DE ENTRADA/SAÍDA DE TELA
    ========================================================================== */
 @keyframes text-focus-in {
   0% {
-    filter: blur(12px);
     opacity: 0;
   }
   100% {
     filter: blur(0px);
     opacity: 1;
   }
+  
 }
 
 /* ==========================================================================
-   9. MEDIA QUERIES PARA DISPOSITIVOS MÓVEIS (Mobile First)
+   9. RESPONSIVIDADE (Mobile First)
    ========================================================================== */
 
-/* Estilos para telas menores que 768px (ponto de quebra 'md' do Tailwind) */
+/* Estilos base para mobile */
 @media (max-width: 768px) {
-  /* Aumenta a fonte base para melhor legibilidade no mobile */
   body {
     font-size: 16px; /* Garante que a fonte não seja muito pequena */
     -webkit-text-size-adjust: 100%; /* Previne o zoom automático de fontes no iOS */
@@ -377,18 +496,14 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 
   /* Ajusta o título principal para não ficar tão grande */
   h1 {
-    font-size: 1.5rem; /* Equivalente a text-2xl */
+    font-size: 1.875rem; /* 30px */
   }
 
-  /* Melhora o espaçamento do painel de controle */
   .bg-white\/70 {
     padding: 1rem; /* p-4 */
   }
 
   /* Garante que os cards de resultado empilhem bem */
-  .card .flex-col.md\:flex-row {
-    flex-direction: column;
-  }
 
   /* Alinha os botões de ação à direita nos cards para fácil alcance */
   .card .flex.items-center.gap-3.mt-3 {
@@ -399,7 +514,7 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
   #settings-modal .relative,
   #schedule-modal .relative {
     max-width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh; /* Usa a altura dinâmica do viewport para compatibilidade mobile */
     margin: 0;
     border-radius: 0;
   }
@@ -411,7 +526,7 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 
   /* Ajusta o container da grade horária para ter um padding interno */
   #schedule-grid-container {
-    padding: 0 0.5rem;
+    padding: 0.5rem;
   }
 }
 
@@ -420,18 +535,14 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
    ========================================================================== */
 .timeline-container {
     position: relative;
-    padding-left: 2.5rem; /* Espaço para a linha e ícones */
+    padding-left: 2.5rem;
 }
-
-/* A linha vertical da timeline */
-.timeline-container::before {
-    content: '';
-    position: absolute;
+.timeline-line {
     left: 20px; /* Centralizado com o ícone de 40px */
     top: 1.5rem;
     bottom: 1.5rem;
     width: 2px;
-    background-color: var(--cor-borda);
+    background-image: linear-gradient(to bottom, var(--cor-borda), transparent);
     border-radius: 2px;
 }
 
@@ -468,5 +579,107 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 }
 
 #welcome-message {
-    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* ==========================================================================
+   11. DESTAQUE DE HORÁRIO NA GRADE
+   ========================================================================== */
+@keyframes pulse-bg {
+  0% { background-color: rgba(79, 70, 229, 0.2); } /* --cor-primaria com 20% de opacidade */
+  50% { background-color: rgba(79, 70, 229, 0.4); } /* --cor-primaria com 40% de opacidade */
+  100% { background-color: rgba(79, 70, 229, 0.2); }
+}
+
+.highlight-slot {
+    position: relative;
+    border: 2px solid var(--cor-primaria) !important;
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.3);
+    animation: pulse-bg 2s infinite ease-in-out;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   12. ESTILOS DE IMPRESSÃO
+   ========================================================================== */
+@media print {
+    /* Esconde tudo por padrão */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Torna visível apenas o container da grade e seus filhos */
+    #schedule-grid-container, #schedule-grid-container * {
+        visibility: visible;
+    }
+
+    /* Posiciona o container da grade no topo da página de impressão */
+    #schedule-grid-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    /* Garante que a tabela use todo o espaço e tenha texto preto */
+    .schedule-table {
+        font-size: 9pt; /* Tamanho menor para caber mais conteúdo */
+        color: #000 !important;
+    }
+
+    /* Remove cores de fundo e sombras para economizar tinta */
+    .schedule-table th, .schedule-table td, .schedule-entry {
+        background-color: transparent !important;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important; /* Borda cinza claro para visibilidade */
+    }
+}
+
+/* ==========================================================================
+   13. ÁREA DE RENDERIZAÇÃO PARA IMAGEM
+   ========================================================================== */
+/*
+  Esta área é usada para renderizar o resumo que será convertido em imagem.
+  Ela fica fora da tela para não ser visível ao usuário.
+*/
+#image-summary-render-area {
+    position: absolute;
+    left: -9999px; /* Move para fora da tela */
+    top: -9999px;
+    width: 800px; /* Largura fixa para a imagem */
+    background-color: white;
+    padding: 20px;
+    font-family: var(--fonte-corpo);
+    color: #0f172a;
+}
+
+.summary-image-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.summary-image-subtitle {
+    font-size: 14px;
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.summary-image-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.summary-image-table th, .summary-image-table td {
+    border: 1px solid #e2e8f0;
+    padding: 8px;
+    text-align: left;
+}
+.summary-image-table th {
+    background-color: #f1f5f9;
 }

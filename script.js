@@ -1,3725 +1,5 @@
 // --- INÍCIO DA CONFIGURAÇÃO DE DADOS ---
 
-// 1. Cole aqui os dados brutos do seu JSON
-const rawData = {
-  "escola": "ECITE DR. ELPÍDIO DE ALMEIDA",
-  "ano": 2025,
-  "relatorio": "Relatório de Professores (Individual)",
-  "data_geracao": "05/10/2025 (13:49)",
-  "professores": [
-    {
-      "nome": "ADRIELMA",
-      "horario": {
-        "segunda": [],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°COM/QUÍMICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°COM/QUÍMICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM III/QUÍMICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1ºDS III.../PRA. INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1\"DS III.../PRA. INT. II"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°DS II/QUÍMICA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM III/QUÍMICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3\"ADM I/QUÍMICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM IV/QUÍMICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM II/QUÍMICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM II/QUÍMICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM III/QUÍMICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM III/QUIMICA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS II/QUÍMICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM IV/QUÍMICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3 ADM I/QUÍMICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM VIQUÍMICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3ºADM VIQUÍMICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°GAS/QUÍMICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°GAS/QUÍMICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2ºDS I/QUÍMICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2ºDS I/QUÍMICA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "ALEX",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM I/MATEMÁTICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°ADM I/MATEMÁTICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS I/PV"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM I/RECOMP. MAT"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM II/MATEMÁTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM II/MATEMÁTICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM I/PV"
-          }
-        ],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "Reun."
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM II/PV"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°COM/MATEMÁTICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°COM/MATEMÁTICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "Reun."
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM III/PV"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°ADM II/MATEMÁTICA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM I/APROF. MATEMATICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°COM/MATEMÁTICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3ºCOM/MATEMÁTICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°COM/MATEMÁTICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°ADM II/APROF. MATEMATICA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3ºADM V/MATEMÁTICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM V/MATEMÁTICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM I/MATEMATICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM II/RECOMP. MAT"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°DS II/PV"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM IV/PV"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "ALEX-HISTÓRIA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1\"ADM IV/HISTORIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"ADM IV/HISTORIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM I/HISTÓRIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 ADM I/HISTORIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°GAS/HISTORIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°GAS/HISTÓRIA"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1 DS III/HISTORIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS I/HISTORIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS I/HISTORIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°DS I/HISTÓRIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS I/HISTORIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM III/HISTÓRIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1\"ADM III/HISTÓRIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2 GAS/HISTÓRIA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2 GAS/HISTORIA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1\"ADM II/HISTORIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"ADM II/HISTORIA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2 ADM III/HISTORIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM III/HISTORIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS III/HISTORIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°DS II/HISTÓRIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS II/HISTORIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS II/HISTÓRIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 DS II/HISTORIA"
-          }
-        ],
-        "sexta": []
-      }
-    },
-    {
-      "nome": "CARLOS",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM IV/MATEMÁTICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM IV/MATEMÁTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "Reun"
-          }
-        ],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3ºADM III/MATEMATICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM I/MATEMÁTICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°ADM IV.../PRA INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1\"ADM IV.../PRA INT. I"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "Reun"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM II/MATEMÁTICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM III/MATEMÁTICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM III/MATEMÁTICA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM IV/MATEMÁTICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM II/MATEMÁTICA."
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM II/MATEMÁTICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM I/MATEMATICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3\"ADM I/MATEMATICA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "CLEONE",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM II/GEOGRAFIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2\"ADM I/GEOGRAFIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "Reun"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS I/GEOGRAFIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°GAS/GEOGRAFIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 ADM IV/GEOGRAFIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1 ADM III/GEOGRAFIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1\"ADM I/GEOGRAFIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM II/GEOGRAFIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1\"DS II/GEOGRAFIA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2 ADM I/GEOGRAFIA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS III/GEOGRAFIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS I/GEOGRAFIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1 ADM IV/GEOGRAFIA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°DS II/GEOGRAFIA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°GAS/GEOGRAFIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM II/GEOGRAFIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°ADM III/GEOGRAFIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°ADM I/GEOGRAFIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS III/GEOGRAFIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2 ADM II/GEOGRAFIA"
-          }
-        ],
-        "sexta": []
-      }
-    },
-    {
-      "nome": "DANILO",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM I/FÍSICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM I/FÍSICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM V/FISICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3ºADM 111/FÍSICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM III/FÍSICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM III/FÍSICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM III/FÍSICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°DS I/FÍSICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°DS I/FÍSICA"
-          }
-        ],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM II/FISICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3ºADM II/FÍSICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM IV.../PRA. INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM IV.../PRA. INT. II"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°GAS/FÍSICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2GAS°/FÍSICA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3ºADM IV/FISICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3 ADM IV/FÍSICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3 ADM V/FISICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°COM/FISICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°COM/FISICA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°DS II/FÍSICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°DS II/FÍSICA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "DEMOHAB",
-      "horario": {
-        "segunda": [],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1\"ADM I/EMPREENDEDORISMO"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM I/EMPREENDEDORISMO"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1 DS II/IC"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1\"DS II/IC"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2ºADM II/ECONOMIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2 ADM II/ECONOMIA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2ºADM IVECONOMIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM I/ECONOMIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°ADM III/ECONOMIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM III/ECONOMIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM IV/EMPREENDEDORISMO"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 ADM IV/EMPREENDEDORISMO"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM 11/EMPREENDEDORISMO"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM 11/EMPREENDEDORISMO"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1\"ADM III/EMPREENDEDORISMO"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM III/EMPREENDEDORISMO"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS I/IC"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 DS I/IC"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "DENIS",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM II/PV"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1 DS I/FÍSICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°DS I/FÍSICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM I/PV"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM II/FISICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 ADM II/FISICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS III/FISICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1 DS III/FÍSICA"
-          }
-        ],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "Reun."
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM I/FISICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2 ADM I/FISICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "Reun."
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1\"ADM I/FÍSICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"ADM I/FÍSICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM III/FISICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 ADM III/FISICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1 ADM IV/FISICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1\"ADM IV/FÍSICA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM II/FISICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM 11/FÍSICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS II/FÍSICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS II/FÍSICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS III/PV"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°GAS/FÍSICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°GAS/FISICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°GAS/PV"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "DENISSON",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°GAS/APROF. MATEMÁTICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°GAS/APROF. MATEMATICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS II/MATEMÁTICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°DS II/MATEMATICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1 DS II/APROF. MATEMATICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS I/APROF MATEMATICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°DS I/APROF. MATEMÁTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS II/RECOMP MAT"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°DS I/RECOMP MAT"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°GAS/MATEMÁTICA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°GAS/RECOMP. MAT"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS III/MATEMATICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS III/MATEMÁTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS I/MATEMÁTICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1\"DS I/MATEMÁTICA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS III/APROF. MATEMATICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS III/APROF. MATEMATICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS I/MATEMATICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°DS II/APROF. MATEMÁTICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS II/MATEMATICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1 GAS/MATEMÁTICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°GAS/MATEMÁTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS III/RECOMP. MAT"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°DS III/MATEMÁTICA"
-          }
-        ],
-        "sexta": []
-      }
-    },
-    {
-      "nome": "ELIAS",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM II/APROF. MATEMATICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1ºADM JI/APROF. MATEMÁTICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°ADM IV/RECOMP. MAT"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM IV/MATEMATICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM IV/MATEMÁTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM I/MATEMÁTICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1 ADM III/MATEMATICA"
-          }
-        ],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM III/MATEMATICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"ADM III/MATEMATICA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM II/MATEMÁTICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM II/MATEMÁTICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "ADM III/RECOMP. MAT"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 ADM II/RECOMP. MAT"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1 ADM IV/MATEMATICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1 ADM I/MATEMÁTICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1\"ADM I/MATEMÁTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1\"ADM III/APROF. MATEMATICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM III/APROF. MATEMÁTICA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM 11/MATEMÁTICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"ADM I/RECOMP. MAT"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1\"ADM IV/APROF. MATEMATICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°ADM IV/APROF. MATEMÁTICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM I/APROF MATEMATICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM I/APROF. MATEMÁTICA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "FERNANDA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "20ADM III/MATEMÁTICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM III/MATEMATICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°DS I/MATEMATICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°DS II/APROF. MATEMÁTICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM III/APROF MATEMÁTICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°DS II/MATEMATICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS I/APROF MATEMÁTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2 GAS/RECOMP. MAT"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2 GAS/MATEMÁTICA"
-          }
-        ],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS II/MATEMÁTICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS II/MATEMÁTICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°GAS/APROF MATEMÁTICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°ADM II/PRA INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM II.../PRA. INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM II.../PRA. INT II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM II./PRA. INT. II"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM III/RECOMP MAT"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°DS II/RECOMP. MAT"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°DS I/MATEMATICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS I/MATEMÁTICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°GAS/MATEMÁTICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°GAS/MATEMÁTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2 DS I/RECOMP. MAT"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°ADM III/MATEMATICA"
-          }
-        ],
-        "sexta": []
-      }
-    },
-    {
-      "nome": "GEFERSON",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM II/ED.FÍSICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM II/ED.FÍSICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°DS II/ED.FÍSICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM I/ED.FISICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3\"ADM I/ED.FÍSICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "Reun"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "Reun"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS I/ED.FÍSICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°GAS/ED FISICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°DS II/ED.FÍSICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM III/ED.FISICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM III/ED.FÍSICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°GAS/ED.FÍSICA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM V/ED.FÍSICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM V/ED.FÍSICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM IV/ED.FÍSICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM IV/ED.FÍSICA"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3\"COM/ED FISICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°COM/ED.FÍSICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS I/ED FÍSICA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "GILMAR",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM I/ED.FISICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"ADM I/ED FÍSICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2\"ADM III/ED.FÍSICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM II/ED.FÍSICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM II/ED.FÍSICA"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM III/ED.FISICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1 ADM III/ED.FÍSICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 GAS/ED FÍSICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2 ADM I/ED FISICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM IV/ED.FÍSICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1 ADM IV/ED.FÍSICA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS I/ED.FÍSICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS I/ED FÍSICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°DS III/PRA. INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS IIL/PRA INT. 1"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2ºADM III/PRA INT II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM III.../PRA. INT II"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM II/ED.FÍSICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2\"ADM I/ED.FÍSICA"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS III/ED.FÍSICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS III/ED FÍSICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2 ADM III/ED.FÍSICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2 ADM II/ED FÍSICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1 GAS/ED FISICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS II/ED.FÍSICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1\"DS II/ED FÍSICA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "GIORDANA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM III/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°COM/PORTUGUES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°COM/PORTUGUES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°ADM II/PORTUGUES"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM II/PORTUGUES"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2 ADM I/PORTUGUES"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM I/PORTUGUES"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM V/PORTUGUÊS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM III/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3ºADM II/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3\"ADM. II/PRODUÇÃO TEXTUAL"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3 ADM I/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM I/PRODUÇÃO TEXTUAL"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM V/PORTUGUÊS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM V/PORTUGUES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°COM/PORTUGUES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3ºADM IV/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM IV/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM II/PORTUGUÊS"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°ADM I/PORTUGUÊS"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "HEROISO",
-      "horario": {
-        "segunda": [],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS II/INT, C. NUVEM"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS II/INT. C. NUVEM"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1 ADM III/IC"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 ADM III/IC"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS II/INT. BANCO DE DADOS"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS VINT. C. NUVEM"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°DS I/INT. C. NUVEM"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS III/INT. C. NUVEM"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1 DS III/INT. C. NUVEM"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS II/ALG. LOG. PROG. II"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS II/ALG. LOG. PROG."
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1 DS III/ALG. LOG PROG. II"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°DS III/ALG. LOG. PROG. II"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°DS I/INT. BANCO DE DADOS"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS I INT. BANCO DE DADOS"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS I/ALG. LOG. PROG. II"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1 DS I/ALG. LOG, PROG. II"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1\"ADM IV/IC"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM IV/IC"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°DS I/FUND. IA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°DS I/FUND. IA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°DS II/FUND, IA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS II/FUND. IA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°DS II/INT. BANCO DE DADOS"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "ISA LACERDA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "14:10",
-            "disciplina_turma": "Reun"
-          }
-        ],
-        "terca": [],
-        "quarta": [],
-        "quinta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°GAS/IC"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°GAS/IC"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°ADM II/FINANÇAS II"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM II/FINANÇAS II"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM I/FINANCAS II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM I/FINANCAS II"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2 ADM III/FINANÇAS II"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2 ADM III/FINANÇAS II"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1\"DS III/IC"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS 111/IC"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "JULIO",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM VINGLÉS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM III/APROF. INGLES"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2 DS I/INGLES"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°DS I/APROF INGLÊS"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°DS II/INGLÉS"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM IV/INGLES"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°COM/INGLES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM III/INGLÉS"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°GAS/APROF. INGLES"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM II/INGLÉS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM I/INGLÉS"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°DS 1.../PRA. INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS L/PRA. INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°DS 1../PRA INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS I./PRA. INT. II"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3ºADM III/INGLÉS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM I/APROF. INGLÉS"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2 GAS/INGLES"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS 11/APROF. INGLES"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°ADM II/APROF INGLES"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "LAURA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS I/RECOMP. POR"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS III/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1 DS III/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1 DS III/RECOMP. POR"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS II/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°DS II/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°DS /PORTUGUES"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1\"DS II/RECOMP POR"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS 11/PORTUGUÊS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS II/PORTUGUES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°GAS/PORTUGUES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°GAS/PORTUGUES"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°GAS/RECOMP. POR"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2ºDS I/PORTUGUÊS"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS I/PORTUGUES"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM III/PORTUGUES"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°GAS/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°GAS/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°GAS/PORTUGUÊS"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS I/PORTUGUES"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM III/PORTUGUES"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM III/PORTUGUÊS"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS I/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°DS I/PRODUÇÃO TEXTUAL"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "LINALDA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS III/BIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"ADM II/BIOLOGIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM III/BIOLOGIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM I/BIOLOGIA"
-          }
-        ],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM I/BIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1\"ADM III/BIOLOGIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM I/BIOLOGIA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1 ADM IV/BIOLOGIA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2ºADM II/BIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1 DS II/BIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS II/BIOLOGIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 GAS/BIOLOGIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°GAS/BIOLOGIA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°ADM I/BIOLOGIA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1ºDS I/BIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"DS I/BIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM IV/BIOLOGIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM II/BIOLOGIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS III/BIOLOGIA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1\"ADM II/BIOLOGIA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "LUIS",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°COM/SOCIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM V/SOCIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°GAS/SOCIOLOGIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°ADM IV/SOCIOLOGIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1 ADM II/SOCIOLOGIA"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM II/SOCIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3\"ADM IV/SOCIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM I/SOCIOLOGIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°ADM I/SOCIOLOGIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM III/SOCIOLOGIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 DS III/SOCIOLOGIA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM I/SOCIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM III/SOCIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS II/SOCIOLOGIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°ADM IL.../PRA. INTI"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°ADM II/PRA. INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM II.../PRA, INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 ADM IL.../PRA. INT. II"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS I/SOCIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS II/SOCIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°GAS/SOCIOLOGIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1\"ADM III/SOCIOLOGIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM II/SOCIOLOGIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°DS I/SOCIOLOGIA"
-          }
-        ],
-        "sexta": []
-      }
-    },
-    {
-      "nome": "MARCOS",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM I/ARTE"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°DS I/ARTE"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS II/ARTE"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°GAS/ARTE"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°ADM I/ARTE"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°GAS/ARTE"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2\"ADM III/ARTE"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM II/ARTE"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM V/ARTE"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2ºADM II/ARTE"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 ADM I/ARTE"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM IV/ARTE"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°COM/ARTE"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 ADM .../PRA, INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1 ADM .../PRA. INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM 1.../PRA INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM .../PRA INT. II"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM III/ARTE"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM IV/ARTE"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 ADM II/ARTE"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1\"DS VARTE"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS IIVARTE"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°DS III/ARTE"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM III/ARTE"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "MARINALVA",
-      "horario": {
-        "segunda": [],
-        "terca": [],
-        "quarta": [],
-        "quinta": [],
-        "sexta": []
-      }
-    },
-    {
-      "nome": "PAULO",
-      "horario": {
-        "segunda": [],
-        "terca": [
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°GAS/HIS. PANIFICAÇÃO"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 GAS/HIS. PANIFICAÇÃO"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2 GAS/COZINHA INTERNACIONAL"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°GAS/COZINHA INTERNACIONAL"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°GAS/GARDEN MANGER"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1 GAS/GARDEN MANGER"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°GAS/COZINHA BRASILEIRA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°GAS/COZINHA BRASILEIRA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°GAS/ISC"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°GAS/ISC"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1 GAS/TEC. PANIFICAÇÃO"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°GAS/TEC. PANIFICAÇÃO"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2 GAS/COZINHA CONTEMPORANEA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°GAS/COZINHA CONTEMPORANEA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°GAS/F. T. T. DIÉTICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°GAS/F. T. T. DIÉTICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°GAS/COZINHA NORDESTINA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°GAS/COZINHA NORDESTINA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "POLLYANA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM II/HISTÓRIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM II/HISTÓRIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM IV/HISTÓRIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM IV/HISTÓRIA"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM V/HISTÓRIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM V/HISTÓRIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM I/HISTÓRIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3\"ADM I/HISTÓRIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2 ADM I/HISTÓRIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM WHISTORIA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "Reun."
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2 ADM III/PV"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3ºADM II/HISTÓRIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM II/HISTORIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "Reun."
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°COM/HISTORIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°COM/HISTÓRIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS II/PV"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM III/HISTÓRIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM III/HISTÓRIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°GAS/PV"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°DS I/PV"
-          }
-        ],
-        "sexta": []
-      }
-    },
-    {
-      "nome": "RENATO",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "15:20",
-            "disciplina_turma": "Reun"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM III/ISC"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM III/CONTABILIDADE"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2\"ADM II/CONTABILIDADE"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM II/CONTABILIDADE"
-          }
-        ],
-        "quarta": [],
-        "quinta": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM III/ISC"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°ADM I/CONTABILIDADE"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2 ADM I/CONTABILIDADE"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM III/CONTABILIDADE"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "RIZIA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM III/PORTUGUÊS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1 ADM III/PORTUGUES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2 GAS/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°GAS/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1\"ADM I/PORTUGUÊS"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1\"ADM IV/PORTUGUES"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM IV/PORTUGUES"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM 11/PORTUGUES"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM II/PORTUGUES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1\"ADM IV/PORTUGUES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2ºDS II/RECOMP. POR"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM III/RECOMP. POR"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°GAS/RECOMP POR"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS I/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°DS I/PRODUÇÃO TEXTUAL"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM III/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM III/PRODUCÃO TEXTUAL"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2ºDS II/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS II/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2ºDS I/RECOMP. POR"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1\"ADM II/PORTUGUES"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1 ADM III/PORTUGUÊS"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM I/PORTUGUÉS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM I/PORTUGUES"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "ROBERTINA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°GAS/FILOSOFIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS I/FILOSOFIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM II/FILOSOFIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1 ADM III/FILOSOFIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2ADM °II/FILOSOFIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS II/FILOSOFIA"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°COM/FILOSOFIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3\"ADM III/FILOSOFIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3 ADM IV/FILOSOFIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM V/FILOSOFIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1\"ADM IV/FILOSOFIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2 ADM III/FILOSOFIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1 GAS/FILOSOFIA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°ADM IIL/PRA INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°ADM III.../PRA. INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM III.../PRA. INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1\"ADM III/PRA. INT. II"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM I/FILOSOFIA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1ºDS II/FILOSOFIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"DS I/FILOSOFIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM I/FILOSOFIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°DS III/FILOSOFIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM I/FILOSOFIA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1\"ADM II/FILOSOFIA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "RODOLPHO",
-      "horario": {
-        "segunda": [],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM I/ISC"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM I/ISC"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM I/INOVAÇÃO"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°ADM I/INOVAÇÃO"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM IV/INOVAÇÃO"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM IV/INOVAÇÃO"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM II/INOVAÇÃO"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM II/INOVAÇÃO"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°DS I...PRA. INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS I...PRA. INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS I...PRA. INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°DS I...PRA. INT. II"
-          }
-        ],
-        "quinta": [
-        ],
-        "sexta": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM II/ISC"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°ADM II/ISC"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM III/INOVAÇÃO"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM III/INOVAÇÃO"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "RYAN",
-      "horario": {
-        "segunda": [],
-        "terca": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS III/DESENV WEB"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1 DS III/DESENV WEB"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°DS III/BANCO DE DADOS I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS III/BANCO DE DADOS I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS II/BANCO DE DADOS I"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 DS II/BANCO DE DADOS I"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS I/DESENV. WEB"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°DS I/DESENV WEB"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM III/PRÁ INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2ºADM III.../PRA. INT. I"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS II/I SEG DADOS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS I/PI-DIA SOLUÇÕES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°DS I/PI-DIA SOLUÇÕES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°DS I/BANCO DE DADOS I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS I/BANCO DE DADOS I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2ºDS II/PI-DIA SOLUÇÕES"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS II/PI-DIA SOLUÇÕES"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS II/DESENV WEB"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°DS II/DESENV WEB"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS I/L SEG, DADOS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS I/I. SEG. DADOS"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°DS II/I. SEG. DADOS"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM II/IC"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 ADM II/IC"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM I/IC"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM I/IC"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "SAMMYA",
-      "horario": {
-        "segunda": [],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM II/CONTROLE DE ESTOQUE"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM II/CONTROLE DE ESTOQUE"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2\"ADM I/CONTROLE DE ESTOQUE"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°ADM I/CONTROLE DE ESTOQUE"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°GAS/1°ADMI/PRA INT.I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°GAS/1°ADMI/PRA INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°GAS/1°ADM L/PRA. INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2 GAS/1 ADM 1/PRA INT. II"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM IV/G. EMPRESARIAL"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": ". EMPRESARIAL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1 ADM IV /G"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM I/G. EMPRESARIAL"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1ºADM IVG EMPRESARIAL"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM II/G. EMPRESARIAL"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM II/G. EMPRESARIAL"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM III/CONTROLE DE ESTOQUE"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM III/CONTROLE DE ESTOQUE"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1\"ADM III/G. EMPRESARIAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1 ADM III/G. EMPRESARIAL"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "SARA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM IV/APROF. INGLES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°ADM III/APROF. INGLES"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS I/INGLES"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°GAS/INGLES"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°GAS/APROF. INGLÉS"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM IV/INGLES"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS I/APROF, INGLES"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS III/APROF. INGLÉS"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM II/APROF. INGLES"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1\"ADM I/APROF INGLES"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM WINGLES"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM II/INGLES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2\"ADM 1../PRA. INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2 ADM 1./PRA INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM .../PRA INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM /PRA INT. II"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°DS II/APROF. INGLÉS"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM III/INGLES"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS JI/INGLES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°DS III/INGLES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°ADM I/INGLES"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°ADM II/INGLÉS"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "SHIRLEY",
-      "horario": {
-        "segunda": [],
-        "terca": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS I/ISC"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°DS I/ISC"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°DS TUISC"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°DS II/ISC"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM I/DIREITO EMPRESARIAL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM I/DIREITO EMPRESARIAL"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "2°DS IL/PRA. INT.I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "2°DS II.../PRA. INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°DS II.../PRÁ INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°DS 11.../PRA. INT. II"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM III/DIREITO EMPRESARIAL"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM III/DIREITO EMPRESARIAL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM IV/DIREITO EMPRESARIAL"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°ADM IV/DIREITO EMPRESARIAL"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM II/DIREITO EMPRESARIAL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM II/DIREITO EMPRESARIAL"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "SUZY",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM I/RECOMP. POR"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM III/PORTUGUES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM III/PORTUGUES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°COM/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°COM/PRODUÇÃO TEXTUAL"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM I/PORTUGUES"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM II/PORTUGUES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM II/RECOMP. POR"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM IV/PORTUGUES"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM IV/PORTUGUES"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM II/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2 ADM II/PRODUÇÃO TEXTUAL"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM IV/PORTUGUÊS"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3\"ADM V/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM V/PRODUÇÃO TEXTUAL"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM I/PORTUGUES"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM I/PORTUGUÊS"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM III/PORTUGUÊS"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM 11/PORTUGUES"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM II/PORTUGUES"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM I/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM I/PRODUÇÃO TEXTUAL"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "THIAGO",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS 1/APROF. GEOGRAFIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2 GAS/GEOGRAFIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°GAS/GEOGRAFIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3ºADM V/GEOGRAFIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM V/GEOGRAFIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM III/APROF GEOGRAFIA"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°DS II/APROF GEOGRAFIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3ºCOM/GEOGRAFIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°COM/GEOGRAFIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°DS II/GEOGRAFIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "Reun."
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°DS II/GEOGRAFIA"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS I/GEOGRAFIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS I/GEOGRAFIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3°ADM III/GEOGRAFIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM III/GEOGRAFIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM I/APROF GEOGRAFIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM III/GEOGRAFIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM III/GEOGRAFIA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM I/GEOGRAFIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM 11/GEOGRAFIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM I/GEOGRAFIA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "3ºADM IV/GEOGRAFIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM IV/GEOGRAFIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°ADM II/APROF GEOGRAFIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°GAS/APROF. GEOGRAFIA"
-          }
-        ],
-        "sexta": []
-      }
-    },
-    {
-      "nome": "VALDIEGO",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM IV/ESPANHOL"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°DS III/ESPANHOL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1\"ADM I/ESPANHOL"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2 ADM III/ESPANHOL"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°ADM II/ESPANHOL"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM III/ESPANHOL"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3ºADM I/ESPANHOL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°COM/ESPANHOL"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1\"DS I/ESPANHOL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1 ADM II/ESPANHOL"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°GAS/ESPANHOL"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1 DS II/ESPANHOL"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3 ADM V/ESPANHOL"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS I/ESPANHOL"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3ºADM II/ESPANHOL"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS II/ESPANHOL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°GAS/ESPANHOL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°ADM III/ESPANHOL"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°ADM I/ESPANHOL"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM IV/ESPANHOL"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "VILMAR",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS 11/QUÍMICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1\"DS II/QUÍMICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM III/QUÍMICA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM IIIVOUÍMICA"
-          }
-        ],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°GAS/QUÍMICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°GAS/QUÍMICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1\"DS II.../PRA. INT. I"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS II.../PRA. INT. I"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS II.../PRA. INT. II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1 DS 11.../PRA. INT. II"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "1°ADM II/QUÍMICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM II/QUÍMICA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°DS I/QUÍMICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°ADM II/QUÍMICA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "2°ADM II/QUÍMICA"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°DS III/QUÍMICA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS III/QUÍMICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1 DS I/QUÍMICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1ºADM I/QUIMICA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM I/QUÍMICA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°ADM I/QUÍMICA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2ºADM I/QUÍMICA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM IV/QUÍMICA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM IV/QUÍMICA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "YURI",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "2°DS II/BIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "2°DS II/BIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM 11/BIOLOGIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3°ADM 11/BIOLOGIA"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "2°GAS/BIOLOGIA"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "2°GAS/BIOLOGIA"
-          }
-        ],
-        "terca": [],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM IV/BIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3 ADM IV/BIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°GAS/1 ADM IL/PRÁ INT. 1"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°GAS/1°ADM 1.../PRA. INT.1"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1\"GAS/1 ADMI/PRA INT II"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°GAS/1 ADM 1.../PRA. INT II"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°DS I/BIOLOGIA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2°DS I/BIOLOGIA"
-          }
-        ],
-        "quinta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°ADM V/BIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°ADM V/BIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM I/BIOLOGIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3ºADM I/BIOLOGIA"
-          }
-        ],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "3°COM/BIOLOGIA"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "3°COM/BIOLOGIA"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "3°ADM 111/BIOLOGIA"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "3ºADM III/BIOLOGIA"
-          },
-          {
-            "hora": "15:20",
-            "disciplina_turma": "2°ADM 111/BIOLOGIA"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "2\"ADM 111/BIOLOGIA"
-          }
-        ]
-      }
-    },
-    {
-      "nome": "ZELIA",
-      "horario": {
-        "segunda": [
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS I/PORTUGUÊS"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM III/RECOMP. POR"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°GAS/PORTUGUES"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°GAS/PORTUGUES"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS III/PORTUGUES"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1\"DS III/PORTUGUES"
-          }
-        ],
-        "terca": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM IV/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1 ADM IV/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1°ADM II/PRODUCÃO TEXTUAL"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1 ADM II/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°DS II/PORTUGUES"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°ADM II/RECOMP POR"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°ADM III/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1°ADM III/PRODUÇÃO TEXTUAL"
-          }
-        ],
-        "quarta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°ADM I/RECOMP. POR"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°ADM IV/RECOMP. POR"
-          }
-        ],
-        "quinta": [],
-        "sexta": [
-          {
-            "hora": "07:30",
-            "disciplina_turma": "1°GAS/PORTUGUÊS"
-          },
-          {
-            "hora": "08:20",
-            "disciplina_turma": "1°DS II/PORTUGUES"
-          },
-          {
-            "hora": "09:30",
-            "disciplina_turma": "1\"DS 11/PORTUGUES"
-          },
-          {
-            "hora": "10:20",
-            "disciplina_turma": "1°ADM I/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "11:10",
-            "disciplina_turma": "1°ADM I/PRODUÇÃO TEXTUAL"
-          },
-          {
-            "hora": "13:20",
-            "disciplina_turma": "1°DS I/PORTUGUES"
-          },
-          {
-            "hora": "14:10",
-            "disciplina_turma": "1°DS I/PORTUGUES"
-          },
-          {
-            "hora": "16:10",
-            "disciplina_turma": "1\"DS III/PORTUGUÊS"
-          }
-        ]
-      }
-    }
-  ]
-};
-const teacherAreas = {
-    "ADRIELMA": "Ciências da Natureza", "ALEX": "Matemática", "ALEX-HISTÓRIA": "Humanas", "CARLOS": "Matemática", "CLEONE": "Humanas", "DANILO": "Ciências da Natureza", "DEMOHAB": "Base Técnica", "DENIS": "Ciências da Natureza", "DENISSON": "Matemática", "ELIAS": "Matemática", "FERNANDA": "Matemática", "GEFERSON": "Linguagens", "GILMAR": "Linguagens", "GIORDANA": "Linguagens", "HEROISO": "Base Técnica", "ISA LACERDA": "Base Técnica", "JULIO": "Linguagens", "LAURA": "Linguagens", "LINALDA": "Ciências da Natureza", "LUIS": "Humanas", "MARCOS": "Humanas", "MARINALVA": "Base Técnica", "PAULO": "Base Técnica", "POLLYANA": "Humanas", "RENATO": "Base Técnica", "RIZIA": "Linguagens", "ROBERTINA": "Humanas", "RODOLPHO": "Base Técnica", "RYAN": "Base Técnica", "SAMMYA": "Base Técnica", "SARA": "Linguagens", "SHIRLEY": "Base Técnica", "SUZY": "Linguagens", "THIAGO": "Humanas", "VALDIEGO": "Linguagens", "VILMAR": "Ciências da Natureza", "YURI": "Ciências da Natureza", "ZELIA": "Linguagens"
-};
-
 // ==========================================================================
 // 2. CONFIGURAÇÕES E DADOS GLOBAIS
 // ==========================================================================
@@ -3741,7 +21,6 @@ const substitutionLimits = {
     "Isa lacerda": 2, "Rodolpho": 3, "Renato": 2, "Heroiso": 3, "Ryan": 1, "Shirley": 3, "Sammya": 1, "Paulo": 1
 };
 
-
 // 3. Função que calcula o horário de fim (assumindo 50 minutos de aula)
 const calculateEndTime = (startTime) => {
     const [hours, minutes] = startTime.split(':').map(Number);
@@ -3751,7 +30,7 @@ const calculateEndTime = (startTime) => {
     return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
 };
 
-// 4. Função "tradutora" que converte os dados brutos para o formato que o sistema espera
+// 4. Função que processa os dados brutos para o formato que o sistema espera
 const processRawData = (data) => {
     const dayMapping = {
         segunda: 'Segunda', terca: 'Terça', quarta: 'Quarta', quinta: 'Quinta', sexta: 'Sexta'
@@ -3778,15 +57,15 @@ const processRawData = (data) => {
         }
         return {
             nome: prof.nome.charAt(0).toUpperCase() + prof.nome.slice(1).toLowerCase(), // Padroniza o nome
-            area: teacherAreas[prof.nome] || 'Não definida', // Pega a área do objeto de configuração
+            area: prof.area || 'Não definida', // Pega a área diretamente do JSON
             horarios: horarios
         };
     });
 };
 
-// 5. Montagem final do objeto de dados que o sistema usará
-const teacherScheduleData = {
-    professores: processRawData(rawData),
+// 5. Objeto de dados principal que o sistema usará (será preenchido após o carregamento)
+let teacherScheduleData = {
+    professores: [],
     diasDeArea: { ...defaultSettings.diasDeArea },
     intervalosFixos: [ ...defaultSettings.intervalosFixos ]
 };
@@ -3801,6 +80,7 @@ let appState = {
     activityLog: [],
     currentAbsentTeachers: [],
     currentDay: null,
+    currentPeriod: 'all', // NOVO: Armazena o período selecionado
 };
 let currentUser = null; // Armazena o usuário logado
 
@@ -3810,13 +90,14 @@ const resetAppState = () => {
     appState.ignoredClasses = {};
     appState.currentAbsentTeachers = [];
     appState.currentDay = null;
+    appState.currentPeriod = 'all';
 };
 
 // ==========================================================================
 // 4. LÓGICA DE NEGÓCIO E UTILITÁRIOS
 // ==========================================================================
 
-const loadSettingsFromLocalStorage = () => {
+const loadLocalSettings = () => {
     const savedDiasDeArea = localStorage.getItem('diasDeArea');
     const savedIntervalosFixos = localStorage.getItem('intervalosFixos');
 
@@ -3828,7 +109,7 @@ const loadSettingsFromLocalStorage = () => {
     }
 };
 
-const saveSettingsToLocalStorage = () => {
+const saveLocalSettings = () => {
     // Salvar Dias de Área
     const newDiasDeArea = {};
     document.querySelectorAll('#area-days-form .area-day-item').forEach(item => {
@@ -3893,13 +174,31 @@ const getAreaColor = (area) => {
 // 5. INICIALIZAÇÃO E MANIPULAÇÃO DE EVENTOS
 // ==========================================================================
 
-document.addEventListener('DOMContentLoaded', () => {
+// Função principal de inicialização
+async function initializeApp() {
+    try {
+        // Carrega os dados do arquivo JSON externo
+        const response = await fetch('horarios.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        rawData = await response.json();
+
+        // Agora que rawData está carregado, processa e preenche o objeto principal
+        teacherScheduleData.professores = processRawData(rawData);
+
+    } catch (error) {
+        console.error("Falha ao carregar ou processar o arquivo de horários:", error);
+        alert("ERRO: Não foi possível carregar o arquivo 'horarios.json'. Verifique se o arquivo está na mesma pasta e se você está usando um servidor local (como a extensão Live Server do VS Code).");
+        return; // Interrompe a execução se os dados não puderem ser carregados
+    }
+
     // Elementos da Tela de Login
     const loginScreen = document.getElementById('login-screen');
     const mainApp = document.getElementById('main-app');
 
     // Elementos do Multi-Select Personalizado
-    const daySelect = document.getElementById('absence-day');
+    const dateSelect = document.getElementById('absence-date');
     const findBtn = document.getElementById('find-substitute-btn');
     const periodSelect = document.getElementById('absence-period');
     const resultsArea = document.getElementById('results-area');
@@ -3934,10 +233,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeScheduleBtn_elem = document.getElementById('close-schedule-btn');
     const scheduleOverlay_elem = document.getElementById('schedule-overlay');
     const scheduleSearchInput = document.getElementById('schedule-search-teacher');
+    const exportLogBtn = document.getElementById('export-log-btn');
+    const schedulePeriodFilter = document.getElementById('schedule-filter-period');
+    const printScheduleBtn = document.getElementById('print-schedule-btn');
     const scheduleAreaFilter = document.getElementById('schedule-filter-area');
+    const scheduleGridContainer = document.getElementById('schedule-grid-container');
 
     // Carrega as configurações salvas ao iniciar
-    loadSettingsFromLocalStorage();
+    loadLocalSettings();
 
     // --- LÓGICA DE LOGIN ---
     const credentials = {
@@ -3972,6 +275,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Define a data de hoje como padrão no seletor de data
+    const setTodayDate = () => {
+        const today = new Date().toISOString().split('T')[0];
+        dateSelect.value = today;
+    };
+
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const username = usernameInput.value.toLowerCase();
@@ -3999,6 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Pré-seleciona a área do coordenador
                 areaFilterSelect.value = user.area;
                 // Dispara o evento 'change' para popular o seletor de professores
+                setTodayDate();
                 areaFilterSelect.dispatchEvent(new Event('change'));
 
                 setTimeout(() => {
@@ -4099,7 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
     settingsOverlay.addEventListener('click', closeModal);
     addIntervalBtn.addEventListener('click', () => addIntervalToForm());
     saveSettingsBtn.addEventListener('click', () => {
-        saveSettingsToLocalStorage();
+        saveLocalSettings();
         closeModal();
         alert('Configurações salvas com sucesso!');
     });
@@ -4110,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.removeItem('intervalosFixos');
             
             // Recarrega os valores padrão no estado da aplicação
-            loadSettingsFromLocalStorage();
+            loadLocalSettings();
             renderSettingsModal();
         }
     });
@@ -4135,13 +445,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const renderMasterSchedule = (filters = { searchTerm: '', area: 'all' }) => {
+    const renderMasterSchedule = (filters = { searchTerm: '', area: 'all', period: 'all' }, highlightSlot = null) => {
+        // Calcula a contagem de substituições para cada professor na sessão atual
+        const substitutionCounts = Object.values(appState.confirmedSubstitutions).reduce((acc, teacherName) => {
+            if (teacherName) {
+                acc[teacherName] = (acc[teacherName] || 0) + 1;
+            }
+            return acc;
+        }, {});
+
+
         const container = document.getElementById('schedule-grid-container');
         const days = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
-        const timeSlots = [
+        const allTimeSlots = [
             '07:30', '08:20', '09:30', '10:20', '11:10', 
             '13:20', '14:10', '15:20', '16:10'
         ];
+
+        // Filtra os horários com base no período selecionado
+        let timeSlotsToDisplay = allTimeSlots;
+        if (filters.period === 'morning') {
+            timeSlotsToDisplay = allTimeSlots.filter(slot => parseTimeToMinutes(slot) < parseTimeToMinutes('12:00'));
+        } else if (filters.period === 'afternoon') {
+            timeSlotsToDisplay = allTimeSlots.filter(slot => parseTimeToMinutes(slot) >= parseTimeToMinutes('12:00'));
+        }
 
         let teachersToDisplay = teacherScheduleData.professores;
         if (filters.searchTerm) {
@@ -4152,19 +479,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         let tableHtml = '<table class="schedule-table"><thead><tr><th>Horário</th>';
-        days.forEach(day => tableHtml += `<th>${day}</th>`);
+        // Adiciona a classe de destaque no cabeçalho do dia atual
+        const currentDay = appState.currentDay;
+        days.forEach(day => {
+            const isCurrentDay = day === currentDay;
+            tableHtml += `<th class="${isCurrentDay ? 'current-day-column' : ''}">${day}</th>`;
+        });
         tableHtml += '</tr></thead><tbody>';
 
-        timeSlots.forEach(slot => {
+        timeSlotsToDisplay.forEach(slot => {
             tableHtml += `<tr><td><strong>${slot}</strong></td>`;
             days.forEach(day => {
+                const isCurrentDayColumn = day === currentDay;
+                const cellId = `${day}-${slot}`;
+                const isHighlight = highlightSlot && highlightSlot.day === day && highlightSlot.time === slot;
+
                 const cellContent = teachersToDisplay.map(prof => {
                     const classInSlot = prof.horarios.find(h => h.dia === day && h.inicio === slot);
                     if (classInSlot) {
+                        const subCount = substitutionCounts[prof.nome] || 0;
                         const areaColorClass = getAreaColor(prof.area);
                         return `
                             <div class="schedule-entry">
-                                <strong>${prof.nome}</strong>
+                                <div class="flex items-center">
+                                    <strong>${prof.nome}</strong>
+                                    ${subCount > 0 ? `<span class="substitution-count-badge">${subCount}</span>` : ''}
+                                </div>
                                 <small>${classInSlot.turma}</small>
                                 <span class="mt-1 text-xs font-semibold px-1.5 py-0.5 rounded-full inline-block ${areaColorClass}">${prof.area}</span>
                             </div>
@@ -4172,7 +512,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                     return '';
                 }).join('');
-                tableHtml += `<td>${cellContent || ''}</td>`;
+                // Constrói as classes da célula
+                const cellClasses = [];
+                if (isHighlight) cellClasses.push('highlight-slot');
+                if (isCurrentDayColumn) cellClasses.push('current-day-column');
+                tableHtml += `<td data-cell-id="${cellId}" class="${cellClasses.join(' ')}">${cellContent || ''}</td>`;
             });
             tableHtml += '</tr>';
 
@@ -4192,29 +536,38 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = tableHtml;
     };
 
-    const updateScheduleView = () => {
+    const updateScheduleView = (highlightSlot = null) => {
         const filters = {
             searchTerm: scheduleSearchInput.value,
-            area: scheduleAreaFilter.value
+            area: scheduleAreaFilter.value,
+            period: schedulePeriodFilter.value
         };
-        renderMasterSchedule(filters);
+        renderMasterSchedule(filters, highlightSlot);
     };
 
     openScheduleBtn_elem.addEventListener('click', () => {
         populateScheduleAreaFilter();
-        updateScheduleView(); // Chama a função unificada para renderizar tudo
+        // Limpa filtros e renderiza a grade completa ao abrir pelo botão principal
+        scheduleSearchInput.value = '';
+        scheduleAreaFilter.value = 'all';
+        schedulePeriodFilter.value = 'all';
+        updateScheduleView();
         scheduleModal.setAttribute('aria-hidden', 'false');
         scheduleModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
     });
 
     const closeScheduleModal = () => {
         scheduleModal.setAttribute('aria-hidden', 'true');
         setTimeout(() => scheduleModal.classList.add('hidden'), 300);
+        document.body.style.overflow = ''; // Restaura o scroll
     };
 
     closeScheduleBtn_elem.addEventListener('click', closeScheduleModal);
     scheduleOverlay_elem.addEventListener('click', closeScheduleModal);
     scheduleSearchInput.addEventListener('input', updateScheduleView);
+    schedulePeriodFilter.addEventListener('change', updateScheduleView);
+    printScheduleBtn.addEventListener('click', () => window.print());
     scheduleAreaFilter.addEventListener('change', updateScheduleView);
 
     // --- Lógica de Salvar/Carregar Sessão ---
@@ -4259,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Restaurar estado e UI
                 areaFilterSelect.value = state.area;
                 selectedTeachers = new Set(state.absentTeacherNames);
-                daySelect.value = state.day;
+                dateSelect.value = state.dateValue || new Date().toISOString().split('T')[0]; // Usa a data salva ou hoje
                 periodSelect.value = state.period;
                 noTccWeekCheckbox.checked = state.noTccWeek;
                 planningModeCheckbox.checked = state.planningMode || false;
@@ -4373,12 +726,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lógica principal ao clicar no botão
     findBtn.addEventListener('click', () => {
         const absentTeacherNames = Array.from(selectedTeachers);
-        const dayOfWeek = daySelect.value;
+        const selectedDate = dateSelect.value;
 
-        if (absentTeacherNames.length === 0 || !dayOfWeek) {
-            resultsArea.innerHTML = `<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-sm" role="alert"><p class="font-bold">Atenção</p><p>Por favor, selecione todos os filtros para continuar.</p></div>`;
+        if (absentTeacherNames.length === 0 || !selectedDate) {
+            resultsArea.innerHTML = `<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg shadow-sm" role="alert"><p class="font-bold">Atenção</p><p>Por favor, selecione o(s) professor(es) e a data da ausência para continuar.</p></div>`;
             return;
         }
+
+        // Converte a data selecionada para o dia da semana correspondente
+        const date = new Date(selectedDate + 'T00:00:00'); // Adiciona T00:00:00 para evitar problemas de fuso horário
+        const dayOfWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'][date.getDay()];
 
         // **NOVO**: Verifica e exibe alertas de inconsistência de dados antes de prosseguir
         const scheduleConflicts = checkForScheduleConflicts();
@@ -4395,6 +752,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const absentTeachers = teacherScheduleData.professores.filter(p => absentTeacherNames.includes(p.nome));
             appState.currentAbsentTeachers = absentTeachers;
             appState.currentDay = dayOfWeek;
+            appState.currentPeriod = periodSelect.value; // Armazena o período no estado
 
             let allClasses = absentTeachers.flatMap(teacher => 
                 (teacher.horarios || [])
@@ -4403,13 +761,14 @@ document.addEventListener('DOMContentLoaded', () => {
             );
 
             // Filtrar por período (manhã/tarde)
-            const period = periodSelect.value;
+            const period = appState.currentPeriod;
             if (period === 'morning') {
                 allClasses = allClasses.filter(c => parseTimeToMinutes(c.inicio) < parseTimeToMinutes('12:00'));
             } else if (period === 'afternoon') {
                 allClasses = allClasses.filter(c => parseTimeToMinutes(c.inicio) >= parseTimeToMinutes('12:00'));
             }
 
+        appState.currentClasses = allClasses; // Salva as aulas filtradas no estado
             if (allClasses.length === 0) {
                 displayNoClassesMessage(absentTeacherNames.join(', '), dayOfWeek);
             } else {
@@ -4460,7 +819,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearAll = () => {
         // Reseta os filtros para o padrão
         areaFilterSelect.value = currentUser ? currentUser.area : 'all';
-        daySelect.value = '';
+        setTodayDate();
         periodSelect.value = 'all';
         noTccWeekCheckbox.checked = false;
         planningModeCheckbox.checked = false;
@@ -4482,33 +841,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('clear-all-btn').addEventListener('click', clearAll);
 
+    const findOriginalClass = (classId) => {
+        if (!classId) return null;
+        const [_day, start, _end, ...turmaParts] = classId.split('_');
+        const turmaSanitized = turmaParts.join('_');
+        return teacherScheduleData.professores
+            .flatMap(p => p.horarios.map(h => ({ ...h, teacherName: p.nome })))
+            .find(h => h.dia === _day && h.inicio === start && h.turma.replace(/\s|\//g, '-') === turmaSanitized);
+    };
+
     // Delegação de eventos para todos os botões de ação
     document.body.addEventListener('click', (e) => {
         const target = e.target.closest('button'); // Garante que estamos pegando o botão
         if (!target) return;
 
-        const findOriginalClass = (classId) => {
-            const [_day, start, _end, ...turmaParts] = classId.split('_');
-            const turmaSanitized = turmaParts.join('_');
-            return teacherScheduleData.professores
-                .flatMap(p => p.horarios.map(h => ({ ...h, teacherName: p.nome })))
-                .find(h => h.dia === _day && h.inicio === start && h.turma.replace(/\s|\//g, '-') === turmaSanitized);
-        };
-
         const classId = target.dataset.classId;
         const substituteName = target.dataset.substituteName;
 
         if (target.matches('.confirm-btn')) {
-            appState.confirmedSubstitutions[classId] = substituteName;
-            const originalClass = findOriginalClass(classId);
-            if (originalClass) {
-                logActivity('confirm_substitution', {
-                    substitute: substituteName,
-                    originalTeacher: originalClass.teacherName,
-                    classInfo: `${originalClass.turma} (${originalClass.inicio}-${originalClass.fim})`
-                });
-            }
-            render();
+            const cardElement = target.closest('.card');
+            
+            // Adiciona a classe de animação ao card
+            cardElement.style.animation = 'confirm-flash 0.6s ease-out';
+
+            // Após a animação, atualiza o estado e renderiza novamente
+            setTimeout(() => {
+                appState.confirmedSubstitutions[classId] = substituteName;
+                const originalClass = findOriginalClass(classId);
+                if (originalClass) {
+                    logActivity('confirm_substitution', {
+                        substitute: substituteName,
+                        originalTeacher: originalClass.teacherName,
+                        classInfo: `${originalClass.turma} (${originalClass.inicio}-${originalClass.fim})`
+                    });
+                }
+                render(); // Re-renderiza a UI com o card no estado "confirmado"
+            }, 600); // O tempo deve ser igual à duração da animação
         }
 
         if (target.matches('.undo-btn')) {
@@ -4537,40 +905,56 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const autoConfirmAll = () => {
-        const absentTeacherNames = Array.from(selectedTeachers);
-        const dayOfWeek = daySelect.value;
-        const absentTeachers = teacherScheduleData.professores.filter(p => absentTeacherNames.includes(p.nome));
-        const absentTeacherClasses = appState.currentAbsentTeachers.flatMap(teacher => (teacher.horarios || []))
-            .filter(h => h.dia === dayOfWeek && !isDuringBreak(h))
-            .sort((a, b) => parseTimeToMinutes(a.inicio) - parseTimeToMinutes(b.inicio));
+        // Encontra todas as aulas que ainda não foram confirmadas ou ignoradas
+        const classesToAutoConfirm = document.querySelectorAll('.card:not(.border-green-500):not(.opacity-60)');
 
-        let currentConfirmations = { ...appState.confirmedSubstitutions };
+        classesToAutoConfirm.forEach(cardElement => {
+            const classId = cardElement.querySelector('.confirm-btn')?.dataset.classId;
+            if (!classId) return; // Pula se não for um card de sugestão
 
-        absentTeacherClasses.forEach(classSlot => {
-            const classId = `${dayOfWeek}_${classSlot.inicio}_${classSlot.fim}_${classSlot.turma.replace(/\s|\//g, '-')}`;
-            if (!currentConfirmations[classId]) {
-                const candidates = findAvailableTeachers(classSlot, dayOfWeek, absentTeachers, currentConfirmations);
-                if (candidates.length > 0) {
-                    currentConfirmations[classId] = candidates[0].nome; // Confirm the best candidate
-                }
+            const classSlot = findOriginalClass(classId);
+            if (!classSlot || isDuringBreak(classSlot)) return;
+
+            // Encontra o melhor candidato (o primeiro da lista)
+            const candidates = findAvailableTeachers(classSlot, appState.currentDay, appState.currentAbsentTeachers, appState.confirmedSubstitutions);
+            if (candidates.length > 0) {
+                const bestCandidate = candidates[0];
+                appState.confirmedSubstitutions[classId] = bestCandidate.nome;
+                logActivity('confirm_substitution', {
+                    substitute: bestCandidate.nome,
+                    originalTeacher: classSlot.teacherName,
+                    classInfo: `${classSlot.turma} (${classSlot.inicio}-${classSlot.fim})`,
+                });
             }
         });
 
-        appState.confirmedSubstitutions = currentConfirmations;
-        render();
+        // Re-renderiza apenas os resultados, sem recarregar tudo
+        displayResults(appState.currentClasses, appState.currentDay);
     };
 
     const render = () => {
         const absentTeacherNames = Array.from(selectedTeachers);
-        const dayOfWeek = daySelect.value;
+        const selectedDate = dateSelect.value;
+        const date = new Date(selectedDate + 'T00:00:00');
+        const dayOfWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'][date.getDay()];
         appState.currentAbsentTeachers = teacherScheduleData.professores.filter(p => absentTeacherNames.includes(p.nome));
         appState.currentDay = dayOfWeek;
+        appState.currentPeriod = periodSelect.value; // Garante que o período seja salvo no estado
         
-        const allClasses = appState.currentAbsentTeachers.flatMap(teacher => 
+        let allClasses = appState.currentAbsentTeachers.flatMap(teacher => 
             (teacher.horarios || [])
                 .filter(h => h.dia === dayOfWeek)
                 .map(h => ({ ...h, teacherName: teacher.nome, teacherArea: teacher.area }))
         );
+        appState.currentClasses = allClasses; // Armazena as aulas atuais no estado
+
+        // Aplica o filtro de período que agora está salvo no estado
+        const period = appState.currentPeriod;
+        if (period === 'morning') {
+            allClasses = allClasses.filter(c => parseTimeToMinutes(c.inicio) < parseTimeToMinutes('12:00'));
+        } else if (period === 'afternoon') {
+            allClasses = allClasses.filter(c => parseTimeToMinutes(c.inicio) >= parseTimeToMinutes('12:00'));
+        }
         displayResults(allClasses, dayOfWeek);
     };
 
@@ -4666,7 +1050,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sameTurma: 0, // Prioridade alta para quem já conhece a turma
                 sameArea: 0,  // Prioridade baixa, como solicitado
             };
-            const justifications = ['Disponível no horário']; // Sempre começa com a disponibilidade
+            const justifications = []; // Começa vazio, será preenchido
             scores.workload = -30 * substitutionsCount;
             
             if (substitutionsCount > 0) {
@@ -4687,14 +1071,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const hasTaughtTurma = potentialSubstitute.horarios.some(schedule => schedule.turma === classToCover.turma);
             if (hasTaughtTurma) {
-                scores.sameTurma = 50; // Pontuação alta por conhecer a turma
-                justifications.push('Já leciona para esta turma.');
+                scores.sameTurma = 150; // Pontuação MUITO alta por conhecer a turma
+                justifications.push('<strong>Já leciona para esta turma</strong>');
             }
             
             // Encontra a área do professor da aula a ser coberta
             const originalTeacherArea = absentTeachers.find(t => t.nome === classToCover.teacherName)?.area;
             if (originalTeacherArea && potentialSubstitute.area === originalTeacherArea) {
-                scores.sameArea = 10; // Pontuação baixa para dar prioridade à disponibilidade e turma
+                scores.sameArea = 5; // Pontuação muito baixa, apenas como desempate
                 justifications.push(`Da mesma área: <strong>${potentialSubstitute.area}</strong>.`);
             }
 
@@ -4706,10 +1090,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const nextClass = substituteClassesToday.find(h => parseTimeToMinutes(h.inicio) > parseTimeToMinutes(classToCover.inicio));
 
             if (nextClass) {
-                justifications.push(`Próxima aula às ${nextClass.inicio}`);
+                justifications.push(`Próxima aula às ${nextClass.inicio}.`);
             } else if (substituteClassesToday.length > 0) {
                 // Tem aulas no dia, mas nenhuma depois desta
                 justifications.push('Última aula do dia seria esta.');
+            } else {
+                justifications.push('Sem outras aulas neste dia.');
             }
 
             const totalScore = Object.values(scores).reduce((sum, val) => sum + val, 0);
@@ -4744,14 +1130,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const trashArea = document.getElementById('trash-area');
         const absentTeachers = teacherScheduleData.professores.filter(p => absentTeacherNames.includes(p.nome));
         const activityLogArea = document.getElementById('activity-log-area');
-        
+        const activityLogContent = document.getElementById('activity-log-content');
         const sortedClasses = classes.sort((a,b) => parseTimeToMinutes(a.inicio) - parseTimeToMinutes(b.inicio));
         
+        resultsArea.innerHTML = html; // Limpa e prepara para adicionar os cards
+
         sortedClasses.forEach((classSlot) => {
             const classId = `${day}_${classSlot.inicio}_${classSlot.fim}_${classSlot.turma.replace(/\s|\//g, '-')}`;
-            if (appState.ignoredClasses[classId]) {
-                trashHtml += generateTrashCard(classSlot, day);
-            } else {
+            if (!appState.ignoredClasses[classId]) {
                 html += generateClassCard(classSlot, day, absentTeachers);
             }
         });
@@ -4774,13 +1160,21 @@ document.addEventListener('DOMContentLoaded', () => {
             trashArea.innerHTML = '';
         }
 
+        // Renderiza a lixeira se houver itens ignorados
+        Object.keys(appState.ignoredClasses).forEach(classId => {
+            const classSlot = findOriginalClass(classId);
+            if (classSlot) trashHtml += generateTrashCard(classSlot, day);
+        });
+
         // Renderiza o Log de Atividades
         if (appState.activityLog && appState.activityLog.length > 0) {
-            activityLogArea.innerHTML = generateActivityLogHtml();
+            document.getElementById('activity-log-title').classList.remove('hidden');
+            exportLogBtn.classList.remove('hidden');
+            activityLogContent.innerHTML = generateActivityLogHtml();
         }
 
         // Adiciona o botão de auto-confirmar se houver aulas que precisam de substituto
-        const needsSubstitution = sortedClasses.some(c => !isDuringBreak(c) && !appState.ignoredClasses[`${day}_${c.inicio}_${c.fim}`]);
+        const needsSubstitution = sortedClasses.some(c => !isDuringBreak(c) && !appState.ignoredClasses[`${day}_${c.inicio}_${c.fim}_${c.turma.replace(/\s|\//g, '-')}`] && !appState.confirmedSubstitutions[`${day}_${c.inicio}_${c.fim}_${c.turma.replace(/\s|\//g, '-')}`]);
         if (needsSubstitution) {
             actionsContainer.innerHTML = `
                 <button id="auto-confirm-btn" class="bg-green-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-green-700 transition-all duration-150 ease-in-out flex items-center gap-2">
@@ -4796,85 +1190,164 @@ document.addEventListener('DOMContentLoaded', () => {
         // Adiciona botões de exportação se houver substituições confirmadas
         if (Object.keys(appState.confirmedSubstitutions).length > 0) {
             exportContainer.innerHTML = ``; // Limpa para reconstruir
+
+            const pngBtn = document.createElement('button');
+            pngBtn.id = 'generate-png-btn';
+            pngBtn.className = 'bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 transition-all flex items-center gap-2';
+            pngBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" /></svg> <span>Gerar Imagem (PNG)</span>`;
+            pngBtn.addEventListener('click', generateImageSummary);
             
             const pdfBtn = document.createElement('button');
             pdfBtn.id = 'generate-pdf-btn';
             pdfBtn.className = 'bg-slate-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-slate-700 transition-all flex items-center gap-2';
-            pdfBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd" /></svg> <span>Gerar PDF do Resumo</span>`;
+            pdfBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd" /></svg> <span>Gerar PDF</span>`;
             pdfBtn.addEventListener('click', generatePDFSummary);
 
             const saveBtn = document.createElement('button');
             saveBtn.id = 'save-session-btn';
             saveBtn.className = 'bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 transition-all flex items-center gap-2';
-            saveBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4zm3 2a1 1 0 00-1 1v2a1 1 0 102 0V7a1 1 0 00-1-1z" /></svg> <span>Salvar Sessão</span>`;
+            saveBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4zm3 2a1 1 0 00-1 1v2a1 1 0 102 0V7a1 1 0 00-1-1z" /></svg> <span>Salvar</span>`;
             saveBtn.addEventListener('click', saveSession);
 
-            exportContainer.append(pdfBtn, saveBtn);
+            exportContainer.append(pngBtn, pdfBtn, saveBtn);
         } else {
             exportContainer.innerHTML = '';
         }
-
-         // Adiciona a animação de entrada
-        document.querySelectorAll('.card-enter').forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('card-enter-active');
-            }, index * 100);
-        });
     };
 
-    const generatePDFSummary = () => {
+    const generateImageSummary = async () => {
+        const renderArea = document.getElementById('image-summary-render-area');
+        const summaryHtml = generateSummaryHtmlForExport();
+        renderArea.innerHTML = summaryHtml;
+
+        try {
+            const canvas = await html2canvas(renderArea, { scale: 2, useCORS: true });
+            const imageUrl = canvas.toDataURL('image/png');
+            const a = document.createElement('a');
+            a.href = imageUrl;
+            a.download = `Resumo_Substituicoes_${new Date().toISOString().slice(0, 10)}.png`;
+            a.click();
+        } catch (error) {
+            console.error('Erro ao gerar a imagem:', error);
+            alert('Ocorreu um erro ao tentar gerar a imagem.');
+        } finally {
+            renderArea.innerHTML = ''; // Limpa a área de renderização
+        }
+    };
+
+    const generateSummaryHtmlForExport = () => {
+        const absentTeacherNames = appState.currentAbsentTeachers.map(p => p.nome);
+        const dayOfWeek = appState.currentDay;
+        const dateStr = new Date(dateSelect.value + 'T00:00:00').toLocaleDateString('pt-BR');
+
+        let html = `<div class="summary-image-title">Relatório de Substituições</div>`;
+        html += `<div class="summary-image-subtitle">Data: ${dateStr} (${dayOfWeek})</div>`;
+
+        absentTeacherNames.forEach(teacherName => {
+            html += `<h3 style="font-size: 18px; font-weight: bold; margin-top: 20px; margin-bottom: 10px;">Ausência: Prof. ${teacherName}</h3>`;
+            html += `<table class="summary-image-table"><thead><tr><th>Horário</th><th>Turma</th><th>Substituto</th></tr></thead><tbody>`;
+
+            const substitutionsForTeacher = Object.entries(appState.confirmedSubstitutions)
+                .filter(([classId, _]) => findOriginalClass(classId)?.teacherName === teacherName)
+                .sort((a, b) => parseTimeToMinutes(a[0].split('_')[1]) - parseTimeToMinutes(b[0].split('_')[1]));
+
+            substitutionsForTeacher.forEach(([classId, substituteName]) => {
+                const turma = findOriginalClass(classId)?.turma || 'N/A';
+                const [_, start, end] = classId.split('_');
+                html += `<tr><td>${start} - ${end}</td><td>${turma}</td><td>${substituteName}</td></tr>`;
+            });
+            html += `</tbody></table>`;
+        });
+        return html;
+    };
+
+    const generatePDFSummary = async () => {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
-
-        const absentTeacherNames = appState.currentAbsentTeachers.map(p => p.nome).join(', ');
+    
+        // Função para carregar imagem e converter para Base64
+        const loadImageAsBase64 = (url) => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.crossOrigin = 'Anonymous';
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+                    resolve(canvas.toDataURL('image/png'));
+                };
+                img.onerror = reject;
+                img.src = url;
+            });
+        };
+    
+        try {
+            // Tenta carregar o logo. Se falhar, continua sem ele.
+            const logoBase64 = await loadImageAsBase64('logo.png');
+            doc.addImage(logoBase64, 'PNG', 14, 15, 30, 15); // (imagem, formato, x, y, largura, altura)
+        } catch (e) {
+            console.warn("Logo 'logo.png' não encontrado. Gerando PDF sem o logo.");
+        }
+    
+        const absentTeacherNames = appState.currentAbsentTeachers.map(p => p.nome);
         const dayOfWeek = appState.currentDay;
-        const date = new Date();
+        const date = new Date(dateSelect.value + 'T00:00:00');
         const dateString = date.toLocaleDateString('pt-BR');
-        const timeString = date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-
-        // Título
+        const generationTime = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    
         doc.setFontSize(18);
         doc.setFont('helvetica', 'bold');
         doc.text('Relatório de Substituições', doc.internal.pageSize.getWidth() / 2, 20, { align: 'center' });
-
-        // Informações do Cabeçalho
+    
         doc.setFontSize(11);
         doc.setFont('helvetica', 'normal');
-        doc.text(`Data: ${dateString}`, 14, 35);
-        doc.text(`Dia da Semana: ${dayOfWeek}`, 14, 42);
-        doc.text(`Professor(es) Ausente(s): ${absentTeacherNames}`, 14, 49);
-
-        // Preparar dados para a tabela
-        const tableData = Object.entries(appState.confirmedSubstitutions)
-            .sort((a, b) => parseTimeToMinutes(a[0].split('_')[1]) - parseTimeToMinutes(b[0].split('_')[1]))
-            .map(([classId, substituteName]) => {
-                const [_day, start, end, ...turmaParts] = classId.split('_');
-                const turmaSanitized = turmaParts.join('_');
-                const originalClass = teacherScheduleData.professores
-                    .flatMap(p => p.horarios.map(h => ({ ...h, teacherName: p.nome })))
-                    .find(h => h.dia === _day && h.inicio === start && h.turma.replace(/\s|\//g, '-') === turmaSanitized);
-
-                return [
-                    `${start} - ${end}`,
-                    originalClass ? originalClass.teacherName : 'N/A',
-                    originalClass ? originalClass.turma : 'N/A',
-                    substituteName
-                ];
-            });
-
-        // Gerar a tabela
-        doc.autoTable({
-            startY: 60,
-            head: [['Horário', 'Aula Original (Prof.)', 'Turma', 'Professor Substituto']],
-            body: tableData,
-            theme: 'striped',
-            headStyles: { fillColor: [79, 70, 229] }, // Cor --cor-primaria (Indigo 600)
+        doc.text(`Data da Ausência: ${dateString} (${dayOfWeek})`, 14, 40);
+    
+        let lastY = 50;
+    
+        absentTeacherNames.forEach(teacherName => {
+            const substitutionsForTeacher = Object.entries(appState.confirmedSubstitutions)
+                .filter(([classId, _]) => findOriginalClass(classId)?.teacherName === teacherName)
+                .sort((a, b) => parseTimeToMinutes(a[0].split('_')[1]) - parseTimeToMinutes(b[0].split('_')[1]));
+    
+            if (substitutionsForTeacher.length > 0) {
+                doc.setFontSize(12);
+                doc.setFont('helvetica', 'bold');
+                doc.text(`Ausência: Prof. ${teacherName}`, 14, lastY);
+                lastY += 7;
+    
+                const tableData = substitutionsForTeacher.map(([classId, substituteName]) => {
+                    const [_day, start, end] = classId.split('_');
+                    const turma = findOriginalClass(classId)?.turma || 'N/A';
+                    return [`${start} - ${end}`, turma, substituteName];
+                });
+    
+                doc.autoTable({ startY: lastY, head: [['Horário', 'Turma', 'Professor Substituto']], body: tableData, theme: 'striped', headStyles: { fillColor: [79, 70, 229] } });
+                lastY = doc.autoTable.previous.finalY + 15;
+            }
         });
+
+        // --- INÍCIO DA SEÇÃO DE ASSINATURA ---
+        // Adiciona um espaço antes da linha de assinatura
+        lastY = doc.autoTable.previous.finalY > lastY ? doc.autoTable.previous.finalY : lastY;
+        lastY += 25;
+
+        doc.setDrawColor(150, 150, 150); // Define a cor da linha para cinza
+        // Desenha a linha para assinatura (x1, y, x2, y)
+        doc.line(70, lastY, 140, lastY);
+        doc.setDrawColor(0, 0, 0); // Volta para preto para outras linhas, se houver
+        lastY += 5; // Move um pouco para baixo para o texto
+        const signatureText = currentUser ? `Prof.(a) ${currentUser.name}` : 'Assinatura do Coordenador(a)';
+        doc.setFontSize(10);
+        doc.text(signatureText, doc.internal.pageSize.getWidth() / 2, lastY, { align: 'center' });
+        // --- FIM DA SEÇÃO DE ASSINATURA ---
 
         // Rodapé
         const pageCount = doc.internal.getNumberOfPages();
         doc.setFontSize(8);
-        doc.text(`Gerado em ${dateString} às ${timeString} - Página 1 de ${pageCount}`, doc.internal.pageSize.getWidth() / 2, doc.internal.pageSize.getHeight() - 10, { align: 'center' });
+        doc.text(`Gerado em ${new Date().toLocaleDateString('pt-BR')} às ${generationTime} - Página 1 de ${pageCount}`, doc.internal.pageSize.getWidth() / 2, doc.internal.pageSize.getHeight() - 10, { align: 'center' });
 
         // Salvar o PDF
         doc.save(`Relatorio_Substituicoes_${date.toISOString().slice(0,10)}.pdf`);
@@ -4916,40 +1389,53 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const candidates = findAvailableTeachers(classSlot, day, absentTeachers, appState.confirmedSubstitutions);
         let candidatesHtml = '';
-        if (candidates.length > 0) {
-            candidatesHtml = candidates.slice(0, 5).map((c, i) => `
-                <li class="flex flex-col sm:flex-row justify-between sm:items-center p-3 rounded-lg ${i === 0 ? 'bg-indigo-50/70' : ''} transition-colors hover:bg-slate-100/80">
-                    <div class="w-full sm:w-auto">
-                        <div class="flex items-center">
-                            <p class="font-semibold text-slate-800">${c.nome}</p>                            
-                            ${c.limit !== Infinity ? (() => {
-                                const remainingAfterThis = c.remainingSubstitutions - 1;
-                                let badgeClass = '';
-                                if (remainingAfterThis === 0) badgeClass = 'danger';
-                                else if (remainingAfterThis === 1) badgeClass = 'warning';
-                                
-                                return `
-                                <span class="ml-2 text-xs font-bold px-2 py-0.5 rounded-full limit-badge ${badgeClass}" 
-                                      title="Este professor usou ${c.substitutionsCount} de ${c.limit} substituições. Se aceitar esta, restarão ${remainingAfterThis}.">
-                                    Usadas: ${c.substitutionsCount} / ${c.limit}
-                                </span>
-                            `})() : ''}
 
-                        </div>
-                        <p class="text-xs sm:text-sm text-slate-500 mt-1 sm:mt-0">${c.justification}</p>
+        // Separa os candidatos: os que já dão aula para a turma e os outros
+        const bestCandidates = candidates.slice(0, 3); // Mostra os 3 melhores por padrão
+        const otherCandidates = candidates.slice(3);
+
+        const renderCandidate = (c, isBestOption = false) => `
+            <li class="candidate-item flex flex-col sm:flex-row justify-between sm:items-center p-3 rounded-lg ${isBestOption ? 'border-indigo-500' : ''} transition-colors hover:bg-slate-100/80">
+                <div class="w-full sm:w-auto">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <p class="font-semibold text-slate-800">${c.nome}</p>
+                        ${c.justification.includes('Já leciona para esta turma') ? '<span class="best-option-badge">Mesma Turma</span>' : ''}
+                        ${
+                            // Adiciona o badge de aviso se o professor estiver a 1 aula do limite
+                            !planningModeCheckbox.checked && c.remainingSubstitutions === 1
+                            ? `<span class="near-limit-badge px-2 py-0.5 rounded-full">No Limite</span>`
+                            : ''
+                        }
                     </div>
-                    <div class="flex items-center gap-3 mt-3 sm:mt-0 self-end sm:self-center">
-                        <span class="text-xs font-semibold px-2 py-1 rounded-full ${getAreaColor(c.area)}">${c.area}</span>
-                        <button data-class-id="${classId}" data-substitute-name="${c.nome}" class="confirm-btn bg-indigo-500 text-white text-xs font-bold py-1 px-3 rounded-full hover:bg-indigo-600">Confirmar</button>
-                    </div>
-                </li>
-            `).join('');
+                    <p class="text-xs sm:text-sm text-slate-500 mt-1 sm:mt-0">
+                        ${c.justification}
+                        ${!planningModeCheckbox.checked && c.limit !== Infinity ? `(Limite: ${c.substitutionsCount}/${c.limit})` : ''}
+                    </p>
+                </div>
+                <div class="flex items-center gap-3 mt-3 sm:mt-0 self-end sm:self-center">
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full ${getAreaColor(c.area)}">${c.area}</span>
+                    <button data-teacher-name="${c.nome}" data-class-start-time="${classSlot.inicio}" class="view-schedule-btn action-button text-xs font-semibold py-1 px-3 rounded-full">Ver Horário</button>
+                    <button data-class-id="${classId}" data-substitute-name="${c.nome}" class="confirm-btn action-button text-xs font-bold py-1 px-3 rounded-full">Confirmar</button>
+                </div>
+            </li>`;
+
+        if (candidates.length > 0) {
+            // Marca o primeiro candidato como a melhor opção visualmente
+            candidatesHtml = renderCandidate(candidates[0], true); 
+            candidatesHtml += candidates.slice(1, 3).map(c => renderCandidate(c, false)).join('');
+
+            if (otherCandidates.length > 0) {
+                candidatesHtml += `<div class="other-options hidden">${otherCandidates.map(c => renderCandidate(c, false)).join('')}</div>`;
+                candidatesHtml += `<button class="show-more-btn text-sm font-semibold text-indigo-600 hover:underline mt-3">Ver mais opções</button>`;
+            }
         } else {
             candidatesHtml = `<li class="p-3 text-center text-slate-500">Nenhum professor compatível encontrado.</li>`;
         }
 
+        const isConfirmed = !!appState.confirmedSubstitutions[classId];
+
         return `
-            <div class="bg-white p-5 rounded-lg shadow-sm mb-6 card card-enter border-l-4 border-indigo-500">
+            <div class="bg-white p-5 rounded-lg shadow-sm mb-6 card card-enter ${!isConfirmed ? 'border-l-4 border-indigo-500' : ''}">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 pb-4 border-b">
                     <div class="flex-grow">
                         <h3 class="text-xl font-bold text-indigo-700">${classSlot.inicio} - ${classSlot.fim}</h3>
@@ -4970,6 +1456,72 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     };
 
+    // Event listener para o botão "Ver mais opções"
+    document.body.addEventListener('click', e => {
+        if (e.target.matches('.show-more-btn')) {
+            e.target.previousElementSibling.classList.remove('hidden');
+            e.target.remove();
+        }
+    });
+
+    // Delegação de eventos para o botão "Ver Horário"
+    document.body.addEventListener('click', (e) => {
+        const target = e.target.closest('.view-schedule-btn');
+        if (!target) return;
+
+        const teacherName = target.dataset.teacherName;
+        const classStartTime = target.dataset.classStartTime;
+        const dayOfWeek = appState.currentDay; // Pega o dia da busca atual
+
+        if (teacherName && classStartTime && dayOfWeek) {
+            // Abre o modal da grade, já filtrando pelo professor e destacando o horário
+            populateScheduleAreaFilter();
+            scheduleSearchInput.value = teacherName;
+            scheduleAreaFilter.value = 'all';
+            updateScheduleView({ day: dayOfWeek, time: classStartTime });
+            scheduleModal.setAttribute('aria-hidden', 'false');
+            scheduleModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    const exportActivityLogAsText = () => {
+        if (!appState.activityLog || appState.activityLog.length === 0) {
+            alert("Não há atividades no log para exportar.");
+            return;
+        }
+
+        const date = new Date();
+        const dateString = date.toLocaleDateString('pt-BR');
+        const timeString = date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+        let fileContent = `Relatório de Atividades - Gerado em ${dateString} às ${timeString}\n`;
+        fileContent += "==================================================================\n\n";
+
+        // Invertemos o log para que ele seja lido em ordem cronológica no arquivo de texto
+        const chronologicalLog = [...appState.activityLog].reverse();
+
+        chronologicalLog.forEach(log => {
+            const logTime = new Date(log.timestamp).toLocaleString('pt-BR');
+            let logText = `[${logTime}] - ${log.user}: `;
+
+            if (log.action === 'confirm_substitution') {
+                logText += `Confirmou ${log.details.substitute} para a aula de ${log.details.originalTeacher} (${log.details.classInfo}).`;
+            } else if (log.action === 'undo_substitution') {
+                logText += `Desfez a substituição de ${log.details.substitute} para a aula de ${log.details.originalTeacher}.`;
+            }
+            fileContent += logText + "\n";
+        });
+
+        const blob = new Blob([fileContent], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `log_atividades_${date.toISOString().slice(0, 10)}.txt`;
+        a.click();
+        URL.revokeObjectURL(url);
+    };
+
     const generateTrashCard = (classSlot, day) => {
         const classId = `${day}_${classSlot.inicio}_${classSlot.fim}_${classSlot.turma.replace(/\s|\//g, '-')}`;
         return `
@@ -4988,13 +1540,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const generateActivityLogHtml = () => {
         let logHtml = `
-            <div class="border-t pt-8 mt-8">
-                <h3 class="text-xl font-bold text-slate-600 mb-4 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
-                    Log de Atividades
-                </h3>
-                <div class="timeline-container bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-slate-200">
-        `;
+            <div class="timeline-container bg-white p-4 sm:p-6 rounded-lg shadow-sm border border-slate-200">`;
 
         appState.activityLog.forEach(log => {
             const time = new Date(log.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
@@ -5025,7 +1571,12 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
 
-        logHtml += `</div></div>`;
+        logHtml += `</div>`;
         return logHtml;
     };
-});
+
+    exportLogBtn.addEventListener('click', exportActivityLogAsText);
+};
+
+// Inicia a aplicação quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', initializeApp);
