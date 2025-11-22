@@ -5,50 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alocador de Professores Substitutos</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="login-style.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-50 text-slate-800">
+<!-- A classe 'bg-slate-900' será adicionada/removida via JS -->
+<body class="text-slate-800 bg-slate-900">
 
     <!-- Tela de Login -->
-    <div id="login-screen" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-100 p-4 transition-opacity duration-500">
-        <div class="w-full max-w-sm">
-            <div class="text-center mb-8">
-                <h1 class="text-3xl font-bold text-slate-700 font-poppins">Bem-vindo(a)</h1>
-                <p class="text-slate-500 mt-1">Acesse o Alocador de Professores</p>
+    <div id="login-screen" class="login-page relative overflow-hidden">
+        <!-- Vídeo de Fundo -->
+        <video autoplay muted loop playsinline poster="path/to/your/poster-image.jpg" id="login-bg-video" class="fixed right-0 bottom-0 min-w-full min-h-full w-auto h-auto object-cover z-0 blur-sm">
+            <source src="imgs/video.mp4" type="video/mp4"> <!-- Certifique-se que este caminho está correto -->
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+        <div class="absolute inset-0 bg-black/60 z-10"></div> <!-- Overlay para escurecer o vídeo -->
+
+        <div class="absolute inset-0 z-20 flex">
+            <div class="login-left">
+                <div class="login-left-content text-slate-200">
+                    <img src="imgs/BRASÃO_prata2025_Prancheta 1 cópia 2.png" alt="Logo do Sistema" class="logo">
+                    <h1 class="text-white">Sistema de Alocação Inteligente</h1>
+                    <p class="text-slate-400">Otimize a gestão de horários e substituições com eficiência e precisão.</p>
+                    <div class="school-name text-slate-500">ECIT DR. ELPÍDIO DE ALMEIDA</div>
+                </div>
             </div>
-            <form id="login-form" class="space-y-6">
-                <div>
-                    <label for="username" class="block text-sm font-medium text-slate-700">Usuário</label>
-                    <div class="mt-1">
-                        <input id="username" name="username" type="text" required class="w-full p-3 border border-slate-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition">
+            <div class="login-right">
+                <div class="login-form-container">
+                    <div class="form-header">
+                        <h2 class="text-white">Acesse sua conta</h2>
+                        <p class="text-slate-400">Bem-vindo(a) de volta! Por favor, insira seus dados.</p>
                     </div>
+                    <form id="login-form" method="POST">
+                        <div class="input-group">
+                            <label for="username" class="text-slate-300">Usuário</label>
+                            <input id="username" name="username" type="text" required class="bg-transparent border-b-2 border-slate-600 text-white focus:border-indigo-500 transition-colors duration-300">
+                        </div>
+                        <div class="input-group">
+                            <label for="password" class="text-slate-300">Senha</label>
+                            <div class="password-wrapper">
+                                <input id="password" name="password" type="password" required class="bg-transparent border-b-2 border-slate-600 text-white focus:border-indigo-500 transition-colors duration-300">
+                                <button type="button" id="toggle-password-visibility" title="Mostrar/Ocultar senha"></button>
+                            </div>
+                        </div>
+                        <p id="login-error" class="login-error-message hidden">Usuário ou senha inválidos.</p>
+                        <div class="form-options">
+                            <a href="#" class="text-indigo-400 hover:text-indigo-300">Esqueceu a senha?</a>
+                        </div>
+                        <button type="submit" class="login-button bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">Entrar</button>
+                    </form>
                 </div>
-                <div>
-                    <label for="password" class="block text-sm font-medium text-slate-700">Senha</label>
-                    <div class="mt-1 relative">
-                        <input id="password" name="password" type="password" required class="w-full p-3 pr-10 border border-slate-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 transition">
-                        <button type="button" id="toggle-password-visibility" class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 hover:text-slate-600 rounded-full" title="Mostrar/Ocultar senha"></button>
-                    </div>
-                </div>
-                <p id="login-error" class="text-sm text-red-600 hidden">Usuário ou senha inválidos.</p>
-                <div>
-                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all">Entrar</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 
     <!-- Tela de Boas-Vindas -->
-    <div id="welcome-screen" class="hidden fixed inset-0 z-[90] flex items-center justify-center bg-slate-900 p-4">
+    <div id="welcome-screen" class="hidden fixed inset-0 z-[90] flex items-center justify-center bg-slate-900 p-4 transition-opacity duration-500 ease-in-out">
         <h2 id="welcome-message" class="text-2xl md:text-4xl font-bold text-white text-center"></h2>
     </div>
 
-    <div id="main-app" class="container mx-auto p-4 md:p-8 opacity-0 -translate-y-4">
+    <div id="main-app" class="container mx-auto p-4 md:p-8 opacity-0 transition-opacity duration-700 ease-in-out">
         <header class="mb-8">
             <div class="flex items-center justify-between">
                 <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-700 flex items-center gap-3">
@@ -144,11 +161,6 @@
                 <!-- Os resultados serão inseridos aqui dinamicamente -->
             </div>
             <div id="loading-spinner" class="hidden text-center my-8">
-                <!-- Div oculta para renderizar o resumo para a imagem -->
-                <div id="image-summary-render-area" class="hidden">
-                    <!-- Conteúdo para a imagem será injetado aqui -->
-                </div>
-
                 <div class="flex justify-center items-center space-x-2">
                     <div class="dot"></div>
                 </div>
@@ -172,6 +184,11 @@
                 <div id="activity-log-content"></div>
             </div>
         </main>
+    </div>
+
+    <!-- Div oculta para renderizar o resumo para a imagem. Movido para fora do #main-app para garantir que sempre exista. -->
+    <div id="image-summary-render-area">
+        <!-- Conteúdo para a imagem será injetado aqui -->
     </div>
 
     <script src="script.js" defer></script>

@@ -174,15 +174,135 @@ const getAreaColor = (area) => {
 // 5. INICIALIZAÇÃO E MANIPULAÇÃO DE EVENTOS
 // ==========================================================================
 
+// **CORREÇÃO CRÍTICA**: Garante o estado visual inicial correto ANTES de qualquer outra coisa.
+// Isso é executado imediatamente, antes de carregar dados ou configurar eventos.
+document.addEventListener('DOMContentLoaded', () => {
+    const loginScreen = document.getElementById('login-screen');
+    const mainApp = document.getElementById('main-app');
+    if (loginScreen) {
+        loginScreen.classList.remove('hidden');
+        loginScreen.style.opacity = '1';
+    }
+    if (mainApp) {
+        mainApp.style.display = 'none';
+    }
+});
+
+function initializeLoginScreen() {
+    // Elementos da Tela de Login
+    const loginScreen = document.getElementById('login-screen');
+    const mainApp = document.getElementById('main-app');
+
+    // --- LÓGICA DE LOGIN ---
+    const credentials = {
+        'cleone': { password: 'humanas2025', area: 'Humanas', name: 'Cleone' },
+        'carlos': { password: 'exatas2025', area: 'Ciências da Natureza', name: 'Carlos' }, // Pode ser qualquer uma das duas
+        'isa': { password: 'tecnica2025', area: 'Base Técnica', name: 'Isa' },
+        'geferson': { password: 'linguagens2025', area: 'Linguagens', name: 'Geferson' },
+        'renato': { password: 'estagio2025', area: 'Base Técnica', name: 'Renato' },
+        'ryan': { password: 'adm123', area: 'Base Técnica', name: 'Ryan' }
+    };
+
+    const loginForm = document.getElementById('login-form');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginError = document.getElementById('login-error');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const welcomeMessage = document.getElementById('welcome-message');
+    const togglePasswordBtn = document.getElementById('toggle-password-visibility');
+
+
+    const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>`;
+    const eyeSlashIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 01-2.45 2.45l-1.514-1.514a4 4 0 00-3.05-5.814l.922.922A4.002 4.002 0 017.968 6.553zm-1.07-1.07l3.536 3.536a2 2 0 01-2.45 2.45l-3.536-3.536a4 4 0 002.45-2.45z" clip-rule="evenodd" /></svg>`;
+    
+    togglePasswordBtn.innerHTML = eyeIcon;
+    togglePasswordBtn.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePasswordBtn.innerHTML = eyeSlashIcon;
+        } else {
+            passwordInput.type = 'password';
+            togglePasswordBtn.innerHTML = eyeIcon;
+        }
+    });
+
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = usernameInput.value.toLowerCase();
+        const password = passwordInput.value;
+        const user = credentials[username];
+
+        if (user && user.password === password) {
+            // Login bem-sucedido
+            currentUser = user; // Armazena o usuário logado
+            loginError.classList.add('hidden');
+            
+            // **OTIMIZAÇÃO**: Inicializa o app principal APÓS o login
+            await initializeMainApp();
+
+            // 1. Esconde a tela de login
+            loginScreen.style.opacity = '0';
+            setTimeout(() => loginScreen.classList.add('hidden'), 500);
+
+            // 2. Mostra a tela de boas-vindas com fade-in
+            welcomeMessage.innerHTML = `Bem-vindo(a) Coordenador(a) de ${user.area}, <br><strong>${user.name}</strong>. <br><br> Vamos começar?`;
+            welcomeScreen.classList.remove('hidden');
+            setTimeout(() => {
+                welcomeScreen.style.opacity = '1';
+            }, 10); // Pequeno delay para garantir que a transição ocorra
+
+            // 3. Após a mensagem de boas-vindas, inicia a transição para o app principal
+            setTimeout(() => {
+                // Inicia o fade-out da tela de boas-vindas
+                const areaFilterSelect = document.getElementById('area-filter');
+                const dateSelect = document.getElementById('absence-date');
+
+                welcomeScreen.style.opacity = '0';
+                
+                // Pré-seleciona a área do coordenador
+                areaFilterSelect.value = user.area;
+                // Define a data de hoje e dispara o evento 'change' para popular o seletor de professores
+                setTodayDate();
+                areaFilterSelect.dispatchEvent(new Event('change'));
+                
+                // Troca o fundo e inicia o fade-in do app principal
+                setTimeout(() => {
+                    welcomeScreen.classList.add('hidden');
+                    // Troca a cor de fundo (agora com transição suave)
+                    document.body.classList.remove('bg-slate-900');
+                    document.body.classList.add('bg-slate-100'); // Cor de fundo do tema principal
+
+                    mainApp.style.display = 'block'; // Torna o app visível no DOM
+                    // Inicia o fade-in do app principal
+                    mainApp.style.opacity = '1';
+                }, 500);
+
+            }, 2000); // Duração da tela de boas-vindas reduzida para 2 segundos
+
+        } else {
+            // Login falhou
+            loginError.classList.remove('hidden');
+            loginForm.classList.add('animate-shake'); // Adiciona animação de "tremor"
+            setTimeout(() => loginForm.classList.remove('animate-shake'), 500);
+        }
+    });
+
+    const setTodayDate = () => {
+        const dateSelect = document.getElementById('absence-date');
+        const today = new Date().toISOString().split('T')[0];
+        dateSelect.value = today;
+    };
+}
+
 // Função principal de inicialização
-async function initializeApp() {
+async function initializeMainApp() {
     try {
-        // Carrega os dados do arquivo JSON externo
+        // **OTIMIZAÇÃO**: Carrega os dados do arquivo JSON externo SOMENTE AGORA
         const response = await fetch('horarios.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        rawData = await response.json();
+        const rawData = await response.json();
 
         // Agora que rawData está carregado, processa e preenche o objeto principal
         teacherScheduleData.professores = processRawData(rawData);
@@ -193,11 +313,7 @@ async function initializeApp() {
         return; // Interrompe a execução se os dados não puderem ser carregados
     }
 
-    // Elementos da Tela de Login
-    const loginScreen = document.getElementById('login-screen');
-    const mainApp = document.getElementById('main-app');
-
-    // Elementos do Multi-Select Personalizado
+    // **OTIMIZAÇÃO**: Seleciona os elementos da UI principal somente quando necessário
     const dateSelect = document.getElementById('absence-date');
     const findBtn = document.getElementById('find-substitute-btn');
     const periodSelect = document.getElementById('absence-period');
@@ -242,90 +358,11 @@ async function initializeApp() {
     // Carrega as configurações salvas ao iniciar
     loadLocalSettings();
 
-    // --- LÓGICA DE LOGIN ---
-    const credentials = {
-        'cleone': { password: 'humanas2025', area: 'Humanas', name: 'Cleone' },
-        'carlos': { password: 'exatas2025', area: 'Ciências da Natureza', name: 'Carlos' }, // Pode ser qualquer uma das duas
-        'isa': { password: 'tecnica2025', area: 'Base Técnica', name: 'Isa' },
-        'geferson': { password: 'linguagens2025', area: 'Linguagens', name: 'Geferson' },
-        'renato': { password: 'estagio2025', area: 'Base Técnica', name: 'Renato' },
-        'ryan': { password: 'adm123', area: 'Base Técnica', name: 'Ryan' }
-    };
-
-    const loginForm = document.getElementById('login-form');
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const loginError = document.getElementById('login-error');
-    const welcomeScreen = document.getElementById('welcome-screen');
-    const welcomeMessage = document.getElementById('welcome-message');
-    const togglePasswordBtn = document.getElementById('toggle-password-visibility');
-
-
-    const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>`;
-    const eyeSlashIcon = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 01-2.45 2.45l-1.514-1.514a4 4 0 00-3.05-5.814l.922.922A4.002 4.002 0 017.968 6.553zm-1.07-1.07l3.536 3.536a2 2 0 01-2.45 2.45l-3.536-3.536a4 4 0 002.45-2.45z" clip-rule="evenodd" /></svg>`;
-    
-    togglePasswordBtn.innerHTML = eyeIcon;
-    togglePasswordBtn.addEventListener('click', () => {
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            togglePasswordBtn.innerHTML = eyeSlashIcon;
-        } else {
-            passwordInput.type = 'password';
-            togglePasswordBtn.innerHTML = eyeIcon;
-        }
-    });
-
     // Define a data de hoje como padrão no seletor de data
     const setTodayDate = () => {
         const today = new Date().toISOString().split('T')[0];
         dateSelect.value = today;
     };
-
-    loginForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const username = usernameInput.value.toLowerCase();
-        const password = passwordInput.value;
-        const user = credentials[username];
-
-        if (user && user.password === password) {
-            // Login bem-sucedido
-            currentUser = user; // Armazena o usuário logado
-            loginError.classList.add('hidden');
-            
-            // 1. Esconde a tela de login
-            loginScreen.style.opacity = '0';
-            setTimeout(() => loginScreen.classList.add('hidden'), 500);
-
-            // 2. Mostra a tela de boas-vindas
-            welcomeMessage.innerHTML = `Bem-vindo(a) Coordenador(a) de ${user.area}, <br><strong>${user.name}</strong>. <br><br> Vamos começar?`;
-            welcomeScreen.classList.remove('hidden');
-
-            // 3. Após a animação, esconde a tela de boas-vindas e mostra o app
-            setTimeout(() => {
-                welcomeScreen.style.opacity = '0';
-                welcomeScreen.style.transition = 'opacity 0.5s ease-out';
-                
-                // Pré-seleciona a área do coordenador
-                areaFilterSelect.value = user.area;
-                // Dispara o evento 'change' para popular o seletor de professores
-                setTodayDate();
-                areaFilterSelect.dispatchEvent(new Event('change'));
-
-                setTimeout(() => {
-                    welcomeScreen.classList.add('hidden');
-                    mainApp.style.opacity = '1';
-                }, 500);
-
-            }, 2000); // Duração da tela de boas-vindas reduzida para 2 segundos
-
-        } else {
-            // Login falhou
-            loginError.classList.remove('hidden');
-            loginForm.classList.add('animate-shake'); // Adiciona animação de "tremor"
-            setTimeout(() => loginForm.classList.remove('animate-shake'), 500);
-        }
-    });
-    // --- FIM DA LÓGICA DE LOGIN ---
 
     // --- LÓGICA DO LOG DE ATIVIDADES ---
     const logActivity = (action, details) => {
@@ -1206,7 +1243,7 @@ async function initializeApp() {
             const saveBtn = document.createElement('button');
             saveBtn.id = 'save-session-btn';
             saveBtn.className = 'bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-indigo-700 transition-all flex items-center gap-2';
-            saveBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4zm3 2a1 1 0 00-1 1v2a1 1 0 102 0V7a1 1 0 00-1-1z" /></svg> <span>Salvar</span>`;
+            saveBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v12a2 2 0 01-2 2H7a2 2 0 01-2-2V4zm3 2a1 1 0 00-1 1v2a1 1 0 102 0V7a1 1 0 00-1-1z" /></svg> <span>Salvar Sessão</span>`;
             saveBtn.addEventListener('click', saveSession);
 
             exportContainer.append(pngBtn, pdfBtn, saveBtn);
@@ -1215,12 +1252,60 @@ async function initializeApp() {
         }
     };
 
+    // --- INÍCIO DA LÓGICA DE CARREGAMENTO SOB DEMANDA ---
+    let exportLibrariesLoaded = false;
+
+    const loadScript = (src) => {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            script.onload = () => resolve(script);
+            script.onerror = () => reject(new Error(`Falha ao carregar o script: ${src}`));
+            document.head.appendChild(script);
+        });
+    };
+
+    const loadExportLibraries = async () => {
+        if (exportLibrariesLoaded) {
+            return; // Já foram carregadas, não faz nada
+        }
+
+        loadingSpinner.classList.remove('hidden');
+        loadingSpinner.querySelector('p').textContent = 'Carregando bibliotecas de exportação...';
+
+        try {
+            // Carrega em sequência, pois jspdf-autotable depende do jspdf
+            await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+            await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js');
+            await loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+            
+            exportLibrariesLoaded = true; // Marca como carregadas
+        } catch (error) {
+            console.error('Erro ao carregar bibliotecas de exportação:', error);
+            alert('Não foi possível carregar as bibliotecas de exportação. Verifique sua conexão com a internet.');
+        } finally {
+            loadingSpinner.classList.add('hidden');
+            loadingSpinner.querySelector('p').textContent = 'Analisando horários...'; // Restaura o texto padrão
+        }
+    };
+    // --- FIM DA LÓGICA DE CARREGAMENTO SOB DEMANDA ---
+
     const generateImageSummary = async () => {
         const renderArea = document.getElementById('image-summary-render-area');
         const summaryHtml = generateSummaryHtmlForExport();
         renderArea.innerHTML = summaryHtml;
-
+        
         try {
+            // **OTIMIZAÇÃO**: Garante que as libs estão carregadas antes de usar
+            await loadExportLibraries();
+            if (!exportLibrariesLoaded) return; // Interrompe se o carregamento falhou
+
+            // **CORREÇÃO**: A lógica de visibilidade foi movida para o CSS.
+
+            // Pequeno delay para garantir que o DOM foi atualizado antes de renderizar
+            await new Promise(resolve => setTimeout(resolve, 50));
+
             const canvas = await html2canvas(renderArea, { scale: 2, useCORS: true });
             const imageUrl = canvas.toDataURL('image/png');
             const a = document.createElement('a');
@@ -1231,7 +1316,8 @@ async function initializeApp() {
             console.error('Erro ao gerar a imagem:', error);
             alert('Ocorreu um erro ao tentar gerar a imagem.');
         } finally {
-            renderArea.innerHTML = ''; // Limpa a área de renderização
+            // Limpa a área de renderização após o uso
+            renderArea.innerHTML = '';
         }
     };
 
@@ -1240,7 +1326,12 @@ async function initializeApp() {
         const dayOfWeek = appState.currentDay;
         const dateStr = new Date(dateSelect.value + 'T00:00:00').toLocaleDateString('pt-BR');
 
-        let html = `<div class="summary-image-title">Relatório de Substituições</div>`;
+        // **NOVO**: Adiciona o logo e o título
+        let html = `
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                <img src="imgs/BRASÃO_prata2025_Prancheta 1 cópia 2.png" alt="Logo" style="height: 50px;">
+                <div class="summary-image-title" style="margin-bottom: 0;">Relatório de Substituições</div>
+            </div>`;
         html += `<div class="summary-image-subtitle">Data: ${dateStr} (${dayOfWeek})</div>`;
 
         absentTeacherNames.forEach(teacherName => {
@@ -1262,21 +1353,28 @@ async function initializeApp() {
     };
 
     const generatePDFSummary = async () => {
+        // **OTIMIZAÇÃO**: Garante que as libs estão carregadas antes de usar
+        await loadExportLibraries();
+        if (!exportLibrariesLoaded) return; // Interrompe se o carregamento falhou
+
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
     
-        // Função para carregar imagem e converter para Base64
+        // Função para carregar imagem, converter para Base64 e obter dimensões
         const loadImageAsBase64 = (url) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
                 img.crossOrigin = 'Anonymous';
                 img.onload = () => {
                     const canvas = document.createElement('canvas');
-                    canvas.width = img.width;
-                    canvas.height = img.height;
+                    const originalWidth = img.width;
+                    const originalHeight = img.height;
+                    canvas.width = originalWidth;
+                    canvas.height = originalHeight;
                     const ctx = canvas.getContext('2d');
                     ctx.drawImage(img, 0, 0);
-                    resolve(canvas.toDataURL('image/png'));
+                    const dataUrl = canvas.toDataURL('image/png');
+                    resolve({ base64: dataUrl, width: originalWidth, height: originalHeight });
                 };
                 img.onerror = reject;
                 img.src = url;
@@ -1285,10 +1383,14 @@ async function initializeApp() {
     
         try {
             // Tenta carregar o logo. Se falhar, continua sem ele.
-            const logoBase64 = await loadImageAsBase64('logo.png');
-            doc.addImage(logoBase64, 'PNG', 14, 15, 30, 15); // (imagem, formato, x, y, largura, altura)
+            const logoData = await loadImageAsBase64('imgs/BRASÃO_prata2025_Prancheta 1 cópia 2.png');
+            const logoWidth = 30;
+            // **CORREÇÃO**: Calcula a altura proporcionalmente para não achatar a imagem
+            const logoHeight = (logoData.height / logoData.width) * logoWidth;
+            
+            doc.addImage(logoData.base64, 'PNG', 14, 8, logoWidth, logoHeight); // Posição Y ajustada para 8 (mais para cima)
         } catch (e) {
-            console.warn("Logo 'logo.png' não encontrado. Gerando PDF sem o logo.");
+            console.warn("Logo não encontrado em 'imgs/BRASÃO_prata2025_Prancheta 1 cópia 2.png'. Gerando PDF sem o logo.");
         }
     
         const absentTeacherNames = appState.currentAbsentTeachers.map(p => p.nome);
@@ -1324,7 +1426,27 @@ async function initializeApp() {
                     return [`${start} - ${end}`, turma, substituteName];
                 });
     
-                doc.autoTable({ startY: lastY, head: [['Horário', 'Turma', 'Professor Substituto']], body: tableData, theme: 'striped', headStyles: { fillColor: [79, 70, 229] } });
+                doc.autoTable({ 
+                    startY: lastY, 
+                    head: [['Horário', 'Turma', 'Professor Substituto']], 
+                    body: tableData, 
+                    theme: 'striped', 
+                    headStyles: { fillColor: [79, 70, 229] },
+                    // **NOVO**: Adiciona o rodapé em cada página
+                    didDrawPage: function (data) {
+                        const pageNumber = doc.internal.getNumberOfPages();
+                        const pageHeight = doc.internal.pageSize.getHeight();
+                        
+                        doc.setFontSize(8);
+                        doc.setTextColor(150); // Cor cinza para o rodapé
+                        
+                        // Texto do rodapé
+                        const footerText = `ECIT DR. ELPÍDIO DE ALMEIDA | Gerado em ${new Date().toLocaleDateString('pt-BR')} às ${generationTime}`;
+                        doc.text(footerText, doc.internal.pageSize.getWidth() / 2, pageHeight - 10, { align: 'center' });
+                        doc.text(`Página ${pageNumber}`, doc.internal.pageSize.getWidth() - 20, pageHeight - 10);
+                    }
+                });
+
                 lastY = doc.autoTable.previous.finalY + 15;
             }
         });
@@ -1343,11 +1465,6 @@ async function initializeApp() {
         doc.setFontSize(10);
         doc.text(signatureText, doc.internal.pageSize.getWidth() / 2, lastY, { align: 'center' });
         // --- FIM DA SEÇÃO DE ASSINATURA ---
-
-        // Rodapé
-        const pageCount = doc.internal.getNumberOfPages();
-        doc.setFontSize(8);
-        doc.text(`Gerado em ${new Date().toLocaleDateString('pt-BR')} às ${generationTime} - Página 1 de ${pageCount}`, doc.internal.pageSize.getWidth() / 2, doc.internal.pageSize.getHeight() - 10, { align: 'center' });
 
         // Salvar o PDF
         doc.save(`Relatorio_Substituicoes_${date.toISOString().slice(0,10)}.pdf`);
@@ -1579,4 +1696,4 @@ async function initializeApp() {
 };
 
 // Inicia a aplicação quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', initializeApp);
+document.addEventListener('DOMContentLoaded', initializeLoginScreen);

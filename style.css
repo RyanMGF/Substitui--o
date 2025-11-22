@@ -34,7 +34,8 @@ html {
    ========================================================================== */
 body {
   font-family: var(--fonte-corpo);
-  background-color: var(--cor-fundo);
+  background-color: var(--cor-fundo); /* Garante o fundo claro para o app principal */
+  transition: background-color 0.5s ease-in-out; /* Adiciona transição suave para a cor de fundo */
   color: var(--cor-texto-principal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -646,9 +647,12 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
   Ela fica fora da tela para não ser visível ao usuário.
 */
 #image-summary-render-area {
-    position: absolute;
-    left: -9999px; /* Move para fora da tela */
-    top: -9999px;
+    /* CORREÇÃO: Mantém na tela, mas invisível e não-interativo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
     width: 800px; /* Largura fixa para a imagem */
     background-color: white;
     padding: 20px;
