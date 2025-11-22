@@ -107,7 +107,7 @@
       }
     },
     {
-      "nome": "ALEX",
+      "nome": "ALEX (MAT)",
       "area": "Matemática",
       "horario": {
         "segunda": [],
@@ -211,6 +211,117 @@
             "disciplina_turma": "1°ADM IV/PV"
           }
         ]
+      }
+    },
+    {
+      "nome": "ALEX (HISTÓRIA)",
+      "area": "Humanas",
+      "horario": {
+        "segunda": [
+          {
+            "hora": "07:30",
+            "disciplina_turma": "1°ADM IV/HISTÓRIA"
+          },
+          {
+            "hora": "08:20",
+            "disciplina_turma": "1°ADM IV/HISTÓRIA"
+          },
+          {
+            "hora": "09:30",
+            "disciplina_turma": "1°ADM I/HISTÓRIA"
+          },
+          {
+            "hora": "10:20",
+            "disciplina_turma": "1°ADM I/HISTÓRIA"
+          },
+          {
+            "hora": "13:20",
+            "disciplina_turma": "1°GAS/HISTÓRIA"
+          },
+          {
+            "hora": "14:10",
+            "disciplina_turma": "1°GAS/HISTÓRIA"
+          }
+        ],
+        "terca": [
+          {
+            "hora": "07:30",
+            "disciplina_turma": "1°DS III/HISTÓRIA"
+          },
+          {
+            "hora": "08:20",
+            "disciplina_turma": "1°DS I/HISTÓRIA"
+          },
+          {
+            "hora": "09:30",
+            "disciplina_turma": "1°DS I/HISTÓRIA"
+          },
+          {
+            "hora": "10:20",
+            "disciplina_turma": "2°DS I/HISTÓRIA"
+          },
+          {
+            "hora": "11:10",
+            "disciplina_turma": "2°DS I/HISTÓRIA"
+          },
+          {
+            "hora": "13:20",
+            "disciplina_turma": "1°ADM III/HISTÓRIA"
+          },
+          {
+            "hora": "14:10",
+            "disciplina_turma": "1°ADM III/HISTÓRIA"
+          },
+          {
+            "hora": "15:20",
+            "disciplina_turma": "2°GAS/HISTÓRIA"
+          },
+          {
+            "hora": "16:10",
+            "disciplina_turma": "2°GAS/HISTÓRIA"
+          }
+        ],
+        "quarta": [
+          {
+            "hora": "07:30",
+            "disciplina_turma": "1°ADM II/HISTÓRIA"
+          },
+          {
+            "hora": "08:20",
+            "disciplina_turma": "1°ADM II/HISTÓRIA"
+          }
+        ],
+        "quinta": [
+          {
+            "hora": "07:30",
+            "disciplina_turma": "2°ADM III/HISTÓRIA"
+          },
+          {
+            "hora": "08:20",
+            "disciplina_turma": "2°ADM III/HISTÓRIA"
+          },
+          {
+            "hora": "09:30",
+            "disciplina_turma": "1°DS III/HISTÓRIA"
+          },
+          {
+            "hora": "10:20",
+            "disciplina_turma": "2°DS II/HISTÓRIA"
+          },
+          {
+            "hora": "11:10",
+            "disciplina_turma": "2°DS II/HISTÓRIA"
+          },
+          {
+            "hora": "13:20",
+            "disciplina_turma": "1°DS II/HISTÓRIA"
+          },
+          {
+            "hora": "14:10",
+            "disciplina_turma": "1°DS II/HISTÓRIA"
+          }
+        ],
+        "sexta": []
       }
     },
     {
@@ -1923,7 +2034,7 @@
     },
     {
       "nome": "MARCOS",
-      "area": "Humanas",
+      "area": "Linguagens",
       "horario": {
         "segunda": [
           {

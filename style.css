@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. CONCEITO "DASHBOARD MODERNO E LIMPO"
+   1. CONFIGURAÇÃO GLOBAL E VARIÁVEIS
    ========================================================================== */
 :root {
   /* Paleta de Cores: Moderna, Acessível, Clara */
@@ -53,11 +53,11 @@ h1, h2, h3, h4 {
    3. COMPONENTES DE INTERFACE (UI)
    ========================================================================== */
 
-/* Painel de Controle */
-.bg-white\/70 {
-  background-color: var(--cor-surface);
-  backdrop-filter: blur(8px);
-}
+/*
+  NOTA: A classe .bg-white/70 foi removida pois não está sendo usada no HTML.
+  Se for usada no futuro, ela adiciona um fundo branco com transparência e desfoque.
+*/
+
 
 /* Inputs e Seletores */
 select, .multiselect-button {
@@ -268,7 +268,7 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 }
 
 /* ==========================================================================
-   5. MODAL DE CONFIGURAÇÕES
+   5. MODAIS (CONFIGURAÇÕES E GRADE)
    ========================================================================== */
 #settings-modal.hidden { display: none; }
 
@@ -285,16 +285,11 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
     background-color: var(--cor-fundo);
 }
 
-/* ==========================================================================
-   6. MODAL DA GRADE HORÁRIA
-   ========================================================================== */
 #schedule-modal.hidden { display: none; }
 
-#schedule-modal[aria-hidden="false"] #schedule-overlay,
-#settings-modal[aria-hidden="false"] #settings-overlay { animation: fadeIn 0.3s ease-out forwards; }
-#schedule-modal[aria-hidden="true"] #schedule-overlay,
-#settings-modal[aria-hidden="true"] #settings-overlay { animation: fadeOut 0.3s ease-in forwards; }
-
+/* Animações de entrada/saída para os modais */
+#schedule-modal[aria-hidden="false"] #schedule-overlay, #settings-modal[aria-hidden="false"] #settings-overlay { animation: fadeIn 0.3s ease-out forwards; }
+#schedule-modal[aria-hidden="true"] #schedule-overlay, #settings-modal[aria-hidden="true"] #settings-overlay { animation: fadeOut 0.3s ease-in forwards; }
 #schedule-modal[aria-hidden="false"] > div > div:last-child,
 #settings-modal[aria-hidden="false"] > div > div:last-child { animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 #schedule-modal[aria-hidden="true"] > div > div:last-child,
@@ -378,7 +373,7 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 }
 
 /* ==========================================================================
-   7. COMPONENTE MULTI-SELECT PERSONALIZADO
+   7. COMPONENTES PERSONALIZADOS (MULTI-SELECT E BADGES)
    ========================================================================== */
 .multiselect-button {
     cursor: pointer;
@@ -471,20 +466,6 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
 }
 
 /* ==========================================================================
-   8. ANIMAÇÕES DE ENTRADA/SAÍDA DE TELA
-   ========================================================================== */
-@keyframes text-focus-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    filter: blur(0px);
-    opacity: 1;
-  }
-  
-}
-
-/* ==========================================================================
    9. RESPONSIVIDADE (Mobile First)
    ========================================================================== */
 
@@ -570,6 +551,21 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
     justify-content: center;
     z-index: 10; /* Garante que o ícone fique sobre a linha */
 }
+
+/* ==========================================================================
+   11. ANIMAÇÕES DIVERSAS
+   ========================================================================== */
+
+@keyframes text-focus-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
 @keyframes text-blur-out {
   0% {
     filter: blur(0.01);
@@ -583,9 +579,7 @@ li[class*="hover:bg-slate-100"] > div > p.text-slate-500 {
     animation: text-focus-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-/* ==========================================================================
-   11. DESTAQUE DE HORÁRIO NA GRADE
-   ========================================================================== */
+/* Destaque de horário na grade */
 @keyframes pulse-bg {
   0% { background-color: rgba(79, 70, 229, 0.2); } /* --cor-primaria com 20% de opacidade */
   50% { background-color: rgba(79, 70, 229, 0.4); } /* --cor-primaria com 40% de opacidade */

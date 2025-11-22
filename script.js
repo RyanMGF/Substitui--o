@@ -13,10 +13,10 @@ const substitutionLimits = {
     // Nomes padronizados (Primeira letra maiúscula, resto minúsculo)
     // Linguagens
     "Giordana": 2, "Laura": 3, "Rizia": 3, "Suzy": 3, "Zelia": 3, "Sara": 4, "Julio": 2, "Valdiego": 2, "Marcos": 1, "Gilmar": 1,
-    // Humanas
-    "Alex-história": 1, "Luis": 1, "Robertina": 1, "Pollyana": 1,
+    // Humanas (Alex de história foi renomeado para Alex (história))
+    "Alex (história)": 1, "Luis": 1, "Robertina": 1, "Pollyana": 1,
     // Exatas (Ciências da Natureza + Matemática)
-    "Carlos": 4, "Alex": 2, "Denisson": 2, "Fernanda": 0, "Elias": 2, "Danilo": 3, "Denis": 1, "Adrielma": 3, "Vilmar": 3, "Linalda": 7, "Yuri": 1,
+    "Carlos": 4, "Alex (mat)": 2, "Denisson": 2, "Fernanda": 0, "Elias": 2, "Danilo": 3, "Denis": 1, "Adrielma": 3, "Vilmar": 3, "Linalda": 7, "Yuri": 1,
     // Base Técnica
     "Isa lacerda": 2, "Rodolpho": 3, "Renato": 2, "Heroiso": 3, "Ryan": 1, "Shirley": 3, "Sammya": 1, "Paulo": 1
 };
@@ -156,7 +156,8 @@ const getGrade = (turma) => {
 
 const getCourse = (turma) => {
     if (!turma) return null;
-    const match = turma.match(/\d[º°]?\s?([A-Z]{2,3})/);
+    // Regex updated to be more flexible, accepting 2 or more uppercase letters for the course code.
+    const match = turma.match(/\d[º°]?\s?([A-Z]{2,})/);
     return match ? match[1] : null;
 };
 
@@ -177,15 +178,17 @@ const getAreaColor = (area) => {
 // **CORREÇÃO CRÍTICA**: Garante o estado visual inicial correto ANTES de qualquer outra coisa.
 // Isso é executado imediatamente, antes de carregar dados ou configurar eventos.
 document.addEventListener('DOMContentLoaded', () => {
-    const loginScreen = document.getElementById('login-screen');
-    const mainApp = document.getElementById('main-app');
-    if (loginScreen) {
-        loginScreen.classList.remove('hidden');
-        loginScreen.style.opacity = '1';
-    }
-    if (mainApp) {
-        mainApp.style.display = 'none';
-    }
+ const loginScreen = document.getElementById('login-screen');
+ const mainAppContainer = document.getElementById('main-app');
+
+ // Se a tela de login existir, estamos em index.html. Inicialize-a.
+ if (loginScreen) {
+ initializeLoginScreen();
+ }
+ // Se o container principal existir, estamos em main.html. Inicialize-o.
+ else if (mainAppContainer) {
+ initializeMainApp();
+ }
 });
 
 function initializeLoginScreen() {
@@ -237,47 +240,24 @@ function initializeLoginScreen() {
             currentUser = user; // Armazena o usuário logado
             loginError.classList.add('hidden');
             
-            // **OTIMIZAÇÃO**: Inicializa o app principal APÓS o login
-            await initializeMainApp();
+            // Salva o usuário na sessão para que a próxima página saiba quem está logado
+            sessionStorage.setItem('currentUser', JSON.stringify(user));
 
             // 1. Esconde a tela de login
             loginScreen.style.opacity = '0';
             setTimeout(() => loginScreen.classList.add('hidden'), 500);
 
             // 2. Mostra a tela de boas-vindas com fade-in
-            welcomeMessage.innerHTML = `Bem-vindo(a) Coordenador(a) de ${user.area}, <br><strong>${user.name}</strong>. <br><br> Vamos começar?`;
+            welcomeMessage.innerHTML = `Bem-vindo(a), <strong>${user.name}</strong>. <br><br> Redirecionando...`;
             welcomeScreen.classList.remove('hidden');
             setTimeout(() => {
                 welcomeScreen.style.opacity = '1';
             }, 10); // Pequeno delay para garantir que a transição ocorra
 
-            // 3. Após a mensagem de boas-vindas, inicia a transição para o app principal
+            // 3. Após a mensagem de boas-vindas, redireciona para a página principal
             setTimeout(() => {
-                // Inicia o fade-out da tela de boas-vindas
-                const areaFilterSelect = document.getElementById('area-filter');
-                const dateSelect = document.getElementById('absence-date');
-
-                welcomeScreen.style.opacity = '0';
-                
-                // Pré-seleciona a área do coordenador
-                areaFilterSelect.value = user.area;
-                // Define a data de hoje e dispara o evento 'change' para popular o seletor de professores
-                setTodayDate();
-                areaFilterSelect.dispatchEvent(new Event('change'));
-                
-                // Troca o fundo e inicia o fade-in do app principal
-                setTimeout(() => {
-                    welcomeScreen.classList.add('hidden');
-                    // Troca a cor de fundo (agora com transição suave)
-                    document.body.classList.remove('bg-slate-900');
-                    document.body.classList.add('bg-slate-100'); // Cor de fundo do tema principal
-
-                    mainApp.style.display = 'block'; // Torna o app visível no DOM
-                    // Inicia o fade-in do app principal
-                    mainApp.style.opacity = '1';
-                }, 500);
-
-            }, 2000); // Duração da tela de boas-vindas reduzida para 2 segundos
+                window.location.href = 'main.html';
+            }, 1500); // Duração da tela de boas-vindas
 
         } else {
             // Login falhou
@@ -286,17 +266,25 @@ function initializeLoginScreen() {
             setTimeout(() => loginForm.classList.remove('animate-shake'), 500);
         }
     });
-
-    const setTodayDate = () => {
-        const dateSelect = document.getElementById('absence-date');
-        const today = new Date().toISOString().split('T')[0];
-        dateSelect.value = today;
-    };
 }
 
 // Função principal de inicialização
 async function initializeMainApp() {
+    // Verifica se há um usuário logado na sessão
+    const userString = sessionStorage.getItem('currentUser');
+    if (!userString) {
+        // Se não houver usuário, redireciona de volta para a página de login
+        alert('Sessão inválida ou expirada. Por favor, faça o login novamente.');
+        window.location.href = 'index.html';
+        return; // Interrompe a execução
+    }
+    currentUser = JSON.parse(userString);
+
     try {
+        // Mostra o app principal com uma transição suave
+        document.body.classList.remove('bg-slate-900');
+        document.body.classList.add('bg-slate-100');
+
         // **OTIMIZAÇÃO**: Carrega os dados do arquivo JSON externo SOMENTE AGORA
         const response = await fetch('horarios.json');
         if (!response.ok) {
@@ -461,12 +449,6 @@ async function initializeMainApp() {
             renderSettingsModal();
         }
     });
-
-    const getCourse = (turma) => {
-        if (!turma) return null;
-        const match = turma.match(/\d[º°]?\s?([A-Z]{2,3})/);
-        return match ? match[1] : null;
-    };
 
     // --- Lógica do Modal da Grade Horária ---
     const populateScheduleAreaFilter = () => {
@@ -774,9 +756,9 @@ async function initializeMainApp() {
         const date = new Date(selectedDate + 'T00:00:00'); // Adiciona T00:00:00 para evitar problemas de fuso horário
         const dayOfWeek = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'][date.getDay()];
 
-        // **NOVO**: Verifica e exibe alertas de inconsistência de dados antes de prosseguir
-        const scheduleConflicts = checkForScheduleConflicts();
-        resultsArea.innerHTML = displayConflictWarning(scheduleConflicts);
+        // **NOVO**: Executa a validação completa dos dados e exibe os resultados
+        const validationResults = validateAllData();
+        resultsArea.innerHTML = displayValidationResults(validationResults);
 
         // Limpa o estado de confirmações a cada nova busca
         resetAppState();
@@ -815,51 +797,121 @@ async function initializeMainApp() {
         }, 500); // Simula um tempo de processamento
     });
 
+    // ==========================================================================
+    // 10. FUNÇÕES DE VALIDAÇÃO DE DADOS
+    // ==========================================================================
+
     /**
-     * Verifica se há professores com aulas cadastradas em seus respectivos dias de área (folga).
-     * @returns {Array} Uma lista de objetos, cada um representando um conflito encontrado.
+     * Executa uma verificação completa dos dados de horário em busca de inconsistências.
+     * @returns {object} Um objeto contendo listas de 'errors' e 'warnings'.
      */
-    const checkForScheduleConflicts = () => {
-        const conflicts = [];
+    const validateAllData = () => {
+        const errors = [];
+        const warnings = [];
+        const occupiedSlots = new Map(); // Chave: "Dia-Hora", Valor: [{ teacher, turma }]
+
         teacherScheduleData.professores.forEach(prof => {
+            // 1. Verifica aulas no dia de folga (dia de área)
             const areaDayOff = teacherScheduleData.diasDeArea[prof.area];
             if (areaDayOff) {
                 const hasClassOnDayOff = (prof.horarios || []).some(h => h.dia === areaDayOff);
                 if (hasClassOnDayOff) {
-                    conflicts.push({
-                        teacherName: prof.nome,
-                        area: prof.area,
-                        conflictDay: areaDayOff
+                    warnings.push({
+                        type: 'day_off_conflict',
+                        message: `<strong>${prof.nome}</strong> (Área: ${prof.area}) possui aulas na <strong>${areaDayOff}</strong>, que é seu dia de folga.`,
+                        details: { teacher: prof.nome, day: areaDayOff }
+                    });
+                }
+            }
+
+            // 2. Popula o mapa de horários para detectar colisões
+            (prof.horarios || []).forEach(aula => {
+                const slotKey = `${aula.dia}-${aula.inicio}`;
+                if (!occupiedSlots.has(slotKey)) {
+                    occupiedSlots.set(slotKey, []);
+                }
+                occupiedSlots.get(slotKey).push({ teacher: prof.nome, turma: aula.turma });
+            });
+        });
+
+        // 3. Analisa o mapa de horários em busca de colisões
+        occupiedSlots.forEach((classesInSlot, slotKey) => {
+            if (classesInSlot.length > 1) {
+                const [day, time] = slotKey.split('-');
+                // Verifica colisão do mesmo professor (auto-colisão)
+                const teachers = classesInSlot.map(c => c.teacher);
+                const uniqueTeachers = new Set(teachers);
+                if (uniqueTeachers.size < teachers.length) {
+                     errors.push({
+                        type: 'self_collision',
+                        message: `<strong>Colisão de Horário (Professor):</strong> No horário <strong>${day} às ${time}</strong>, um professor está alocado em mais de uma turma.`,
+                        details: { day, time, classes: classesInSlot }
+                    });
+                }
+
+                // Verifica colisão de turmas (mesma turma com professores diferentes)
+                const turmas = classesInSlot.map(c => c.turma);
+                const uniqueTurmas = new Set(turmas);
+                if (uniqueTurmas.size < turmas.length) {
+                    errors.push({
+                        type: 'teacher_collision',
+                        message: `<strong>Colisão de Horário (Turma):</strong> No horário <strong>${day} às ${time}</strong>, uma turma está com mais de um professor.`,
+                        details: { day, time, classes: classesInSlot }
                     });
                 }
             }
         });
-        return conflicts;
+
+        return { errors, warnings };
     };
 
     /**
-     * Gera e exibe um alerta na interface do usuário sobre conflitos de horário encontrados.
-     * @param {Array} conflicts - A lista de conflitos retornada por `checkForScheduleConflicts`.
+     * Gera e exibe um alerta na interface do usuário sobre os resultados da validação.
+     * @param {object} validationResults - O objeto retornado por `validateAllData`.
      */
-    const displayConflictWarning = (conflicts) => {
-        if (conflicts.length === 0) return ''; // Retorna string vazia se não houver conflitos
-        const conflictListHtml = conflicts.map(c => `<li><strong>${c.teacherName}</strong> (Área: ${c.area}) possui aulas na <strong>${c.conflictDay}</strong>, seu dia de folga.</li>`).join('');
+    const displayValidationResults = (validationResults) => {
+        const { errors, warnings } = validationResults;
+        if (errors.length === 0 && warnings.length === 0) return ''; // Sem problemas
+
+        const errorsHtml = errors.map(e => `<li>${e.message}</li>`).join('');
+        const warningsHtml = warnings.map(w => `<li>${w.message}</li>`).join('');
+
         return `
-            <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-800 p-4 rounded-lg shadow-sm mb-6" role="alert">
-                <p class="font-bold">⚠️ Aviso de Inconsistência nos Dados</p>
-                <p class="mt-2 mb-3 text-sm">Os seguintes professores têm aulas cadastradas em seus dias de folga, o que pode indicar um erro na grade horária. A análise prosseguirá, mas recomenda-se a verificação dos dados de origem:</p>
-                <ul class="list-disc list-inside text-sm space-y-1">${conflictListHtml}</ul>
-            </div>`;
+            ${errors.length > 0 ? `
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-800 p-4 rounded-lg shadow-sm mb-6" role="alert">
+                    <p class="font-bold">🚨 Erros Críticos Encontrados</p>
+                    <p class="mt-2 mb-3 text-sm">As seguintes colisões de horário foram detectadas. É <strong>altamente recomendável</strong> corrigi-las para garantir o funcionamento correto do sistema:</p>
+                    <ul class="list-disc list-inside text-sm space-y-1">${errorsHtml}</ul>
+                </div>` : ''
+            }
+            ${warnings.length > 0 ? `
+                <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-800 p-4 rounded-lg shadow-sm mb-6" role="alert">
+                    <p class="font-bold">⚠️ Avisos de Inconsistência</p>
+                    <p class="mt-2 mb-3 text-sm">Os seguintes problemas foram encontrados e podem indicar erros na grade horária. A análise prosseguirá, mas a verificação é recomendada:</p>
+                    <ul class="list-disc list-inside text-sm space-y-1">${warningsHtml}</ul>
+                </div>` : ''
+            }
+        `;
     };
 
     // --- Lógica do Botão Limpar Tudo ---
     const clearAll = () => {
         // Reseta os filtros para o padrão
-        areaFilterSelect.value = currentUser ? currentUser.area : 'all';
+        areaFilterSelect.value = currentUser.area;
         setTodayDate();
         periodSelect.value = 'all';
         noTccWeekCheckbox.checked = false;
+             if (currentUser && areaFilterSelect) {
+        areaFilterSelect.value = currentUser.area;
+    }
+    setTodayDate();
+    populateTeacherSelect(areaFilterSelect.value);
+
+
+
         planningModeCheckbox.checked = false;
+
+        
 
         // Limpa a seleção de professores
         selectedTeachers.clear();
@@ -1694,6 +1746,9 @@ async function initializeMainApp() {
 
     exportLogBtn.addEventListener('click', exportActivityLogAsText);
 };
-
-// Inicia a aplicação quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', initializeLoginScreen);
+    
+    // Pré-seleciona a área do coordenador e a data de hoje
+    if (currentUser && areaFilterSelect) {
+        areaFilterSelect.value = currentUser.area;
+    }
+    populateTeacherSelect(areaFilterSelect.value);
